@@ -9,6 +9,14 @@ export const experiences = [
   },
   {
     title: 'Software Engineer',
+    company: 'WATonomous',
+    period: 'Jan 2025 - Present',
+    description: '',
+    skills: ['ROS2', 'Docker', 'Linux', 'Foxglove'],
+    location: 'Toronto, ON'
+  },
+  {
+    title: 'Software Engineer',
     company: 'Google Girl Powered',
     period: 'May 2023 - July 2024',
     description: '',

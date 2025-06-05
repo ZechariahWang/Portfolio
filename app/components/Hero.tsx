@@ -38,7 +38,7 @@ const Hero = () => {
           className="flex gap-4 justify-center"
         >
           <Link 
-            href="https://drive.google.com/file/d/1hj3Z9T4tiqzI__B34tZThgoUIprel7pM/view?usp=sharing" 
+            href="https://drive.google.com/file/d/1x9iL0VvzWBaVh_rFrelG8ihAsMWaCPVp/view?usp=sharing" 
             className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
           >
             Resume

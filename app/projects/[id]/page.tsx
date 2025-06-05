@@ -10,7 +10,7 @@ const projects = [
   {
     id: 'project-1',
     title: 'Eclipse Robotics',
-    description: 'A full set of essentials tools required for the VEX Robotics Competition.',
+    description: 'Everything you need to win the VEX Robotics Competition.',
     technologies: ['Path Planning', 'React', 'MongoDB'],
     image: '/Eclipse.jpg',
     longDescription: `Eclipse Robotics is a collection of tools that I have developed to help high school students in the VEX Robotics Competition. Eclipse consists of a fully autonomous robotics library, AI virtual robot envrionment simulator, and a fullstack web application for scouting other teams during the competition. Altogether, Eclipse Robotics has earned 37+ awards throughout its three years of development, and has ranked 1st in Alberta, 6th in Canada, and top 0.26% globally in the VRC competition.`,
