@@ -24,21 +24,21 @@ const Hero = () => {
           Hi, I'm Zech
         </h1>
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
           className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl"
         >
           Mechatronics Engineering at the University of Waterloo
         </motion.p>
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
           className="flex gap-4 justify-center"
         >
           <Link 
-            href="https://drive.google.com/file/d/1x9iL0VvzWBaVh_rFrelG8ihAsMWaCPVp/view?usp=sharing" 
+            href="https://drive.google.com/file/d/1NYatYLCbzMCbLAOq0GSHqkuqbVaRDHaM/view?usp=sharing" 
             className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
           >
             Resume
@@ -52,9 +52,9 @@ const Hero = () => {
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.9, ease: "easeOut" }}
+          transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
           className="flex gap-4 mt-8"
         >
           <a 
