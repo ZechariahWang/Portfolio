@@ -8,6 +8,14 @@ export const experiences = [
     location: 'Toronto, ON'
   },
   {
+    title: 'Software Engineer Intern',
+    company: 'University of Calgary',
+    period: 'Feb 2023 - March 2023',
+    description: '',
+    skills: ['Python', 'Matplotlib', 'Pandas', 'OpenCV'],
+    location: 'Calgary, AB'
+  },
+  {
     title: 'Software Engineer',
     company: 'WATonomous',
     period: 'Jan 2025 - Present',
