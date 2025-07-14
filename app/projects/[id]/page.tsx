@@ -9,16 +9,26 @@ import { motion } from 'framer-motion'
 const projects = [
   {
     id: 'project-1',
+    title: 'Western Mechatronics',
+    description: 'Canada\'s 3rd largest high school robotics club',
+    technologies: ['Next.js', 'Framer Motion', 'Material UI'],
+    image: '/westmech.png',
+    longDescription: `Western Mechatronics is Canada's 3rd largest high school robotics club, with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. I am currently on the software team working on creating a new management system for teams and parents with Next.js, Express.js, and MongoDB.`,
+    githubUrl: 'https://github.com/westmech',
+    liveUrl: 'https://westernmech.ca'
+  },
+  {
+    id: 'project-2',
     title: 'Eclipse Robotics',
-    description: 'Everything you need to win the VEX Robotics Competition.',
+    description: 'A full set of essentials tools required for the VEX Robotics Competition.',
     technologies: ['Path Planning', 'React', 'MongoDB'],
     image: '/Eclipse.jpg',
-    longDescription: `Eclipse Robotics is a collection of tools that I have developed to help high school students in the VEX Robotics Competition. Eclipse consists of a fully autonomous robotics library, AI virtual robot envrionment simulator, and a fullstack web application for scouting other teams during the competition. Altogether, Eclipse Robotics has earned 37+ awards throughout its three years of development, and has ranked 1st in Alberta, 6th in Canada, and top 0.26% globally in the VRC competition.`,
+    longDescription: `Eclipse Robotics is a collection of tools that I have developed to help high school students in the VEX Robotics Competition. Eclipse consists of a fully autonomous robotics library, AI virtual robot environment simulator, and a fullstack web application for scouting other teams during the competition. Altogether, Eclipse Robotics has earned 37+ awards throughout its three years of development, and has ranked 1st in Alberta, 6th in Canada, and top 0.26% globally in the VRC competition.`,
     githubUrl: 'https://github.com/ZechariahWang/Eclipse-Robot_Framework?tab=readme-ov-file',
     liveUrl: 'https://github.com/ZechariahWang/TeamProfiler'
   },
   {
-    id: 'project-2',
+    id: 'project-3',
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics tournament. ',
     technologies: ['React', 'Next.js', 'Tailwind'],
@@ -28,7 +38,7 @@ const projects = [
     liveUrl: 'https://www.mechamayhem.ca/'
   },
   {
-    id: 'project-3',
+    id: 'project-4',
     title: 'AI Interview Trainer',
     description: 'Personalized AI interview assistant for both technical and behavioral interviews.',
     technologies: ['Next.js', 'Firebase', 'Vapi', 'Gemini'],
@@ -38,7 +48,7 @@ const projects = [
     liveUrl: 'https://waterloo-interview-trainer-ashen.vercel.app/sign-in'
   },
   {
-    id: 'project-4',
+    id: 'project-5',
     title: 'AI Mental Health Chatbot',
     description: 'AI chatbot for mental health support.',
     technologies: ['PyTorch', 'NLTK/NLP', 'Customtkinter'],
@@ -48,7 +58,7 @@ const projects = [
     liveUrl: 'https://github.com/ZechariahWang/ChatbotApp'
   },
   {
-    id: 'project-5',
+    id: 'project-6',
     title: 'AI Autonomous Vehicle Simulator',
     description: 'Real-time optimal path planning for an autonomous vehicle.',
     technologies: ['ROS2', 'Docker', 'Foxglove'],
@@ -58,7 +68,7 @@ const projects = [
     liveUrl: 'https://www.youtube.com/watch?v=4ZobtJzNd3g'
   },
   {
-    id: 'project-6',
+    id: 'project-7',
     title: 'The Nothing Robot',
     description: 'Robot entertainment switch that does nothing.',
     technologies: ['RobotC', 'Path Planning', 'Localization'],
