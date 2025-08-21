@@ -13,7 +13,7 @@ const Projects = () => {
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
           className="text-3xl font-bold mb-8 text-center"
         >
@@ -38,7 +38,7 @@ const Projects = () => {
                 <motion.h3 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-30px" }}
                   transition={{ duration: 0.2, delay: index * 0.1 }}
                   className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300"
                 >

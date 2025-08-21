@@ -114,8 +114,22 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Optimize scroll performance */
+  * {
+    will-change: auto;
+  }
+  
+  /* Improve video performance */
+  video {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
 
