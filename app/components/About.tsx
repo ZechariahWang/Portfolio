@@ -12,7 +12,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold mb-8 text-center"
+          className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-[#ff34a1] to-[#00ffc3] bg-clip-text text-transparent"
         >
           About Me
         </motion.h2>
@@ -25,10 +25,13 @@ const About = () => {
             className="space-y-4"
           >
             <p className="text-muted-foreground">
-              Hi, I'm Zech! I'm currently a 1B Mechatronics Engineering student at the University of Waterloo.
+              Hi, I'm Zech! I'm currently a Mechatronics Engineering student at the University of Waterloo.
             </p>
             <p className="text-muted-foreground">
-              I'm passionate about software development, and am experienced in a wide variety of fields including robotics, medtech, AI, and fullstack engineering.
+              At my core, I'm a Software Engineer with a specialization in AI and autonomous systems, ranging from Machine Learning and AI Agents to control systems.
+            </p>
+            <p className="text-muted-foreground">
+              In my spare time, you can find me working on Canada's largest robotics education club, building frameworks for girls in STEM, and developing solutions for real-world problems.
             </p>
           </motion.div>
           <motion.div 
@@ -39,19 +42,19 @@ const About = () => {
             className="grid grid-cols-2 gap-4"
           >
             <div className="p-4 bg-accent rounded-lg">
-              <h3 className="font-semibold mb-2">Frontend</h3>
-              <p className="text-sm text-muted-foreground">React, Next.js, Tailwind</p>
-            </div>
-            <div className="p-4 bg-accent rounded-lg">
-              <h3 className="font-semibold mb-2">Backend</h3>
-              <p className="text-sm text-muted-foreground">Node.js, Express, MongoDB, Firebase</p>
+              <h3 className="font-semibold mb-2">AI & Data</h3>
+              <p className="text-sm text-muted-foreground">PyTorch, TensorFlow, Matplotlib, OpenCV</p>
             </div>
             <div className="p-4 bg-accent rounded-lg">
               <h3 className="font-semibold mb-2">Robotics</h3>
-              <p className="text-sm text-muted-foreground">ROS2, Docker, Foxglove, PROS</p>
+              <p className="text-sm text-muted-foreground">ROS2, Docker, Linux, Gazebo</p>
             </div>
             <div className="p-4 bg-accent rounded-lg">
-              <h3 className="font-semibold mb-2">Medtech</h3>
+              <h3 className="font-semibold mb-2">Fullstack</h3>
+              <p className="text-sm text-muted-foreground">React, Next.js, Node.js, Express.js</p>
+            </div>
+            <div className="p-4 bg-accent rounded-lg">
+              <h3 className="font-semibold mb-2">Medical</h3>
               <p className="text-sm text-muted-foreground">.NET, WPF, Moq, Nunit</p>
             </div>
           </motion.div>

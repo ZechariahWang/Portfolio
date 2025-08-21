@@ -10,10 +10,10 @@ const projects = [
   {
     id: 'project-1',
     title: 'Western Mechatronics',
-    description: 'Canada\'s 3rd largest high school robotics club',
-    technologies: ['Next.js', 'Framer Motion', 'Material UI'],
-    image: '/westmech.png',
-    longDescription: `Western Mechatronics is Canada's 3rd largest high school robotics club, with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. I am currently on the software team working on creating a new management system for teams and parents with Next.js, Express.js, and MongoDB.`,
+    description: 'Canada\'s leading robotics education company',
+    technologies: ['Next.js', 'Node.js', 'MongoDB'],
+    image: '/WestMechPhoto.jpg',
+    longDescription: `Western Mechatronics is a student run robotics company with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. I have been apart of the company since its original creation in 2019, and am responsible for development of the company's software platform.`,
     githubUrl: 'https://github.com/westmech',
     liveUrl: 'https://westernmech.ca'
   },
@@ -21,9 +21,19 @@ const projects = [
     id: 'project-2',
     title: 'Eclipse Robotics',
     description: 'A full set of essentials tools required for the VEX Robotics Competition.',
-    technologies: ['Path Planning', 'React', 'MongoDB'],
+    technologies: ['C++', 'Matplotlib', 'Robotics'],
     image: '/Eclipse.jpg',
     longDescription: `Eclipse Robotics is a collection of tools that I have developed to help high school students in the VEX Robotics Competition. Eclipse consists of a fully autonomous robotics library, AI virtual robot environment simulator, and a fullstack web application for scouting other teams during the competition. Altogether, Eclipse Robotics has earned 37+ awards throughout its three years of development, and has ranked 1st in Alberta, 6th in Canada, and top 0.26% globally in the VRC competition.`,
+    githubUrl: 'https://github.com/ZechariahWang/Eclipse-Robot_Framework?tab=readme-ov-file',
+    liveUrl: 'https://github.com/ZechariahWang/TeamProfiler'
+  },
+  {
+    id: 'project-9',
+    title: 'Girl Powered Robotics',
+    description: 'Redefining robotics education for young girls.',
+    technologies: ['Path Planning', 'React', 'MongoDB'],
+    image: '/gp3.png',
+    longDescription: `Girl Powered Robotics is an initiative aimed at inspiring and empowering young girls to pursue careers in robotics and STEM fields. Through hands-on workshops, mentorship programs, and community outreach, we provide girls with the tools and support they need to succeed in a traditionally male-dominated industry. I worked with Google and the University of Calgary to develop an autonomous robotics framework designed at educating girls on the fundamentals of robotics and programming. The framework included custom modified localization algorithms, which saved overall sensor costs by $2240, PID Controllers for longitudinal and lateral control, and path-planning.`,
     githubUrl: 'https://github.com/ZechariahWang/Eclipse-Robot_Framework?tab=readme-ov-file',
     liveUrl: 'https://github.com/ZechariahWang/TeamProfiler'
   },
@@ -32,8 +42,8 @@ const projects = [
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics tournament. ',
     technologies: ['React', 'Next.js', 'Tailwind'],
-    image: '/Mech3.png',
-    longDescription: `Mecha Mayhem is Canada's largest robotics tournament, with over 3000 attendees and 200+ teams from middle school, high school, and university. I was on 2024 software team, where I developed a fullstack website in Next.js and Tailwind CSS for the competition. I also developed an award and team data analytics tool using the RobotEvents API, which displays the awards and stats of each team that competed.`,
+    image: '/Mecha .png',
+    longDescription: `Mecha Mayhem is Canada's largest robotics tournament, with over 3000 attendees and 200+ teams from middle school, high school, and university. I am a member on the software team, primarily dealing with fullstack and competition analysis. I developed an award and team data analytics tool using the RobotEvents API, which displays metrics and stats of competition vitals, including team performances, awards given out, and other miscellaneous information.`,
     githubUrl: 'https://github.com/westmech/Mecha-Mayhem-Frontend-2025',
     liveUrl: 'https://www.mechamayhem.ca/'
   },

@@ -9,13 +9,15 @@ const Hero = () => {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center">
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/BackgroundImage.png"
-          alt="Background"
-          fill
-          className="object-cover opacity-20"
-          priority
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+        >
+          <source src="/Timeline 1.mov" type="video/mp4" />
+        </video>
       </div>
       <div className="relative z-10 flex flex-col items-center">
         <h1 
@@ -29,7 +31,7 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
           className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl"
         >
-          Mechatronics Engineering at the University of Waterloo
+          Mechatronics Engineering @ Waterloo
         </motion.p>
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
