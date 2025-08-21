@@ -14,9 +14,11 @@ const Hero = () => {
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
         >
-          <source src="/Timeline 1.mov" type="video/mp4" />
+          <source src="/newBackgroundVid.mp4" type="video/mp4" />
+          <source src="/Timeline 1.mov" type="video/quicktime" />
         </video>
       </div>
       <div className="relative z-10 flex flex-col items-center">
