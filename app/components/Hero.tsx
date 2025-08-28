@@ -32,7 +32,7 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
           className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl"
         >
-          Mechatronics Engineering @ Waterloo
+          Mechatronics @ Waterloo
         </motion.p>
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
