@@ -13,7 +13,7 @@ const projects = [
     description: 'Canada\'s leading robotics education company',
     technologies: ['Next.js', 'Node.js', 'MongoDB'],
     image: '/WestMechPhoto.jpg',
-    longDescription: `Western Mechatronics is a student run robotics company with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. I have been apart of the company since its original creation in 2019, and am responsible for development of the company's software platform.`,
+    longDescription: `Western Mechatronics is a student run robotics company with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. \n I have been apart of the company since its original creation in 2019, and am responsible for development of the company's software platform. Currently, I am developing a fullstack parent/student portal using Next.js and MongoDB for students to view their progress and upcoming competitions, as well as scheduling and registration for meetings and other events. \n Outside of software, I am also a mentor for the students at WestMech, and have taught over 25+ teams about the fundamentals of robotics and programming. I have also helped run robotics summer camps for three years, and organized open house events at various schools within the Calgary area, as well as at the Calgary Stampede and with TELUS.`,
     githubUrl: 'https://github.com/westmech',
     liveUrl: 'https://westernmech.ca'
   },
@@ -30,12 +30,12 @@ const projects = [
   {
     id: 'project-9',
     title: 'Girl Powered Robotics',
-    description: 'Redefining robotics education for young girls.',
-    technologies: ['Path Planning', 'React', 'MongoDB'],
+    description: 'Redefining robotics education for women in STEM.',
+    technologies: ['C++', 'Python', 'Robotics'],
     image: '/gp3.png',
-    longDescription: `Girl Powered Robotics is an initiative aimed at inspiring and empowering young girls to pursue careers in robotics and STEM fields. Through hands-on workshops, mentorship programs, and community outreach, we provide girls with the tools and support they need to succeed in a traditionally male-dominated industry. I worked with Google and the University of Calgary to develop an autonomous robotics framework designed at educating girls on the fundamentals of robotics and programming. The framework included custom modified localization algorithms, which saved overall sensor costs by $2240, PID Controllers for longitudinal and lateral control, and path-planning.`,
-    githubUrl: 'https://github.com/ZechariahWang/Eclipse-Robot_Framework?tab=readme-ov-file',
-    liveUrl: 'https://github.com/ZechariahWang/TeamProfiler'
+    longDescription: `Girl Powered Robotics is an initiative aimed at inspiring and empowering young girls to pursue careers in robotics and STEM fields. Through hands-on workshops, mentorship programs, and community outreach, we provide girls with the tools and support they need to succeed in a traditionally male-dominated industry. \n I worked with Google and the University of Calgary to develop an autonomous robotics framework designed at educating girls on the fundamentals of robotics and programming. The framework included custom modified localization algorithms, which saved overall sensor costs by $2240, PID Controllers for longitudinal and lateral control, and path-planning. \n Overall, I have helped run the workshop for 2 years, and have taught over 280+ attendees about robotics and programming. I have also given two speeches as a keynote speaker at the University of Calgary, regarding the importance of mechanical and software engineering, as well as my own experience in robotics to further inspire attendeeds to pursue STEM fields.`,
+    githubUrl: 'https://github.com/ZechariahWang/Google-GirlPowered-Library/tree/main',
+    liveUrl: 'https://www.youtube.com/watch?v=pkKSXo24Jx0&t=91s'
   },
   {
     id: 'project-3',
@@ -43,7 +43,7 @@ const projects = [
     description: 'Canada\'s largest robotics tournament. ',
     technologies: ['React', 'Next.js', 'Tailwind'],
     image: '/Mecha .png',
-    longDescription: `Mecha Mayhem is Canada's largest robotics tournament, with over 3000 attendees and 200+ teams from middle school, high school, and university. I am a member on the software team, primarily dealing with fullstack and competition analysis. I developed an award and team data analytics tool using the RobotEvents API, which displays metrics and stats of competition vitals, including team performances, awards given out, and other miscellaneous information.`,
+    longDescription: `Mecha Mayhem is Canada's largest robotics tournament, with over 3000 attendees and 200+ teams from middle school, high school, and university. I am a member on the software team, primarily dealing with fullstack and competition analysis. I developed an award and team data analytics tool using the RobotEvents API, which displays metrics and stats of competition vitals, including team performances, awards given out, and other miscellaneous information. \n `,
     githubUrl: 'https://github.com/westmech/Mecha-Mayhem-Frontend-2025',
     liveUrl: 'https://www.mechamayhem.ca/'
   },

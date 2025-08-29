@@ -31,7 +31,7 @@ const About = () => {
               I'm a Software Engineer with a specialization in AI and automation systems, ranging from Machine Learning and AI Agents to control systems.
             </p>
             <p className="text-muted-foreground">
-              In my spare time, you can find me working on Canada's largest robotics education club, building frameworks for girls in STEM, and developing solutions for real-world problems.
+              In my spare time, I'm working on Canada's largest robotics education company, building frameworks for STEM education, or testing out new AI models.
             </p>
           </motion.div>
           <motion.div 
