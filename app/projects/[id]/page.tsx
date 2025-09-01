@@ -1,10 +1,7 @@
-'use client'
-
 import React from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
 const projects = [
   {
@@ -13,7 +10,7 @@ const projects = [
     description: 'Canada\'s leading robotics education company',
     technologies: ['Next.js', 'Node.js', 'MongoDB'],
     image: '/WestMechPhoto.jpg',
-    longDescription: `Western Mechatronics is a student run robotics company with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. \n I have been apart of the company since its original creation in 2019, and am responsible for development of the company's software platform. Currently, I am developing a fullstack parent/student portal using Next.js and MongoDB for students to view their progress and upcoming competitions, as well as scheduling and registration for meetings and other events. \n Outside of software, I am also a mentor for the students at WestMech, and have taught over 25+ teams about the fundamentals of robotics and programming. I have also helped run robotics summer camps for three years, and organized open house events at various schools within the Calgary area, as well as at the Calgary Stampede and with TELUS.`,
+    longDescription: `Western Mechatronics is a student run robotics company with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. \n I have been apart of the company since its original creation in 2019, and am responsible for development of the company's software platform. Currently, I am developing a fullstack parent/student portal using Next.js and MongoDB for students to view their progress and upcoming competitions, as well as scheduling and registration for meetings and other events. \n Outside of software, I am also a mentor for the students at WestMech, and have taught over 25+ teams about the fundamentals of robotics and programming. I have also helped run robotics summer camps for three years, and organized open house events at various schools within Alberta, as well as at the Calgary Stampede and with TELUS.`,
     githubUrl: 'https://github.com/westmech',
     liveUrl: 'https://westernmech.ca'
   },
@@ -87,8 +84,13 @@ const projects = [
     githubUrl: 'https://github.com/ZechariahWang/MTE-100-Final-Project',
     liveUrl: 'https://github.com/ZechariahWang/MTE-100-Final-Project'
   }
-
 ]
+
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id,
+  }))
+}
 
 export default function ProjectPage({
   params,
@@ -131,18 +133,15 @@ export default function ProjectPage({
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-cover rounded-lg"
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
           />
         </div>
         
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold"
-        >
+        <h1 className="text-4xl font-bold">
           {project.title}
-        </motion.h1>
+        </h1>
         
         <p className="text-xl text-muted-foreground">{project.description}</p>
         

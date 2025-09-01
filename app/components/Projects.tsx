@@ -1,12 +1,27 @@
 'use client'
 
-import React from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { projects } from '../data/projects'
+import { projectsDetailed } from '../data/projectsDetailed'
+import ProjectModal from './ProjectModal'
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<string | null>(null)
+
+  const handleProjectClick = (projectId: string) => {
+    setSelectedProject(projectId)
+  }
+
+  const handleCloseModal = () => {
+    setSelectedProject(null)
+  }
+
+  const currentProject = selectedProject 
+    ? projectsDetailed.find(p => p.id === selectedProject) 
+    : null
+
   return (
     <section id="projects" className="py-20 px-4 bg-card">
       <div className="max-w-6xl mx-auto">
@@ -15,16 +30,16 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-[#ff34a1] to-[#00ffc3] bg-clip-text text-transparent"
+          className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-[#ff6b6b] to-[#4ecdc4] bg-clip-text text-transparent !text-transparent"
         >
           Projects
         </motion.h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Link 
+            <button 
               key={project.id} 
-              href={`/projects/${project.id}`}
-              className="bg-card rounded-lg overflow-hidden shadow-lg shadow-[#ff34a1]/10 hover:shadow-[#ff34a1]/100 transition-all duration-300 hover:scale-105 relative group"
+              onClick={() => handleProjectClick(project.id)}
+              className="bg-card rounded-lg overflow-hidden shadow-lg shadow-[#ff34a1]/10 hover:shadow-[#ff34a1]/100 transition-all duration-300 hover:scale-105 relative group text-left w-full"
             >
               <div className="relative h-48 w-full group">
                 <Image
@@ -57,9 +72,15 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-            </Link>
+            </button>
           ))}
         </div>
+
+        <ProjectModal 
+          project={currentProject ?? null}
+          isOpen={!!selectedProject}
+          onClose={handleCloseModal}
+        />
       </div>
     </section>
   )

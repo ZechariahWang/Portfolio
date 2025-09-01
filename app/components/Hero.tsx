@@ -1,25 +1,103 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [videoError, setVideoError] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const handleCanPlay = () => {
+      setVideoLoaded(true)
+      // Try to play after video can play
+      playVideo()
+    }
+
+    const handleLoadedData = () => {
+      setVideoLoaded(true)
+    }
+
+    const handleError = () => {
+      setVideoError(true)
+      console.warn('Video failed to load, falling back to static background')
+    }
+
+    const handleLoadStart = () => {
+      setVideoError(false)
+      setVideoLoaded(false)
+    }
+
+    // Try to play the video
+    const playVideo = async () => {
+      try {
+        await video.play()
+      } catch (error) {
+        console.warn('Autoplay failed:', error)
+        // Video will still load but won't autoplay due to browser policy
+      }
+    }
+
+    video.addEventListener('canplay', handleCanPlay)
+    video.addEventListener('loadeddata', handleLoadedData)
+    video.addEventListener('error', handleError)
+    video.addEventListener('loadstart', handleLoadStart)
+
+    // Force load the video
+    video.load()
+
+    return () => {
+      video.removeEventListener('canplay', handleCanPlay)
+      video.removeEventListener('loadeddata', handleLoadedData)
+      video.removeEventListener('error', handleError)
+      video.removeEventListener('loadstart', handleLoadStart)
+    }
+  }, [])
+
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center">
       <div className="absolute inset-0 z-0">
+        {/* Video Background */}
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            videoLoaded ? 'opacity-50' : 'opacity-0'
+          }`}
+          poster="/BackgroundImage.png"
         >
           <source src="/back.mp4" type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+          <img 
+            src="/BackgroundImage.png" 
+            alt="Background" 
+            className="absolute inset-0 w-full h-full object-cover opacity-50"
+          />
         </video>
+        
+        {/* Fallback background image if video fails to load */}
+        {videoError && (
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center opacity-50"
+            style={{
+              backgroundImage: 'url(/BackgroundImage.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+        )}
       </div>
+      
       <div className="relative z-10 flex flex-col items-center">
         <h1 
           className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#ff34a1] to-[#00ffc3] bg-clip-text text-transparent"
@@ -34,7 +112,7 @@ const Hero = () => {
         >
           Mechatronics @ Waterloo
         </motion.p>
-        <motion.div 
+        {/* <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
@@ -52,13 +130,13 @@ const Hero = () => {
           >
             Contact Me
           </Link>
-        </motion.div>
+        </motion.div> */}
         
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
-          className="flex gap-4 mt-8"
+          className="flex gap-4"
         >
           <a 
             href="https://github.com/ZechariahWang" 

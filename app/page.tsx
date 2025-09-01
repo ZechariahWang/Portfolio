@@ -1,9 +1,17 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Hero from './components/Hero'
-import About from './components/About'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
 import FloatingNavbar from './components/FloatingNavbar'
+
+const About = dynamic(() => import('./components/About'), { 
+  loading: () => <div className="min-h-screen flex items-center justify-center">Loading...</div> 
+})
+const Experience = dynamic(() => import('./components/Experience'), { 
+  loading: () => <div className="min-h-screen flex items-center justify-center">Loading...</div> 
+})
+const Projects = dynamic(() => import('./components/Projects'), { 
+  loading: () => <div className="min-h-screen flex items-center justify-center">Loading...</div> 
+})
 
 const page = () => {
   return (

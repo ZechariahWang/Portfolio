@@ -13,7 +13,7 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold mb-12 text-center"
+          className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-[#00ffc3] to-[#ff34a1] bg-clip-text text-transparent !text-transparent"
         >
           Experience
         </motion.h2>
