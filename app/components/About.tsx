@@ -31,7 +31,10 @@ const About = () => {
               I'm a Software Engineer with a specialization in AI and automation systems, ranging from Machine Learning and AI Agents to control systems.
             </p>
             <p className="text-muted-foreground">
-              In my spare time, I'm working on Canada's largest robotics education company, building frameworks for STEM education, or testing out new AI models.
+              Currently, I'm working at a startup based in NYC, building AI-powered tools for social conversational platforms.
+            </p>
+            <p className="text-muted-foreground">
+              In my spare time, I'm working on Canada's leading robotics education company, building frameworks for STEM education, or testing out new AI models.
             </p>
           </motion.div>
           <motion.div 
@@ -59,7 +62,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-[#eff542]/8 to-[#eff542]/8"></div>
               <div className="relative z-10">
                 <h3 className="font-semibold mb-2">Fullstack</h3>
-                <p className="text-sm text-muted-foreground">React, Next.js, Node.js, Express.js</p>
+                <p className="text-sm text-muted-foreground">React, Next.js, AWS, PostgreSQL</p>
               </div>
             </div>
             <div className="p-4 bg-accent rounded-lg relative overflow-hidden shadow-lg shadow-[#00ffc3]/15 border border-[#00ffc3]/20 hover:shadow-[#00ffc3]/25 hover:border-[#00ffc3]/30 transition-all duration-300">

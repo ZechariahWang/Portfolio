@@ -3,15 +3,15 @@ export const experiences = [
     title: 'Software Engineer Intern',
     company: 'Twos Inc.',
     period: 'Sept 2025 - Present',
-    description: 'Conversational AI',
-    skills: ['Next.js', 'AWS', 'WebRTC', 'Redis'],
+    description: 'AI-powered conversational platform.',
+    skills: ['Next.js', 'AWS', 'PostgreSQL', 'Redis'],
     location: 'New York, NY'
   },
   {
     title: 'Software Engineer Intern',
     company: 'Conavi Medical',
     period: 'Jan 2025 - April 2025',
-    description: 'IVUS/OCT Medical Imaging for Physicians',
+    description: 'Medical devices for cardiac procedures.',
     skills: ['.NET', 'WPF', 'Moq', 'Nunit'],
     location: 'Toronto, ON'
   },
@@ -19,7 +19,7 @@ export const experiences = [
     title: 'Research Engineer Intern',
     company: 'University of Calgary',
     period: 'Feb 2023 - March 2023',
-    description: 'Computer Imaging of MFTs and Flocculent Polymers',
+    description: 'Computer Imaging of MFTs and Flocculent Polymers.',
     skills: ['Python', 'Matplotlib', 'Pandas', 'OpenCV'],
     location: 'Calgary, AB'
   },
@@ -27,8 +27,8 @@ export const experiences = [
     title: 'Software Engineer',
     company: 'WATonomous',
     period: 'Jan 2025 - Present',
-    description: 'AI for autonomous self-driving vehicles',
-    skills: ['ROS2', 'Docker', 'Linux', 'Foxglove'],
+    description: 'AI for autonomous self-driving vehicles.',
+    skills: ['Docker', 'ROS2', 'Linux', 'Foxglove'],
     location: 'Waterloo, ON'
   }
   // {

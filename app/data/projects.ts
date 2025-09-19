@@ -10,7 +10,7 @@ export const projects = [
     id: 'project-3',
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics competition.',
-    technologies: ['Python', 'Next.js', 'Node.js'],
+    technologies: ['Python', 'Next.js', 'React'],
     image: '/Mecha .png'
   },
   {
@@ -21,11 +21,18 @@ export const projects = [
     image: '/gp2.webp'
   },
   {
-    id: 'project-2',
-    title: 'Eclipse Robotics',
-    description: 'Intelligent robotics framework for VEX autonomous systems.',
-    technologies: ['Path Planning', 'React', 'MongoDB'],
-    image: '/Eclipse.jpg'
+    id: 'project-8',
+    title: 'Concludely AI',
+    description: 'AI Powered Journaling App.',
+    technologies: ['React Native', 'S3', 'LangChain'],
+    image: '/iphone2.png'
+  },
+  {
+    id: 'project-4',
+    title: 'Nova AI',
+    description: 'Personal AI interview voice agent for interviews.',
+    technologies: ['Next.js', 'Firebase', 'Vapi', 'Gemini'],
+    image: '/nova.png'
   },
   {
     id: 'project-6',
@@ -35,18 +42,11 @@ export const projects = [
     image: '/WATonomous.png'
   },
   {
-    id: 'project-4',
-    title: 'AI Interview Agent',
-    description: 'Personal AI interview voice agent for technical and mixed interviews.',
-    technologies: ['Next.js', 'Firebase', 'Vapi', 'Gemini'],
-    image: '/InterviewTrainer.png'
-  },
-  {
-    id: 'project-5',
-    title: 'AI Mental Health Module',
-    description: 'AI resource for mental health support.',
-    technologies: ['PyTorch', 'NLTK/NLP', 'Customtkinter'],
-    image: '/MentalSupport.png'
+    id: 'project-2',
+    title: 'Eclipse',
+    description: 'Intelligent robotics framework for VEX autonomous systems.',
+    technologies: ['Path Planning', 'React', 'MongoDB'],
+    image: '/Eclipse.jpg'
   },
   {
     id: 'project-7',
@@ -55,4 +55,11 @@ export const projects = [
     technologies: ['RobotC', 'Path Planning', 'Localization'],
     image: '/AE.jpg'
   },
+  // {
+  //   id: 'project-5',
+  //   title: 'AI Mental Health Module',
+  //   description: 'AI resource for mental health support.',
+  //   technologies: ['PyTorch', 'NLTK/NLP', 'Customtkinter'],
+  //   image: '/MentalSupport.png'
+  // },
 ] 
