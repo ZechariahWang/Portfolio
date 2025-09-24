@@ -61,7 +61,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               </svg>
             </button>
 
-            <div className="overflow-y-auto max-h-[90vh]">
+            <div className="overflow-y-auto max-h-[90vh] scrollbar-hide">
               <div className="aspect-video bg-accent relative">
                 <Image
                   src={project.image}

@@ -47,7 +47,7 @@ const About = () => {
             <div className="p-4 bg-accent rounded-lg relative overflow-hidden shadow-lg shadow-[#4287f5]/15 border border-[#4287f5]/20 hover:shadow-[#4287f5]/25 hover:border-[#4287f5]/30 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-[#4287f5]/8 to-[#4287f5]/8"></div>
               <div className="relative z-10">
-                <h3 className="font-semibold mb-2">AI & Data</h3>
+                <h3 className="font-semibold mb-2">AI, ML & Data</h3>
                 <p className="text-sm text-muted-foreground">PyTorch, TensorFlow, Matplotlib, OpenCV</p>
               </div>
             </div>

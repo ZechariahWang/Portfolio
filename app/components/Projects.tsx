@@ -39,7 +39,7 @@ const Projects = () => {
             <button 
               key={project.id} 
               onClick={() => handleProjectClick(project.id)}
-              className="bg-card rounded-lg overflow-hidden shadow-lg shadow-[#ff34a1]/10 hover:shadow-[#ff34a1]/100 transition-all duration-300 hover:scale-105 relative group text-left w-full h-[400px] flex flex-col"
+              className="bg-card rounded-lg overflow-hidden shadow-lg shadow-[#ff34a1]/10 transition-all duration-300 hover:scale-105 hover:-translate-y-2 relative group text-left w-full h-[400px] flex flex-col"
             >
               <div className="relative h-48 w-full group flex-shrink-0">
                 <Image
