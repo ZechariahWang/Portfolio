@@ -63,7 +63,7 @@ export const projectsDetailed = [
     id: 'project-2',
     title: 'Eclipse',
     description: 'Intelligent robotics framework for VEX autonomous systems.',
-    technologies: ['Path Planning', 'React', 'MongoDB'],
+    technologies: ['ROS2', 'Gazebo', 'Pros'],
     image: '/Eclipse.jpg',
     longDescription: `I have competed in competitive robotics for 5+ years. During this time, I experienced firsthand the difficulties in implementing control systems for autonomous robots. Becuase of this, I decided to start the Eclipse Library in a small basement with four of my friends under 210 WestMech. \n Eclipse Robotics is a collection of tools that I have developed to help high school students in the VEX Robotics Competition. Eclipse consists of a fully autonomous robotics library, AI virtual robot environment simulator, and a fullstack web application for scouting other teams during the competition. It has recieved 20,000+ interactions, and continues to serve as a reference for students in Alberta. \n Altogether, Eclipse Robotics has earned 37+ awards throughout its three years of development, and has ranked 1st in Alberta, 6th in Canada, and top 0.26% globally in the VRC competition. It also placed Top 16 in the VEX Robotics World Championship hosted in Dallas, Texas.`,
     githubUrl: 'https://github.com/ZechariahWang/Eclipse-Robot_Framework?tab=readme-ov-file',
