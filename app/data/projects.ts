@@ -25,7 +25,7 @@ export const projects = [
     title: 'Girl Powered Robotics',
     description: 'Redefining robotics education for women in STEM.',
     technologies: ['C++', 'Python', 'Robotics'],
-    image: '/gpagain.jpg'
+    image: '/gpagain.JPG'
   },
   {
     id: 'project-4',
