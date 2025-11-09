@@ -55,32 +55,30 @@ const FloatingNavbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={hasAnimated ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto"
+      className="fixed top-0 left-20 z-50 px-4 md:px-8 py-4 md:py-6"
     >
-      <div className="bg-background/80 backdrop-blur-md border border-border/50 rounded-full px-3 py-2 md:px-6 md:py-3 shadow-lg">
-        <div className="flex items-center space-x-2 md:space-x-8">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.href)}
-              className={`relative px-2 py-1 md:px-3 md:py-2 text-xs md:text-sm font-medium transition-colors duration-200 ${
-                activeSection === item.id
-                  ? 'text-primary'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              {activeSection === item.id && (
-                <motion.div
-                  layoutId="activeSection"
-                  className="absolute inset-0 bg-primary/10 rounded-full"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10 whitespace-nowrap">{item.label}</span>
-            </button>
-          ))}
-        </div>
+      <div className="flex items-center gap-4 md:gap-8">
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => handleNavClick(item.href)}
+            className={`relative text-xs md:text-sm font-medium transition-colors duration-200 ${
+              activeSection === item.id
+                ? 'text-foreground'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            {activeSection === item.id && (
+              <motion.div
+                layoutId="activeIndicator"
+                className="absolute -bottom-1 left-0 right-0 h-px bg-foreground"
+                initial={false}
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative whitespace-nowrap">{item.label}</span>
+          </button>
+        ))}
       </div>
     </motion.nav>
   )

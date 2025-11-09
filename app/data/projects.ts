@@ -4,28 +4,28 @@ export const projects = [
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
     technologies: ['Next.js', 'Node.js', 'MongoDB'],
-    image: '/wmlogo.png'
+    image: '/westmechpic.png'
   },
   {
     id: 'project-3',
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics competition.',
     technologies: ['Python', 'Next.js', 'React'],
-    image: '/Mecha .png'
-  },
-  {
-    id: 'project-9',
-    title: 'Girl Powered Robotics',
-    description: 'Redefining robotics education for women in STEM.',
-    technologies: ['C++', 'Python', 'Robotics'],
-    image: '/gp2.webp'
+    image: '/original.jpg'
   },
   {
     id: 'project-8',
     title: 'Concludely AI',
     description: 'AI Powered Journaling App.',
     technologies: ['React Native', 'S3', 'LangChain'],
-    image: '/iphone2.png'
+    image: '/newpic.png'
+  },
+  {
+    id: 'project-9',
+    title: 'Girl Powered Robotics',
+    description: 'Redefining robotics education for women in STEM.',
+    technologies: ['C++', 'Python', 'Robotics'],
+    image: '/gpagain.jpg'
   },
   {
     id: 'project-4',
@@ -39,14 +39,14 @@ export const projects = [
     title: 'AI Self-Driving Car Sim',
     description: 'Real-time optimal path planning for an autonomous vehicle.',
     technologies: ['ROS2', 'Docker', 'Foxglove'],
-    image: '/WATonomous.png'
+    image: '/aicar.png'
   },
   {
     id: 'project-2',
     title: 'Eclipse',
     description: 'Intelligent robotics framework for VEX autonomous systems.',
     technologies: ['Path Planning', 'React', 'MongoDB'],
-    image: '/Eclipse.jpg'
+    image: '/eclipse.jpg'
   },
   {
     id: 'project-7',
