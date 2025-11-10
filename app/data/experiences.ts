@@ -1,35 +1,43 @@
 export const experiences = [
   {
-    title: 'Software Engineer Intern',
-    company: 'Twos Inc.',
-    period: 'Sept 2025 - Present',
-    description: 'AI-powered conversational platform.',
-    skills: ['Next.js', 'AWS', 'PostgreSQL', 'Redis'],
-    location: 'New York, NY'
+    title: 'software engineer intern',
+    company: 'twos conversation',
+    period: 'sept 2025 - present',
+    description: 'ai-powered conversational platform.',
+    skills: ['next.js', 'aws', 'postgresql', 'redis'],
+    location: 'new york, ny'
   },
   {
-    title: 'Software Engineer Intern',
-    company: 'Conavi Medical',
-    period: 'Jan 2025 - April 2025',
-    description: 'Medical devices for cardiac procedures.',
-    skills: ['.NET', 'WPF', 'Moq', 'Nunit'],
-    location: 'Toronto, ON'
+    title: 'software engineer intern',
+    company: 'conavi medical',
+    period: 'jan 2025 - april 2025',
+    description: 'medical devices for cardiac procedures.',
+    skills: ['.net', 'wpf', 'moq', 'nunit'],
+    location: 'toronto, on'
   },
   {
-    title: 'Research Engineer Intern',
-    company: 'University of Calgary',
-    period: 'Feb 2023 - March 2023',
-    description: 'Computer Imaging of MFTs and Flocculent Polymers.',
-    skills: ['Python', 'Matplotlib', 'Pandas', 'OpenCV'],
-    location: 'Calgary, AB'
+    title: 'research engineer intern',
+    company: 'university of calgary',
+    period: 'feb 2023 - march 2023',
+    description: 'computer imaging of mfts and flocculent polymers.',
+    skills: ['python', 'matplotlib', 'pandas', 'opencv'],
+    location: 'calgary, ab'
   },
   {
-    title: 'Software Engineer',
-    company: 'WATonomous',
-    period: 'Jan 2025 - Present',
-    description: 'AI for autonomous self-driving vehicles.',
-    skills: ['Docker', 'ROS2', 'Linux', 'Foxglove'],
-    location: 'Waterloo, ON'
+    title: 'software engineer',
+    company: 'watonomous',
+    period: 'jan 2025 - present',
+    description: 'ai for autonomous self-driving vehicles.',
+    skills: ['docker', 'ros2', 'linux', 'foxglove'],
+    location: 'waterloo, on'
+  },
+  {
+    title: 'software engineering lead',
+    company: 'eclipse robotics',
+    period: 'sept 2021 - present',
+    description: 'alberta #1 competitive robotics framework.',
+    skills: ['ros2', 'gazebo', 'mongodb', 'pros'],
+    location: 'calgary, ab'
   }
   // {
   //   title: 'Software Engineer',
@@ -47,12 +55,4 @@ export const experiences = [
   //   skills: ['React.js', 'Express', 'Node.js', 'Tailwind'],
   //   location: 'Calgary, AB'
   // },
-  // {
-  //   title: 'Software Engineering Lead',
-  //   company: 'Eclipse Robotics',
-  //   period: 'Sept 2021 - August 2024',
-  //   description: '',
-  //   skills: ['C++', 'Python', 'React.js', 'Express', 'Node.js', 'Tailwind'],
-  //   location: 'Calgary, AB'
-  //}
 ] 

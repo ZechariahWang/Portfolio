@@ -61,7 +61,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className="relative flex flex-col justify-center min-h-screen px-20">
+    <section className="relative flex flex-col justify-center min-h-screen px-4 sm:px-8 md:px-20">
       <div className="absolute inset-0 z-0">
         {/* Video Background */}
         <video
@@ -72,7 +72,7 @@ const Hero = () => {
           playsInline
           preload="auto"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            videoLoaded ? 'opacity-50' : 'opacity-0'
+            videoLoaded ? 'opacity-40' : 'opacity-0'
           }`}
           poster="/BackgroundImage.png"
         >
@@ -96,17 +96,17 @@ const Hero = () => {
         )}
       </div>
 
-      <div className="relative z-10 flex flex-col max-w-5xl ml-auto text-right">
-        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.95] mb-4 md:mb-6">
+      <div className="relative z-10 flex flex-col max-w-5xl ml-auto text-right pr-4 sm:pr-8 md:pr-0">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.95] mb-4 sm:mb-5 md:mb-6">
           ZECH WANG
         </h1>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col md:flex-row md:items-center justify-end gap-6 md:gap-6"
+          className="flex flex-col sm:flex-col md:flex-row md:items-center justify-end gap-4 sm:gap-5 md:gap-6"
         >
-          <p className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide">
+          <p className="text-xs sm:text-xs md:text-sm text-muted-foreground font-medium tracking-wide order-2 md:order-1">
             mechatronics @uwaterloo
           </p>
 
@@ -114,7 +114,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
-            className="flex gap-5"
+            className="flex gap-4 sm:gap-5 md:gap-5 justify-end order-1 md:order-2"
           >
           <a
             href="https://github.com/ZechariahWang"
@@ -123,7 +123,7 @@ const Hero = () => {
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -142,7 +142,7 @@ const Hero = () => {
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -157,7 +157,7 @@ const Hero = () => {
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

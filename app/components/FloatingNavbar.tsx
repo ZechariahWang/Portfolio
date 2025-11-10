@@ -15,7 +15,6 @@ const FloatingNavbar = () => {
   ]
 
   useEffect(() => {
-    // Initial animation delay
     const timer = setTimeout(() => setHasAnimated(true), 100)
     
     const handleScroll = () => {
@@ -55,7 +54,7 @@ const FloatingNavbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={hasAnimated ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-20 z-50 px-4 md:px-8 py-4 md:py-6"
+      className="fixed top-0 left-10 z-50 px-4 md:px-8 py-4 md:py-6"
     >
       <div className="flex items-center gap-4 md:gap-8">
         {navItems.map((item) => (
