@@ -46,7 +46,7 @@ export const projects = [
     title: 'Eclipse',
     description: 'Intelligent robotics framework for VEX autonomous systems.',
     technologies: ['Path Planning', 'React', 'MongoDB'],
-    image: '/eclipse.jpg'
+    image: '/neweclipse.jpg'
   },
   {
     id: 'project-7',
