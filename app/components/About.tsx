@@ -14,7 +14,7 @@ const About = () => {
     <section id="about" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 bg-background">
       <div className="max-w-5xl mx-auto">
         <div className="text-left mb-12 md:mb-16">
-          <h2 className="text-7xl sm:text-8xl md:text-9xl font-bold leading-[0.95] uppercase">
+          <h2 className="text-5xl sm:text-7xl md:text-9xl font-bold leading-[0.95] uppercase">
             About
           </h2>
         </div>

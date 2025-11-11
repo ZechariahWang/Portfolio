@@ -8,7 +8,7 @@ const Experience = () => {
     <section id="experience" className="py-16 sm:py-20 md:py-24 px-4 bg-background min-h-screen flex flex-col justify-center">
       <div className="max-w-full">
         <div className="text-right mb-12 sm:mb-16 md:mb-20 ml-auto max-w-5xl mx-auto px-4">
-          <h2 className="text-7xl sm:text-8xl md:text-9xl font-bold leading-[0.95] uppercase">
+          <h2 className="text-5xl sm:text-7xl md:text-9xl font-bold leading-[0.95] uppercase">
             Experience
           </h2>
         </div>

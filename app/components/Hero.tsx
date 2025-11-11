@@ -96,7 +96,7 @@ const Hero = () => {
         )}
       </div>
 
-      <div className="relative z-10 flex flex-col max-w-5xl ml-auto text-right pr-4 sm:pr-8 md:pr-0">
+      <div className="relative z-10 flex flex-col max-w-5xl ml-auto text-center md:text-right pr-4 sm:pr-8 md:pr-0 md:ml-auto mx-auto md:mx-0">
         <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.95] mb-4 sm:mb-5 md:mb-6">
           ZECH WANG
         </h1>
@@ -104,7 +104,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col sm:flex-col md:flex-row md:items-center justify-end gap-4 sm:gap-5 md:gap-6"
+          className="flex flex-col sm:flex-col md:flex-row md:items-center justify-center md:justify-end gap-4 sm:gap-5 md:gap-6"
         >
           <p className="text-xs sm:text-xs md:text-sm text-muted-foreground font-medium tracking-wide order-2 md:order-1">
             mechatronics @uwaterloo
@@ -114,7 +114,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
-            className="flex gap-4 sm:gap-5 md:gap-5 justify-end order-1 md:order-2"
+            className="flex gap-4 sm:gap-5 md:gap-5 justify-center md:justify-end order-1 md:order-2"
           >
           <a
             href="https://github.com/ZechariahWang"
