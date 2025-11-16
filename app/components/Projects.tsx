@@ -22,58 +22,60 @@ const Projects = () => {
     : null
 
   return (
-    <section id="projects" className="py-20 px-4 bg-background">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-left mb-8 md:mb-10">
+    <section id="projects" className="py-20 bg-background">
+      <div className="w-full max-w-7xl mx-auto px-4">
+        <div className="mb-12 md:mb-16">
           <h2 className="text-5xl sm:text-7xl md:text-9xl font-bold leading-[0.95] uppercase">
             Projects
           </h2>
         </div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {projects.map((project, index) => {
-            const heights = ['h-64', 'h-72', 'h-80', 'h-96'];
-            const height = heights[index % heights.length];
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {projects.map((project, index) => (
+            <button
+              key={project.id}
+              onClick={() => handleProjectClick(project.id)}
+              className="group text-left w-full h-96 lg:h-[28rem] rounded-xl border border-neutral-800/50 overflow-hidden hover:border-neutral-600 transition-all duration-300 ease-out flex flex-col bg-gradient-to-br from-neutral-900/50 to-neutral-800/30 backdrop-blur-sm hover:shadow-2xl hover:shadow-neutral-900/50 hover:-translate-y-1"
+            >
+              <div className="relative w-full h-56 lg:h-64 flex-shrink-0 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                />
+                {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/90 z-10 pointer-events-none transition-opacity duration-300 ease-out group-hover:opacity-100"></div> */}
+                {/* <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300 ease-out z-20 pointer-events-none"></div> */}
+              </div>
 
-            return (
-              <button
-                key={project.id}
-                onClick={() => handleProjectClick(project.id)}
-                className="group text-left rounded-lg border border-neutral-800 overflow-hidden hover:border-neutral-600 transition-all duration-300 flex flex-col bg-background/50 backdrop-blur-sm w-full break-inside-avoid"
-              >
-                <div className={`relative w-full overflow-hidden bg-neutral-900 ${height}`}>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                <div className="p-5 flex flex-col flex-grow">
-                  <h3 className="text-sm md:text-base font-semibold mb-2 group-hover:text-blue-400 transition-colors duration-300">
+              <div className="p-5 lg:p-6 flex flex-col flex-grow justify-between pb-6 lg:pb-7">
+                <div className="flex-grow">
+                  <h3 className="text-xl lg:text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-200 ease-out">
                     {project.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">
+                  <p className="text-sm lg:text-base text-muted-foreground leading-relaxed line-clamp-2 mb-3">
                     {project.description}
                   </p>
-                  <div className="flex gap-2 flex-wrap">
-                    {project.technologies.slice(0, 2).map((tech) => (
-                      <span key={tech} className="px-2.5 py-1 text-xs font-medium rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 hover:border-neutral-500 transition-colors">
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 2 && (
-                      <span className="px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                        +{project.technologies.length - 2}
-                      </span>
-                    )}
-                  </div>
                 </div>
-              </button>
-            );
-          })}
+                <div className="flex gap-2 flex-wrap mt-auto pt-3">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <span 
+                      key={tech} 
+                      className="px-3 py-1.5 text-xs font-medium rounded-lg bg-neutral-800/80 border border-neutral-700/50 text-neutral-300 group-hover:border-blue-500/50 group-hover:bg-blue-500/10 transition-all duration-200 ease-out backdrop-blur-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 4 && (
+                    <span className="px-3 py-1.5 text-xs font-medium text-muted-foreground rounded-lg bg-neutral-800/50 border border-neutral-700/30">
+                      +{project.technologies.length - 4}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </button>
+          ))}
         </div>
 
         <ProjectModal
