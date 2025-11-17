@@ -4,10 +4,10 @@ import React from 'react'
 
 const About = () => {
   const skills = [
-    { label: 'AI, ML & Data', tech: 'PyTorch, TensorFlow, Matplotlib, OpenCV' },
-    { label: 'Robotics', tech: 'ROS2, Docker, Linux, Gazebo' },
-    { label: 'Fullstack', tech: 'React, Next.js, AWS, PostgreSQL' },
-    { label: 'Medical', tech: '.NET, WPF, Moq, Nunit' }
+    { label: 'AI, ML & Data', tech: 'PyTorch, OpenCV, LLM' },
+    { label: 'Robotics', tech: 'ROS2, Linux, Gazebo' },
+    { label: 'Fullstack', tech: 'React, AWS, PostgreSQL' },
+    { label: 'Medical', tech: '.NET, Moq, Nunit, Docker' }
   ]
 
   return (

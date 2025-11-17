@@ -18,7 +18,7 @@ export const experiences = [
   {
     title: 'research engineer intern',
     company: 'university of calgary',
-    period: 'feb 2023 - march 2023',
+    period: 'jan 2023 - march 2023',
     description: 'computer imaging of mfts and flocculent polymers.',
     skills: ['python', 'matplotlib', 'pandas', 'opencv'],
     location: 'calgary, ab'
@@ -32,10 +32,10 @@ export const experiences = [
     location: 'waterloo, on'
   },
   {
-    title: 'software engineering lead',
-    company: 'eclipse robotics',
+    title: 'principal software engineer',
+    company: 'twoten robotics',
     period: 'sept 2021 - present',
-    description: 'alberta #1 competitive robotics framework.',
+    description: 'alberta #1 competitive robotics team.',
     skills: ['ros2', 'gazebo', 'mongodb', 'pros'],
     location: 'calgary, ab'
   }

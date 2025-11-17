@@ -3,7 +3,7 @@ export const projects = [
     id: 'project-1',
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
-    technologies: ['Next.js', 'Node.js', 'MongoDB'],
+    technologies: ['ROS2', 'Next.js', 'MongoDB'],
     image: '/westmechpic.png'
   },
   {
@@ -17,14 +17,14 @@ export const projects = [
     id: 'project-8',
     title: 'Concludely AI',
     description: 'AI Powered Journaling App.',
-    technologies: ['React Native', 'S3', 'LangChain'],
+    technologies: ['React Native', 'AWS S3', 'LangChain'],
     image: '/newpic.png'
   },
   {
     id: 'project-9',
     title: 'Girl Powered Robotics',
     description: 'Redefining robotics education for women in STEM.',
-    technologies: ['C++', 'Python', 'Robotics'],
+    technologies: ['ROS2', 'Gazebo', 'Pros'],
     image: '/gpagain.JPG'
   },
   {
@@ -45,14 +45,14 @@ export const projects = [
     id: 'project-2',
     title: 'Eclipse',
     description: 'Intelligent robotics framework for VEX autonomous systems.',
-    technologies: ['Path Planning', 'React', 'MongoDB'],
+    technologies: ['ROS2', 'Gazebo', 'Pros'],
     image: '/neweclipse.jpg'
   },
   {
     id: 'project-7',
     title: 'Boundary Sim Entertainment System',
     description: 'Virtual boundary detection for robotics entertainment.',
-    technologies: ['RobotC', 'Path Planning', 'Localization'],
+    technologies: ['RobotC', 'SolidWorks', 'C++'],
     image: '/AE.jpg'
   },
   // {

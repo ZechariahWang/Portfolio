@@ -28,8 +28,8 @@ const projects = [
     id: 'project-9',
     title: 'Girl Powered Robotics',
     description: 'Redefining robotics education for women in STEM.',
-    technologies: ['C++', 'Python', 'Robotics'],
-    image: '/gp3.png',
+    technologies: ['ROS2', 'Gazebo', 'Pros'],
+    image: '/GP_TWO.JPG',
     longDescription: `Girl Powered Robotics is an initiative aimed at inspiring and empowering young girls to pursue careers in robotics and STEM fields. Through hands-on workshops, mentorship programs, and community outreach, we provide girls with the tools and support they need to succeed in a traditionally male-dominated industry. \n I worked with Google and the University of Calgary to develop an autonomous robotics framework designed at educating girls on the fundamentals of robotics and programming. The framework included custom modified localization algorithms, which saved overall sensor costs by $2240, PID Controllers for longitudinal and lateral control, and path-planning. \n Overall, I have helped run the workshop for 2 years, and have taught over 280+ attendees about robotics and programming. I have also given two speeches as a keynote speaker at the University of Calgary, regarding the importance of mechanical and software engineering, as well as my own experience in robotics to further inspire attendeeds to pursue STEM fields.`,
     githubUrl: 'https://github.com/ZechariahWang/Google-GirlPowered-Library/tree/main',
     liveUrl: 'https://www.youtube.com/watch?v=pkKSXo24Jx0&t=91s'

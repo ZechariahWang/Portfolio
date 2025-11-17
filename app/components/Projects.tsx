@@ -44,6 +44,7 @@ const Projects = () => {
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                  loading="eager"
                 />
                 {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/90 z-10 pointer-events-none transition-opacity duration-300 ease-out group-hover:opacity-100"></div> */}
                 {/* <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300 ease-out z-20 pointer-events-none"></div> */}

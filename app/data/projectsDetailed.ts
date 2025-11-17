@@ -3,7 +3,7 @@ export const projectsDetailed = [
     id: 'project-1',
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
-    technologies: ['Next.js', 'Node.js', 'MongoDB'],
+    technologies: ['ROS2', 'Next.js', 'MongoDB'],
     image: '/WestMechPhoto.jpg',
     longDescription: `Western Mechatronics is a student run robotics company with over $110,000 in annual revenue, 100 members, and partnerships with Google, TC Energy, and The Calgary Stampede. We run summer camps, workshops, and competitions for students across Calgary. \n I have been apart of the company since its original creation in 2019, and am responsible for development of the company's software platform. Currently, I am developing a fullstack parent/student portal using Next.js and MongoDB for students to view their progress and upcoming competitions, as well as scheduling and registration for meetings and other events. \n Outside of software, I am also a mentor for the students at WestMech, and have taught over 25+ teams about the fundamentals of robotics and programming. I have also helped run robotics summer camps for three years, and organized open house events at various schools within Alberta, as well as at the Calgary Stampede and with TELUS.`,
     githubUrl: 'https://github.com/westmech',
@@ -23,8 +23,8 @@ export const projectsDetailed = [
     id: 'project-9',
     title: 'Girl Powered Robotics',
     description: 'Redefining robotics education for women in STEM.',
-    technologies: ['C++', 'Python', 'Robotics'],
-    image: '/gp3.png',
+    technologies: ['ROS2', 'Gazebo', 'Pros'],
+    image: '/GP_TWO.JPG',
     longDescription: `Girl Powered Robotics is an initiative aimed at inspiring and empowering young girls to pursue careers in robotics and STEM fields. Through hands-on workshops, mentorship programs, and community outreach, we provide girls with the tools and support they need to succeed in a traditionally male-dominated industry. \n I worked with Google and the University of Calgary to develop an autonomous robotics framework designed at educating girls on the fundamentals of robotics and programming. The framework included custom modified localization algorithms, which saved overall sensor costs by $2240, PID Controllers for longitudinal and lateral control, and path-planning. \n Overall, I have helped run the workshop for 2 years, and have taught over 280+ attendees about robotics and programming. I have also given two speeches as a keynote speaker at the University of Calgary, regarding the importance of mechanical and software engineering, as well as my own experience in robotics to further inspire attendeeds to pursue STEM fields.`,
     githubUrl: 'https://github.com/ZechariahWang/Google-GirlPowered-Library/tree/main',
     liveUrl: 'https://www.youtube.com/watch?v=pkKSXo24Jx0&t=91s'
@@ -33,7 +33,7 @@ export const projectsDetailed = [
     id: 'project-8',
     title: 'Concludely AI',
     description: 'AI Journaling app for mental health support.',
-    technologies: ['React Native', 'S3', 'LangChain'],
+    technologies: ['React Native', 'AWS', 'LangChain'],
     image: '/iphone2.png',
     longDescription: `Concludely is an AI journaling app I am currently building with three friends that creates specialized prompts along a question tree, designed to support mental health conversations by understanding and responding to user input with deep and insightful questions. It utilizes LangChain for prompt management and orchestration, supporting both Anthropic Claude and OpenAI GPT-4o models with automatic failover in case of API overloads. \n  As of now, it features two main functions: EntryPrep, which extracts the topic and summary from the most recent segment of a user’s journal entry using a structured Pydantic schema, and AgentResponseCall, which generates a node based decision tree, with personalized therapist-style questions to encourage deeper self-reflection. However, I am hoping to add more integration in the future with specialized detection models, for more accurate responses. \n The hope of this project is to provide an accessible and responsive user experience tailored for mental wellness support, and to help users build confidence and improve their mental health in a supportive environment.`,
     githubUrl: 'https://github.com/ZechariahWang/Concludely-AI',
@@ -71,22 +71,12 @@ export const projectsDetailed = [
   },
   {
     id: 'project-7',
-    title: 'Boundary Sim Entertainment System',
+    title: 'LEGO Boundary Sim',
     description: 'Virtual boundary detection for robotics entertainment.',
     technologies: ['RobotC', 'Path Planning', 'Localization'],
     image: '/AE.jpg',
     longDescription: `This project was made for the MTE 100 final project at the University of Waterloo. It's inspired off the nothing robot found online, but with a twist: it builds a dynamic map of boundaries and obstacles to make it harder for the user to flip the switch. \n The robot simulates intelligent robot behavior using a boundary-aware navigation system written in C for the EV3 platform. The robot uses a custom PID-controlled movement and rotation system to traverse predefined regions while adjusting its behavior based on human proximity and difficulty level. \n By integrating geometric boundary detection algorithms and real-time motion planning, the robot can respond to switch interactions, avoid obstacles, and adapt its path using randomized maneuvers. It is able to do all of this while continuously staying within the predefined boundaries, without having to have a physical boundary established. \n We also 3D scanned our professors head, and attached it to the robot.`,
     githubUrl: 'https://github.com/ZechariahWang/MTE-100-Final-Project',
     liveUrl: 'https://github.com/ZechariahWang/MTE-100-Final-Project'
-  },
-  {
-    id: 'project-5',
-    title: 'AI Mental Health Module',
-    description: 'AI resource for mental health support.',
-    technologies: ['PyTorch', 'NLTK/NLP', 'Customtkinter'],
-    image: '/MentalSupport.png',
-    longDescription: `AI intelligent chatbot designed to support mental health conversations by understanding and responding to user input with empathy and relevance. Built using PyTorch, it features a 3-layer fully connected neural network trained to classify user intent with high accuracy. Through iterative fine-tuning and optimization, the model achieved a 15% improvement in intent classification. The system utilizes NLTK for natural language preprocessing, including tokenization and lemmatization, and is deployed within a CustomTKinter interface to provide an accessible and responsive user experience tailored for mental wellness support.`,
-    githubUrl: 'https://github.com/ZechariahWang/ChatbotApp',
-    liveUrl: 'https://github.com/ZechariahWang/ChatbotApp'
   },
 ]
