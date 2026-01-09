@@ -22,10 +22,7 @@ const About = () => {
         <div className="space-y-16 md:space-y-20">
           <div className="space-y-4 md:space-y-5 max-w-3xl text-lg md:text-lg leading-relaxed text-foreground">
             <p>
-              software engineer from calgary, canada specializing in ai/ml and automation control systems.
-            </p>
-            <p>
-              currently working at a startup in nyc building ai-agents for human connection, and canada's leading robotics education company.
+              software engineer from calgary, canada, specializing in automation systems, ai, computer vision, and robotics engineering.
             </p>
             <p>
               2nd year mechatronics engineering student at the university of waterloo.

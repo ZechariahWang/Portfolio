@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
 
 interface Project {
   id: string
@@ -25,26 +24,19 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   if (!project) return null
 
   return (
-    <AnimatePresence>
+    <>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          <div
+            className="absolute inset-0 bg-black/80"
             onClick={onClose}
           />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            transition={{ duration: 0.3 }}
-            className="relative bg-background rounded-lg border border-neutral-800 max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-xl"
+          <div
+            className="relative bg-neutral-900 rounded-lg border border-neutral-800 max-w-4xl w-full max-h-[90vh] overflow-hidden"
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 bg-background/90 backdrop-blur-sm rounded-full p-2 hover:bg-neutral-800 transition-colors border border-neutral-700"
+              className="absolute top-4 right-4 z-20 bg-neutral-900 rounded-full p-2 hover:bg-neutral-800 transition-colors border border-neutral-700"
             >
               <svg
                 className="w-5 h-5"
@@ -78,7 +70,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   <h1 className="text-4xl font-semibold mb-2">
                     {project.title}
                   </h1>
-                  <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                  <div className="w-12 h-0.5 bg-neutral-700 rounded-full"></div>
                 </div>
 
                 <p className="text-base text-muted-foreground leading-relaxed">
@@ -91,7 +83,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm"
+                      className="px-5 py-2.5 bg-neutral-200 hover:bg-neutral-300 text-neutral-900 rounded-lg font-medium transition-colors text-sm"
                     >
                       View on GitHub
                     </a>
@@ -112,15 +104,12 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   <h3 className="text-sm font-semibold mb-3">Technologies</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <motion.span
+                      <span
                         key={tech}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.2 }}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300 hover:border-neutral-500 transition-colors"
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300"
                       >
                         {tech}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -139,10 +128,10 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 )}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       )}
-    </AnimatePresence>
+    </>
   )
 }
 
