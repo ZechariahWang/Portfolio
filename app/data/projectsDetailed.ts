@@ -1,5 +1,15 @@
 export const projectsDetailed = [
   {
+    id: 'project-11',
+    title: 'Argus (Exia Labs, a16z)',
+    description: 'AI autonomous ATV for military medical evacuation.',
+    technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson'],
+    image: '/atv.png',
+    longDescription: `Argus is an AI-powered autonomous ATV designed for military medical evacuation. It features a robust navigation system, real-time health monitoring, and adaptive obstacle avoidance capabilities. The project leverages ROS2 for robot control, Gazebo for simulation, and Nvidia Jetson for onboard computing. This initiative aims to revolutionize battlefield medical transport by providing a reliable, autonomous solution that can navigate complex terrain while maintaining critical patient care protocols.`,
+    githubUrl: 'https://github.com/ZechariahWang/Exia-Labs',
+    liveUrl: 'https://vimeo.com/1152662912'
+  },
+  {
     id: 'project-1',
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
