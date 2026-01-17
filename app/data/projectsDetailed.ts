@@ -5,7 +5,7 @@ export const projectsDetailed = [
     description: 'AI autonomous ATV for military medical evacuation.',
     technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson'],
     image: '/atv.png',
-    longDescription: `Argus is an AI-powered autonomous ATV designed for military medical evacuation, and supply transport. It was acquired by Exia Labs (a16z) as a way to demonstrate their military unit path-finding algorithm at the XTech Edge Strike Ground U.S.A Military competition with NATO.`,
+    longDescription: `Argus is an AI-powered autonomous ATV designed for military medical evacuation, and supply transport. It was acquired by Exia Labs (a16z) as a way to demonstrate their military unit path-finding algorithm at the XTech Edge Strike Ground U.S.A Military competition with NATO. The vehicle is capable of carrying up to 200 kg, and can travel a distance of up to 100km. \n  The vehicle is specifically designed to operate in GPS-denied environments, specifically through local planning via custom localizaton techniques, and an algorithm called CHAR developed specifically for global path-planning, with minimal localization input required. \n Some challenges faced during development included designing a robust obstacle avoidance system that could handle dynamic environments, as well as ensuring reliable communication between the vehicle and the remote operator in challenging terrains. \n To fix this, we implemented a custom localization system and optimized Exia's CHAR algorithm for real-time performance.`,
     githubUrl: 'https://github.com/ZechariahWang/Exia-Labs',
     liveUrl: 'https://vimeo.com/1152662912'
   },

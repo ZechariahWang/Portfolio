@@ -14,6 +14,13 @@ export const projects = [
     image: '/ecl.jpg'
   },
   {
+    id: 'project-6',
+    title: 'AI Self-Driving Car Sim',
+    description: 'Real-time optimal path planning for an autonomous vehicle.',
+    technologies: ['ROS2', 'Docker', 'Foxglove'],
+    image: '/aicaryes.png'
+  },
+  {
     id: 'project-1',
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
@@ -33,13 +40,6 @@ export const projects = [
     description: 'Redefining robotics education for women in STEM.',
     technologies: ['ROS2', 'Gazebo', 'Pros'],
     image: '/gpagain.JPG'
-  },
-  {
-    id: 'project-6',
-    title: 'AI Self-Driving Car Sim',
-    description: 'Real-time optimal path planning for an autonomous vehicle.',
-    technologies: ['ROS2', 'Docker', 'Foxglove'],
-    image: '/aicaryes.png'
   },
   {
     id: 'project-8',
