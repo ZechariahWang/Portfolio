@@ -19,8 +19,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeScript = `
+    (function() {
+      const stored = localStorage.getItem('theme');
+      if (stored) {
+        if (stored === 'dark') document.documentElement.classList.add('dark');
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+    })();
+  `;
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${monaSans.className} antialiased`}
       >
