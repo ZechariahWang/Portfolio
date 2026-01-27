@@ -61,7 +61,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className="relative flex flex-col justify-center min-h-screen px-4 sm:px-8 md:px-20">
+    <section className="dark relative flex flex-col justify-center min-h-screen px-4 sm:px-8 md:px-20 bg-[#1a1a1a] text-white">
       <div className="absolute inset-0 z-0">
         {/* Video Background */}
         <video
@@ -106,7 +106,7 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col sm:flex-col md:flex-row md:items-center justify-center md:justify-end gap-4 sm:gap-5 md:gap-6"
         >
-          <p className="text-xs sm:text-xs md:text-sm text-muted-foreground font-medium tracking-wide order-2 md:order-1">
+          <p className="text-xs sm:text-xs md:text-sm text-neutral-400 font-medium tracking-wide order-2 md:order-1">
             mechatronics @uwaterloo
           </p>
 
@@ -120,7 +120,7 @@ const Hero = () => {
             href="https://github.com/ZechariahWang"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="text-neutral-400 hover:text-white transition-colors"
           >
             <svg
               className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5"
@@ -139,7 +139,7 @@ const Hero = () => {
             href="https://www.linkedin.com/in/zechariah-wang-826578234/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="text-neutral-400 hover:text-white transition-colors"
           >
             <svg
               className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5"
@@ -154,7 +154,7 @@ const Hero = () => {
           </a>
           <a
             href="mailto:zechariah.wang@uwaterloo.ca"
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="text-neutral-400 hover:text-white transition-colors"
           >
             <svg
               className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5"

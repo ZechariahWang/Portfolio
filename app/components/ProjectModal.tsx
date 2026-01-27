@@ -28,15 +28,15 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div
-            className="absolute inset-0 bg-black/80"
+            className="absolute inset-0 bg-overlay"
             onClick={onClose}
           />
           <div
-            className="relative bg-neutral-900 rounded-lg border border-neutral-800 max-w-4xl w-full max-h-[90vh] overflow-hidden"
+            className="relative bg-surface rounded-lg border border-border-subtle max-w-4xl w-full max-h-[90vh] overflow-hidden"
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 bg-neutral-900 rounded-full p-2 hover:bg-neutral-800 transition-colors border border-neutral-700"
+              className="absolute top-4 right-4 z-20 bg-surface rounded-full p-2 hover:bg-surface-elevated transition-colors border border-border-subtle"
             >
               <svg
                 className="w-5 h-5"
@@ -54,7 +54,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             </button>
 
             <div className="overflow-y-auto max-h-[90vh] scrollbar-hide">
-              <div className="aspect-video bg-neutral-900 relative">
+              <div className="aspect-video bg-surface relative">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -70,7 +70,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   <h1 className="text-4xl font-semibold mb-2">
                     {project.title}
                   </h1>
-                  <div className="w-12 h-0.5 bg-neutral-700 rounded-full"></div>
+                  <div className="w-12 h-0.5 bg-border-medium rounded-full"></div>
                 </div>
 
                 <p className="text-base text-muted-foreground leading-relaxed">
@@ -83,7 +83,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 bg-neutral-200 hover:bg-neutral-300 text-neutral-900 rounded-lg font-medium transition-colors text-sm"
+                      className="px-5 py-2.5 bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text rounded-lg font-medium transition-colors text-sm"
                     >
                       View on GitHub
                     </a>
@@ -93,7 +93,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 border border-neutral-700 hover:border-neutral-600 rounded-lg font-medium transition-colors text-sm"
+                      className="px-5 py-2.5 border border-border-subtle hover:border-border-medium rounded-lg font-medium transition-colors text-sm"
                     >
                       Demo
                     </a>
@@ -106,7 +106,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-neutral-800 border border-neutral-700 text-neutral-300"
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-surface-elevated border border-border-subtle text-text-tertiary"
                       >
                         {tech}
                       </span>
@@ -115,7 +115,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 </div>
 
                 {project.longDescription && (
-                  <div className="space-y-4 text-muted-foreground pt-4 border-t border-neutral-800">
+                  <div className="space-y-4 text-muted-foreground pt-4 border-t border-border-subtle">
                     <h3 className="text-sm font-semibold text-foreground">About</h3>
                     {project.longDescription.split('\n').map((paragraph, index) => (
                       paragraph.trim() && (

@@ -26,7 +26,7 @@ const Experience = () => {
                     {experience.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1 text-xs sm:text-sm font-medium border border-neutral-700 rounded-full text-muted-foreground hover:border-neutral-600 transition-colors"
+                        className="px-3 py-1 text-xs sm:text-sm font-medium border border-border-subtle rounded-full text-muted-foreground hover:border-border-medium transition-colors"
                       >
                         {skill}
                       </span>

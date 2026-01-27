@@ -176,7 +176,7 @@ export default function ProjectPage({
           ))}
         </div>
 
-        <div className="prose prose-invert max-w-none space-y-6">
+        <div className="prose dark:prose-invert max-w-none space-y-6">
           {project.longDescription.split('\n').map((paragraph, index) => (
             <p key={index} className="text-muted-foreground">
               {paragraph}
