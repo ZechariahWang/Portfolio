@@ -1,13 +1,15 @@
 'use client'
 
-import React, { useState } from 'react'
-import Image from 'next/image'
+import React, { useState, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { projects } from '../data/projects'
 import { projectsDetailed } from '../data/projectsDetailed'
 import ProjectModal from './ProjectModal'
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<string | null>(null)
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   const handleProjectClick = (projectId: string) => {
     setSelectedProject(projectId)
@@ -22,71 +24,105 @@ const Projects = () => {
     : null
 
   return (
-    <section id="projects" className="py-20 bg-background">
-      <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="mb-12 md:mb-16">
-          <h2 className="text-5xl sm:text-7xl md:text-9xl font-bold leading-[0.95] uppercase">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="bg-secondary py-20 md:py-24 px-6 md:px-12"
+    >
+      <div className="max-w-[1280px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2
+            className="text-[28px] md:text-[32px] font-bold text-foreground mb-10"
+            style={{ fontFamily: "Georgia, 'Libre Baskerville', 'Times New Roman', serif" }}
+          >
             Projects
           </h2>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {projects.map((project) => (
-            <button
-              key={project.id}
-              onClick={() => handleProjectClick(project.id)}
-              className="group text-left w-full h-[22rem] sm:h-96 lg:h-[28rem] rounded-xl border border-border-subtle overflow-hidden hover:border-border-medium transition-colors duration-200 flex flex-col bg-surface"
-            >
-              <div className="relative w-full h-40 sm:h-60 lg:h-72 flex-shrink-0 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                  priority
-                />
-                {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-900/90 z-10 pointer-events-none transition-opacity duration-300 ease-out group-hover:opacity-100"></div> */}
-                {/* <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-300 ease-out z-20 pointer-events-none"></div> */}
-              </div>
+          {/* Projects Table */}
+          <div className="bg-background rounded-xl border border-border-subtle overflow-hidden">
+            {/* Table Header */}
+            <div className="hidden md:grid md:grid-cols-[1fr_2fr_1fr] gap-4 px-6 py-3 border-b border-border-subtle bg-secondary/50">
+              <span className="text-[12px] font-medium text-muted-foreground uppercase tracking-wider">Project</span>
+              <span className="text-[12px] font-medium text-muted-foreground uppercase tracking-wider">Description</span>
+              <span className="text-[12px] font-medium text-muted-foreground uppercase tracking-wider">Technologies</span>
+            </div>
 
-              <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow justify-between pb-4 sm:pb-6 lg:pb-7">
-                <div className="flex-grow min-h-0">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 group-hover:text-foreground transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed line-clamp-2 mb-2 sm:mb-3">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="flex gap-1.5 sm:gap-2 flex-wrap mt-auto pt-2 sm:pt-3">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium rounded-md sm:rounded-lg bg-surface-elevated border border-border-subtle text-text-tertiary"
+            {/* Table Rows */}
+            <div className="divide-y divide-border-subtle">
+              {projects.map((project) => (
+                <button
+                  key={project.id}
+                  onClick={() => handleProjectClick(project.id)}
+                  className="w-full text-left px-6 py-4 hover:bg-secondary/50 transition-colors duration-200 group"
+                >
+                  {/* Mobile Layout */}
+                  <div className="md:hidden">
+                    <h3
+                      className="text-[16px] font-semibold text-foreground mb-1"
+                      style={{ fontFamily: "Georgia, 'Libre Baskerville', 'Times New Roman', serif" }}
                     >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 4 && (
-                    <span className="px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium text-muted-foreground rounded-md sm:rounded-lg bg-surface-elevated border border-border-subtle">
-                      +{project.technologies.length - 4}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
+                      {project.title}
+                    </h3>
+                    <p className="text-[13px] text-muted-foreground mb-2 line-clamp-1">
+                      {project.description}
+                    </p>
+                    <div className="flex gap-1.5 flex-wrap">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 text-[11px] font-medium bg-secondary rounded text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-        <ProjectModal
-          project={currentProject ?? null}
-          isOpen={!!selectedProject}
-          onClose={handleCloseModal}
-        />
+                  {/* Desktop Layout */}
+                  <div className="hidden md:grid md:grid-cols-[1fr_2fr_1fr] gap-4 items-center">
+                    <h3
+                      className="text-[15px] font-semibold text-foreground"
+                      style={{ fontFamily: "Georgia, 'Libre Baskerville', 'Times New Roman', serif" }}
+                    >
+                      {project.title}
+                    </h3>
+                    <p className="text-[14px] text-muted-foreground line-clamp-1">
+                      {project.description}
+                    </p>
+                    <div className="flex gap-1.5 flex-wrap">
+                      {project.technologies.slice(0, 2).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 text-[11px] font-medium bg-secondary rounded text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 2 && (
+                        <span className="px-2 py-0.5 text-[11px] font-medium bg-secondary rounded text-muted-foreground">
+                          +{project.technologies.length - 2}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
+
+      <ProjectModal
+        project={currentProject ?? null}
+        isOpen={!!selectedProject}
+        onClose={handleCloseModal}
+      />
     </section>
   )
 }
 
-export default Projects 
+export default Projects

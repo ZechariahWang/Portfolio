@@ -3,11 +3,31 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Wealthsimple Design System - Design Tokens */
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Border Radius - Wealthsimple uses subtle rounding */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 980px;
+
+  /* Spacing (4px base unit) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+  --space-5xl: 96px;
+
+  /* Typography - Georgia priority for headers, Graphik for body */
+  --font-serif: Georgia, 'Libre Baskerville', 'Times New Roman', serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Colors - mapped to CSS variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -26,19 +46,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --color-border-subtle: var(--border-subtle);
@@ -48,119 +55,152 @@
   --color-button-primary-bg: var(--button-primary-bg);
   --color-button-primary-text: var(--button-primary-text);
   --color-button-primary-hover: var(--button-primary-hover);
+  --color-ws-green: var(--ws-green);
+  --color-ws-green-hover: var(--ws-green-hover);
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-border: var(--nav-border);
 }
 
+/* Wealthsimple Light Theme (Default) */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  /* Light theme custom vars */
-  --surface: oklch(1 0 0);
-  --surface-elevated: oklch(0.98 0 0);
-  --border-subtle: oklch(0.88 0 0);
-  --border-medium: oklch(0.82 0 0);
-  --text-tertiary: oklch(0.45 0 0);
-  --overlay: oklch(0 0 0 / 60%);
-  --button-primary-bg: oklch(0.18 0 0);
-  --button-primary-text: oklch(0.98 0 0);
-  --button-primary-hover: oklch(0.28 0 0);
+  /* Core Colors - Light */
+  --background: #FFFFFF;
+  --foreground: #32302F;
+  --card: #FFFFFF;
+  --card-foreground: #32302F;
+  --popover: #FFFFFF;
+  --popover-foreground: #32302F;
+
+  /* Primary/Secondary */
+  --primary: #32302F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F7F7F5;
+  --secondary-foreground: #32302F;
+  --muted: #F7F7F5;
+  --muted-foreground: #6B6B6B;
+  --accent: #F7F7F5;
+  --accent-foreground: #32302F;
+
+  /* Borders & Inputs */
+  --border: rgba(50, 48, 47, 0.12);
+  --input: #F7F7F5;
+  --ring: #32302F;
+
+  /* Surfaces */
+  --surface: #FFFFFF;
+  --surface-elevated: #F7F7F5;
+  --border-subtle: rgba(50, 48, 47, 0.08);
+  --border-medium: rgba(50, 48, 47, 0.16);
+
+  /* Text */
+  --text-tertiary: #6B6B6B;
+
+  /* Overlay */
+  --overlay: rgba(50, 48, 47, 0.5);
+
+  /* Buttons */
+  --button-primary-bg: #1DB954;
+  --button-primary-text: #FFFFFF;
+  --button-primary-hover: #1AA34A;
+
+  /* Accent Color - Warm, not neon */
+  --ws-green: #32302F;
+  --ws-green-hover: #4A4745;
+  --accent-warm: #8B7355;
+  --accent-warm-hover: #6B5A45;
+
+  /* Navbar - Clean, no glassmorphism */
+  --nav-bg: #FFFFFF;
+  --nav-border: rgba(50, 48, 47, 0.1);
+
+  /* Destructive */
+  --destructive: #D93025;
 }
 
+/* Wealthsimple Dark Theme */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-  /* Dark theme custom vars */
-  --surface: oklch(0.18 0 0);
-  --surface-elevated: oklch(0.22 0 0);
-  --border-subtle: oklch(0.28 0 0);
-  --border-medium: oklch(0.35 0 0);
-  --text-tertiary: oklch(0.75 0 0);
-  --overlay: oklch(0 0 0 / 80%);
-  --button-primary-bg: oklch(0.92 0 0);
-  --button-primary-text: oklch(0.15 0 0);
-  --button-primary-hover: oklch(0.85 0 0);
+  /* Core Colors - Dark */
+  --background: #1A1A1A;
+  --foreground: #F5F5F5;
+  --card: #252525;
+  --card-foreground: #F5F5F5;
+  --popover: #252525;
+  --popover-foreground: #F5F5F5;
+
+  /* Primary/Secondary */
+  --primary: #F5F5F5;
+  --primary-foreground: #1A1A1A;
+  --secondary: #252525;
+  --secondary-foreground: #F5F5F5;
+  --muted: #252525;
+  --muted-foreground: #A0A0A0;
+  --accent: #252525;
+  --accent-foreground: #F5F5F5;
+
+  /* Borders & Inputs */
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #252525;
+  --ring: #32302F;
+
+  /* Surfaces */
+  --surface: #1A1A1A;
+  --surface-elevated: #252525;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+
+  /* Text */
+  --text-tertiary: #A0A0A0;
+
+  /* Overlay */
+  --overlay: rgba(0, 0, 0, 0.7);
+
+  /* Buttons */
+  --button-primary-bg: #1DB954;
+  --button-primary-text: #FFFFFF;
+  --button-primary-hover: #1AA34A;
+
+  /* Accent Color - Warm, not neon */
+  --ws-green: #A0A0A0;
+  --ws-green-hover: #C0C0C0;
+  --accent-warm: #B8A088;
+  --accent-warm-hover: #D4C4AC;
+
+  /* Navbar - Dark */
+  --nav-bg: #1A1A1A;
+  --nav-border: rgba(255, 255, 255, 0.1);
+
+  /* Destructive */
+  --destructive: #F44336;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+    outline: none;
   }
+
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   }
-  
+
   /* Optimize scroll performance */
   * {
     will-change: auto;
   }
-  
+
   /* Improve video performance */
   video {
     transform: translateZ(0);
     backface-visibility: hidden;
   }
-  
+
   /* Line clamp utilities */
   .line-clamp-2 {
     display: -webkit-box;
@@ -186,3 +226,511 @@
   }
 }
 
+/* Wealthsimple Typography Classes */
+@layer components {
+  /* Hero Headline - Bold serif, 56-72px */
+  .ws-headline-hero {
+    font-family: Georgia, 'Libre Baskerville', 'Times New Roman', serif;
+    font-size: clamp(48px, 10vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  /* Section Headlines - Bold serif, 40-56px */
+  .ws-headline-section {
+    font-family: Georgia, 'Libre Baskerville', 'Times New Roman', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  /* Feature Headlines - Bold serif, 32-40px */
+  .ws-headline-feature {
+    font-family: Georgia, 'Libre Baskerville', 'Times New Roman', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--foreground);
+  }
+
+  /* Subheadline - Sans-serif */
+  .ws-subheadline {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--foreground);
+  }
+
+  /* Body Large - 18-21px */
+  .ws-body-large {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: clamp(18px, 2vw, 21px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+  }
+
+  /* Body - 16-17px */
+  .ws-body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: clamp(16px, 1.5vw, 17px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+  }
+
+  /* Caption */
+  .ws-caption {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    color: var(--muted-foreground);
+  }
+
+  /* Accent text - same as primary */
+  .ws-accent-text {
+    color: var(--foreground);
+  }
+
+  /* Button Styles */
+  .ws-button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: var(--foreground);
+    color: var(--background);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+    border: none;
+  }
+
+  .ws-button-primary:hover {
+    background-color: var(--muted-foreground);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .ws-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: transparent;
+    color: var(--foreground);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 8px;
+    border: 1.5px solid var(--foreground);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+  }
+
+  .ws-button-secondary:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+    transform: translateY(-2px);
+  }
+
+  /* Wealthsimple Link Styles */
+  .ws-link {
+    color: var(--ws-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .ws-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Wealthsimple Card */
+  .ws-card {
+    background-color: var(--surface);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  }
+
+  .ws-card:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .ws-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .ws-card:hover {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Wealthsimple Navbar - Clean, minimal */
+  .ws-nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+  }
+
+  /* Wealthsimple Section Spacing */
+  .ws-section {
+    padding-top: clamp(64px, 10vw, 96px);
+    padding-bottom: clamp(64px, 10vw, 96px);
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+  }
+
+  /* Wealthsimple Content Container */
+  .ws-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ws-container-narrow {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Wealthsimple Pill Tag */
+  .ws-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--muted-foreground);
+    background-color: var(--surface-elevated);
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .ws-tag:hover {
+    border-color: var(--border-medium);
+    background-color: var(--secondary);
+  }
+
+  /* Legacy apple classes mapped to Wealthsimple styles */
+  .apple-headline-hero {
+    font-family: Georgia, 'Libre Baskerville', 'Times New Roman', serif;
+    font-size: clamp(48px, 10vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .apple-headline-section {
+    font-family: Georgia, 'Libre Baskerville', 'Times New Roman', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .apple-headline-feature {
+    font-family: Georgia, 'Libre Baskerville', 'Times New Roman', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--foreground);
+  }
+
+  .apple-subheadline {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--foreground);
+  }
+
+  .apple-body-large {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: clamp(18px, 2vw, 21px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+  }
+
+  .apple-body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: clamp(16px, 1.5vw, 17px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--muted-foreground);
+  }
+
+  .apple-caption {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    color: var(--muted-foreground);
+  }
+
+  .apple-button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: var(--foreground);
+    color: var(--background);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+    border: none;
+  }
+
+  .apple-button-primary:hover {
+    background-color: var(--muted-foreground);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .apple-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: transparent;
+    color: var(--foreground);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 8px;
+    border: 1.5px solid var(--foreground);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+  }
+
+  .apple-button-secondary:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+    transform: translateY(-2px);
+  }
+
+  .apple-link {
+    color: var(--ws-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .apple-link:hover {
+    text-decoration: underline;
+  }
+
+  .apple-card {
+    background-color: var(--surface);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  }
+
+  .apple-card:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .apple-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .apple-card:hover {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .apple-nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+  }
+
+  .apple-section {
+    padding-top: clamp(64px, 10vw, 96px);
+    padding-bottom: clamp(64px, 10vw, 96px);
+    padding-left: max(24px, env(safe-area-inset-left));
+    padding-right: max(24px, env(safe-area-inset-right));
+  }
+
+  .apple-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .apple-container-wide {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .apple-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--muted-foreground);
+    background-color: var(--surface-elevated);
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .apple-tag:hover {
+    border-color: var(--border-medium);
+    background-color: var(--secondary);
+  }
+
+  /* Remove gradient text - Wealthsimple uses solid colors */
+  .apple-gradient-text,
+  .apple-gradient-text-subtle,
+  .apple-gradient-blue {
+    color: var(--ws-green);
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+  }
+}
+
+/* Wealthsimple Animation Utilities */
+@layer utilities {
+  /* Fade in on scroll animation base */
+  .ws-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ws-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delays */
+  .ws-delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .ws-delay-200 {
+    transition-delay: 200ms;
+  }
+
+  .ws-delay-300 {
+    transition-delay: 300ms;
+  }
+
+  .ws-delay-400 {
+    transition-delay: 400ms;
+  }
+
+  .ws-delay-500 {
+    transition-delay: 500ms;
+  }
+
+  /* Legacy apple animation classes */
+  .apple-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .apple-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .apple-delay-100 {
+    transition-delay: 100ms;
+  }
+
+  .apple-delay-200 {
+    transition-delay: 200ms;
+  }
+
+  .apple-delay-300 {
+    transition-delay: 300ms;
+  }
+
+  .apple-delay-400 {
+    transition-delay: 400ms;
+  }
+
+  .apple-delay-500 {
+    transition-delay: 500ms;
+  }
+
+  /* Reduce motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .ws-fade-in,
+    .apple-fade-in {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Section gradient transitions - disabled */
+  .section-gradient-top,
+  .section-gradient-bottom {
+    position: relative;
+  }
+
+  /* Edge gradients for depth illusion - vignette effect */
+  .side-gradients {
+    position: relative;
+  }
+
+  /* Side gradients disabled */
+  .side-gradients::before,
+  .side-gradients::after {
+    display: none;
+  }
+
+  /* Floating centered navbar */
+  .floating-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    z-index: 50;
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .floating-nav {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+}

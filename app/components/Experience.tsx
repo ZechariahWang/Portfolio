@@ -1,52 +1,81 @@
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { experiences } from '../data/experiences'
 
 const Experience = () => {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+
   return (
-    <section id="experience" className="py-16 sm:py-20 md:py-24 px-4 bg-background min-h-screen flex flex-col justify-center">
-      <div className="max-w-full">
-        <div className="text-right mb-12 sm:mb-16 md:mb-20 ml-auto max-w-5xl mx-auto px-4">
-          <h2 className="text-5xl sm:text-7xl md:text-9xl font-bold leading-[0.95] uppercase">
+    <section
+      id="experience"
+      ref={sectionRef}
+      className="bg-background py-20 md:py-24 px-6 md:px-12"
+    >
+      <div className="max-w-[1280px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2
+            className="text-[28px] md:text-[32px] font-bold text-foreground mb-10"
+            style={{ fontFamily: "Georgia, 'Libre Baskerville', 'Times New Roman', serif" }}
+          >
             Experience
           </h2>
-        </div>
 
-        <div className="space-y-12 sm:space-y-16 flex flex-col items-end">
-          {experiences.map((experience, index) => (
-            <div key={index} className="w-full max-w-5xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
-                <div className="md:col-span-2 space-y-4 order-2 md:order-1">
-                  <p className="text-base sm:text-base md:text-base text-foreground leading-relaxed text-right md:text-left">
-                    {experience.description}
-                  </p>
+          <div className="space-y-6">
+            {experiences.map((experience, index) => (
+              <div
+                key={index}
+                className="bg-secondary rounded-xl p-6 md:p-8 border border-border-subtle"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                  <div className="lg:flex-1">
+                    <h3
+                      className="text-[18px] md:text-[20px] font-bold text-foreground mb-1"
+                      style={{ fontFamily: "Georgia, 'Libre Baskerville', 'Times New Roman', serif" }}
+                    >
+                      {experience.title}
+                    </h3>
+                    <p className="text-[15px] text-muted-foreground font-medium mb-3">
+                      {experience.company}
+                    </p>
+                    <p className="text-[14px] text-muted-foreground leading-relaxed max-w-[600px]">
+                      {experience.description}
+                    </p>
+                  </div>
 
-                  <div className="flex flex-wrap gap-2 justify-end md:justify-start">
-                    {experience.skills.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="px-3 py-1 text-xs sm:text-sm font-medium border border-border-subtle rounded-full text-muted-foreground hover:border-border-medium transition-colors"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                  <div className="lg:text-right lg:flex-shrink-0">
+                    <p className="text-[14px] font-medium text-foreground">
+                      {experience.period}
+                    </p>
+                    <p className="text-[13px] text-muted-foreground">
+                      {experience.location}
+                    </p>
                   </div>
                 </div>
 
-                <div className="md:col-span-1 space-y-2 text-right order-1 md:order-2">
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold">{experience.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground">{experience.company}</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground pt-2">{experience.period}</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground">{experience.location}</p>
+                <div className="flex flex-wrap gap-2 mt-5 pt-5 border-t border-border-subtle">
+                  {experience.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1.5 text-[12px] font-medium bg-background rounded-md text-muted-foreground border border-border-subtle"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
 
-export default Experience 
+export default Experience

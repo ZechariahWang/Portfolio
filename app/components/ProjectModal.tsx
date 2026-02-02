@@ -1,7 +1,8 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface Project {
   id: string
@@ -21,25 +22,58 @@ interface ProjectModalProps {
 }
 
 const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
+  // Wealthsimple easing curve
+  const wsEasing = [0.22, 1, 0.36, 1]
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen, onClose])
+
   if (!project) return null
 
   return (
-    <>
+    <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             className="absolute inset-0 bg-overlay"
             onClick={onClose}
           />
-          <div
-            className="relative bg-surface rounded-lg border border-border-subtle max-w-4xl w-full max-h-[90vh] overflow-hidden"
+
+          {/* Modal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.3, ease: wsEasing }}
+            className="relative bg-surface rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] border border-border-subtle"
           >
+            {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 bg-surface rounded-full p-2 hover:bg-surface-elevated transition-colors border border-border-subtle"
+              className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-lg bg-surface/90 backdrop-blur-sm hover:bg-secondary transition-colors duration-200 border border-border-subtle"
+              aria-label="Close modal"
             >
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 text-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -47,14 +81,16 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
             </button>
 
+            {/* Scrollable Content */}
             <div className="overflow-y-auto max-h-[90vh] scrollbar-hide">
-              <div className="aspect-video bg-surface relative">
+              {/* Hero Image */}
+              <div className="aspect-video bg-secondary relative">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -65,25 +101,29 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 />
               </div>
 
-              <div className="p-8 space-y-6">
-                <div>
-                  <h1 className="text-4xl font-semibold mb-2">
+              {/* Content */}
+              <div className="p-8 md:p-12 space-y-8">
+                {/* Header */}
+                <div className="space-y-3">
+                  <h1
+                    className="text-[28px] md:text-[36px] font-bold text-foreground leading-tight"
+                    style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+                  >
                     {project.title}
                   </h1>
-                  <div className="w-12 h-0.5 bg-border-medium rounded-full"></div>
+                  <p className="ws-body-large max-w-[600px]">
+                    {project.description}
+                  </p>
                 </div>
 
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex gap-3 flex-wrap">
+                {/* Action Buttons */}
+                <div className="flex gap-4 flex-wrap">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 bg-button-primary-bg hover:bg-button-primary-hover text-button-primary-text rounded-lg font-medium transition-colors text-sm"
+                      className="ws-button-primary"
                     >
                       View on GitHub
                     </a>
@@ -93,20 +133,23 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 border border-border-subtle hover:border-border-medium rounded-lg font-medium transition-colors text-sm"
+                      className="ws-button-secondary"
                     >
-                      Demo
+                      Live Demo
                     </a>
                   )}
                 </div>
 
-                <div>
-                  <h3 className="text-sm font-semibold mb-3">Technologies</h3>
+                {/* Technologies */}
+                <div className="space-y-4">
+                  <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                    Technologies
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-surface-elevated border border-border-subtle text-text-tertiary"
+                        className="ws-tag"
                       >
                         {tech}
                       </span>
@@ -114,24 +157,29 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                   </div>
                 </div>
 
+                {/* Long Description */}
                 {project.longDescription && (
-                  <div className="space-y-4 text-muted-foreground pt-4 border-t border-border-subtle">
-                    <h3 className="text-sm font-semibold text-foreground">About</h3>
-                    {project.longDescription.split('\n').map((paragraph, index) => (
-                      paragraph.trim() && (
-                        <p key={index} className="text-sm leading-relaxed">
-                          {paragraph.trim()}
-                        </p>
-                      )
-                    ))}
+                  <div className="space-y-4 pt-6 border-t border-border-subtle">
+                    <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                      About This Project
+                    </h3>
+                    <div className="space-y-4">
+                      {project.longDescription.split('\n').map((paragraph, index) => (
+                        paragraph.trim() && (
+                          <p key={index} className="ws-body">
+                            {paragraph.trim()}
+                          </p>
+                        )
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
-    </>
+    </AnimatePresence>
   )
 }
 
