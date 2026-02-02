@@ -18,7 +18,7 @@ const About = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="bg-background py-20 md:py-24 px-6 md:px-12 -mt-px"
+      className="bg-background pt-20 md:pt-24 pb-12 md:pb-8 px-6 md:px-12 -mt-px"
     >
       <div className="max-w-[1280px] mx-auto">
         <motion.div
