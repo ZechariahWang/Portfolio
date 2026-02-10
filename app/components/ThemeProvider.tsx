@@ -12,8 +12,8 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Default to light theme (Apple style)
-  const [theme, setTheme] = useState<Theme>('light')
+  // Default to dark theme
+  const [theme, setTheme] = useState<Theme>('dark')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       // User has manually set a preference, use it
       setTheme(stored)
     }
-    // If no stored preference, keep light mode as default (Apple style)
+    // If no stored preference, keep dark mode as default
   }, [])
 
   useEffect(() => {
