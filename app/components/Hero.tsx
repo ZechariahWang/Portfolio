@@ -14,15 +14,15 @@ const Hero = () => {
     >
       {/* Liquid Ether Background */}
       <div className="absolute inset-0 z-0">
-        <LiquidEther
-          colors={['#E8E8E8', '#D0D0D0', '#F5F5F5']}
-          mouseForce={15}
-          cursorSize={80}
-          resolution={0.4}
-          autoDemo={true}
-          autoSpeed={0.3}
-          autoIntensity={1.5}
-        />
+        <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+        >
+          <source src='/back.mp4' type="video/mp4"/>
+        </video>
       </div>
 
       <div className="w-full px-6 md:px-12 lg:px-24 relative z-10">
