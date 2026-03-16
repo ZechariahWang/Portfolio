@@ -1,0 +1,107 @@
+'use client'
+
+import React from 'react'
+import { motion } from 'framer-motion'
+import { experiences } from '../data/experiences'
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+}
+
+const fadeUp = {
+  initial: { opacity: 0, y: 8 },
+  animate: { opacity: 1, y: 0 },
+}
+
+export default function ExperiencePage() {
+  return (
+    <main className="page-hero bg-background pt-14">
+      <div className="page-container flex-1 flex items-start pt-[12vh]">
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={stagger}
+          className="w-full"
+        >
+          <motion.h1
+            variants={fadeUp}
+            transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
+            className="text-[clamp(36px,6vw,64px)] font-light leading-[1.05] tracking-tight text-foreground mb-10"
+            style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+          >
+            experience
+          </motion.h1>
+
+          <div className="w-full">
+            {/* Header row — desktop only */}
+            <motion.div
+              variants={fadeUp}
+              transition={{ duration: 0.4, ease: [0.65, 0, 0.35, 1] }}
+              className="hidden md:grid md:grid-cols-[1.2fr_1.5fr_1fr_0.8fr] gap-6 pb-3 border-b border-border"
+            >
+              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Role</span>
+              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Company</span>
+              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Period</span>
+              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em] text-right">Location</span>
+            </motion.div>
+
+            {experiences.map((exp, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                transition={{ duration: 0.4, delay: 0.08 + i * 0.06, ease: [0.65, 0, 0.35, 1] }}
+                className="border-b border-border py-4 md:py-5 group hover:bg-secondary/30 transition-colors duration-300 -mx-4 px-4"
+              >
+                {/* Desktop */}
+                <div className="hidden md:grid md:grid-cols-[1.2fr_1.5fr_1fr_0.8fr] gap-6 items-baseline">
+                  <span className="text-[14px] text-foreground font-medium">
+                    {exp.title}
+                  </span>
+                  <span
+                    className="text-[14px] text-foreground"
+                    style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+                  >
+                    {exp.company}
+                  </span>
+                  <span className="text-[13px] text-muted-foreground">
+                    {exp.period}
+                  </span>
+                  <span className="text-[13px] text-muted-foreground text-right">
+                    {exp.location}
+                  </span>
+                </div>
+
+                {/* Mobile */}
+                <div className="md:hidden">
+                  <div className="flex justify-between items-baseline mb-1">
+                    <span className="text-[14px] text-foreground font-medium">
+                      {exp.title}
+                    </span>
+                    <span className="text-[12px] text-muted-foreground">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-baseline">
+                    <span
+                      className="text-[13px] text-muted-foreground"
+                      style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+                    >
+                      {exp.company}
+                    </span>
+                    <span className="text-[12px] text-muted-foreground">
+                      {exp.location}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </main>
+  )
+}

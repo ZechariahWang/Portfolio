@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
+import Navbar from "./components/Navbar";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Zech Wang | Portfolio",
-  description: "Mechatronics Engineering student at University of Waterloo. Building at the intersection of hardware and software.",
+  title: "Zech Wang",
+  description: "Mechatronics Engineering student at University of Waterloo.",
 };
 
 export default function RootLayout({
@@ -12,37 +26,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Theme script that defaults to light mode
   const themeScript = `
     (function() {
       const stored = localStorage.getItem('theme');
       if (stored === 'dark') {
         document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
       }
-      // Light mode is default - no class needed
     })();
   `;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/dotlol2.png" type="image/png" />
-        {/* Google Fonts - DM Sans for body, Libre Baskerville for fallback serif */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body
-        className="antialiased"
-        style={{
-          fontFamily: "'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        }}
-      >
+      <body className="antialiased">
         <ThemeProvider>
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
