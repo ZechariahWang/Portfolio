@@ -99,7 +99,7 @@ const projects = [
     description: 'AI autonomous ATV for military medical evacuation.',
     technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson'],
     image: '/atv.png',
-    longDescription: `Argus is an autonomous ATV platform developed at Exia Labs, backed by a16z. The vehicle is designed for military medical evacuation scenarios, capable of navigating challenging terrain to reach and transport injured personnel.\n\nThe system uses ROS2 for its robotics middleware, Gazebo for simulation and testing, and runs on Nvidia Jetson hardware for edge AI processing and real-time decision making.`,
+    longDescription: `Argus is an autonomous ATV platform (acquired by Exia Labs). The vehicle is designed for military medical evacuation scenarios, capable of navigating challenging terrain to reach and transport injured personnel.\n\nThe system uses ROS2 for its robotics middleware, Gazebo for simulation and testing, and runs on Nvidia Jetson hardware for edge AI processing and real-time decision making.`,
     githubUrl: '',
     liveUrl: ''
   }
