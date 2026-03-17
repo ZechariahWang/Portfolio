@@ -20,8 +20,8 @@ const fadeUp = {
 
 export default function ProjectsPage() {
   return (
-    <main className="page-hero bg-background pt-14">
-      <div className="page-container flex-1 flex items-start pt-[12vh]">
+    <main className="min-h-[100dvh] bg-background pt-14 flex flex-col">
+      <div className="page-container flex-1 flex items-start pt-[6vh] md:pt-[12vh] pb-8">
         <motion.div
           initial="initial"
           animate="animate"
@@ -31,7 +31,7 @@ export default function ProjectsPage() {
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(36px,6vw,64px)] font-light leading-[1.05] tracking-tight text-foreground mb-10"
+            className="text-[clamp(28px,6vw,64px)] font-light leading-[1.05] tracking-tight text-foreground mb-6 md:mb-10"
             style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
           >
             projects
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
               >
                 <Link
                   href={`/projects/${project.id}`}
-                  className="block border-b border-border py-4 md:py-5 group hover:bg-secondary/30 transition-colors duration-300 -mx-4 px-4"
+                  className="block border-b border-border py-3 md:py-5 group hover:bg-secondary/30 transition-colors duration-300 -mx-4 px-4"
                 >
                   {/* Desktop */}
                   <div className="hidden md:grid md:grid-cols-[1fr_2fr_1fr] gap-6 items-baseline">

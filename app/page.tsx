@@ -18,16 +18,28 @@ const Home = () => {
             zech wang
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(14px,1.5vw,18px)] text-muted-foreground leading-relaxed max-w-[500px] mb-10"
+            className="max-w-[500px] mb-10 space-y-1"
           >
-            mechatronics engineering @ university of waterloo.
-            <br />
-            waterloo, on.
-          </motion.p>
+            <p className="text-[clamp(14px,1.5vw,18px)] text-muted-foreground">
+              /zɛk wɒŋ/
+            </p>
+            <p
+              className="text-[clamp(14px,1.5vw,18px)] text-muted-foreground italic"
+              style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+            >
+              noun
+            </p>
+            <p className="text-[clamp(14px,1.5vw,18px)] text-muted-foreground leading-relaxed">
+              mechatronics engineering student @uwaterloo
+            </p>
+            <p className="text-[clamp(14px,1.5vw,18px)] text-muted-foreground leading-relaxed">
+              waterloo, on
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}

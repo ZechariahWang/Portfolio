@@ -19,8 +19,8 @@ const fadeUp = {
 
 export default function ExperiencePage() {
   return (
-    <main className="page-hero bg-background pt-14">
-      <div className="page-container flex-1 flex items-start pt-[12vh]">
+    <main className="min-h-[100dvh] bg-background pt-14 flex flex-col">
+      <div className="page-container flex-1 flex items-start pt-[6vh] md:pt-[12vh] pb-8">
         <motion.div
           initial="initial"
           animate="animate"
@@ -30,7 +30,7 @@ export default function ExperiencePage() {
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(36px,6vw,64px)] font-light leading-[1.05] tracking-tight text-foreground mb-10"
+            className="text-[clamp(28px,6vw,64px)] font-light leading-[1.05] tracking-tight text-foreground mb-6 md:mb-10"
             style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
           >
             experience
