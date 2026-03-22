@@ -1,7 +1,7 @@
 export const experiences = [
   {
     title: 'software engineer',
-    company: 'Exia Labs',
+    company: 'exia labs',
     period: 'dec 2025 - mar 2026',
     description: '',
     skills: ['ros2', 'linux', 'tak'],

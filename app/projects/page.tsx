@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { projects } from '../data/projects'
+import Image from 'next/image'
 
 const stagger = {
   animate: {
@@ -37,60 +38,16 @@ export default function ProjectsPage() {
             projects
           </motion.h1>
 
-          <div className="w-full">
-            {/* Header row — desktop only */}
-            <motion.div
-              variants={fadeUp}
-              transition={{ duration: 0.4, ease: [0.65, 0, 0.35, 1] }}
-              className="hidden md:grid md:grid-cols-[1fr_2fr_1fr] gap-6 pb-3 border-b border-border"
-            >
-              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Project</span>
-              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Description</span>
-              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em] text-right">Stack</span>
-            </motion.div>
-
-            {projects.map((project, i) => (
+          <div className="grid grid-cols-1 sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 md:gap-6">
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={fadeUp}
-                transition={{ duration: 0.4, delay: 0.08 + i * 0.04, ease: [0.65, 0, 0.35, 1] }}
+                transition={{ duration: 0.4, delay: 0.1 + index * 0.04, ease: [0.65, 0, 0.35, 1] }}
               >
-                <Link
-                  href={`/projects/${project.id}`}
-                  className="block border-b border-border py-3 md:py-5 group hover:bg-secondary/30 transition-colors duration-300 -mx-4 px-4"
-                >
-                  {/* Desktop */}
-                  <div className="hidden md:grid md:grid-cols-[1fr_2fr_1fr] gap-6 items-baseline">
-                    <span
-                      className="text-[14px] text-foreground font-medium group-hover:opacity-70 transition-opacity duration-300"
-                      style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
-                    >
-                      {project.title}
-                    </span>
-                    <span className="text-[13px] text-muted-foreground">
-                      {project.description}
-                    </span>
-                    <span className="text-[12px] text-muted-foreground text-right tracking-wide">
-                      {project.technologies.slice(0, 3).join(' · ')}
-                    </span>
-                  </div>
-
-                  {/* Mobile */}
-                  <div className="md:hidden">
-                    <div className="flex justify-between items-baseline mb-1">
-                      <span
-                        className="text-[14px] text-foreground font-medium"
-                        style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
-                      >
-                        {project.title}
-                      </span>
-                    </div>
-                    <p className="text-[13px] text-muted-foreground mb-1">
-                      {project.description}
-                    </p>
-                    <span className="text-[11px] text-muted-foreground tracking-wide">
-                      {project.technologies.slice(0, 3).join(' · ')}
-                    </span>
+                <Link href={`/projects/${project.id}`} className="group block rounded-lg border border-border overflow-hidden hover:border-foreground/20 transition-all duration-300">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-secondary/30">
+                    <Image src={project.image} alt={project.title} fill className="object-cover" />
                   </div>
                 </Link>
               </motion.div>
