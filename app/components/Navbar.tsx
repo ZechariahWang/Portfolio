@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from './ThemeProvider'
+import { projects } from '../data/projects'
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -24,14 +25,20 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
-        <div className="page-container flex items-center justify-end h-14 mt-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm py-3">
+        <div className="page-container flex items-center justify-end h-14">
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {!isProjectDetail && navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
+                onMouseEnter={item.label === 'Projects' ? ( ) => {
+                  projects.forEach(project => {
+                    const img = new Image()
+                    img.src = project.image
+                  })
+                } : undefined}
                 className={`text-[13px] tracking-wide transition-opacity duration-300 ${
                   pathname === item.href
                     ? 'text-foreground font-medium'
@@ -120,6 +127,12 @@ const Navbar = () => {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
+                    onMouseEnter={item.label === 'Projects' ? ( ) => {
+                      projects.forEach(project => {
+                        const img = new Image();
+                        img.src = project.image;
+                      });
+                    } : undefined}
                     className={`text-[15px] tracking-wide transition-colors ${
                       pathname === item.href
                         ? 'text-foreground font-medium'

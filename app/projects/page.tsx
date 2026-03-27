@@ -47,7 +47,7 @@ export default function ProjectsPage() {
               >
                 <Link href={`/projects/${project.id}`} className="group block rounded-lg border border-border overflow-hidden hover:border-foreground/20 transition-all duration-300">
                   <div className="relative aspect-[16/10] overflow-hidden bg-secondary/30">
-                    <Image src={project.image} alt={project.title} fill className="object-cover" />
+                    <Image src={project.image} alt={project.title} fill className="object-cover" priority={index < 10} />
                   </div>
                 </Link>
               </motion.div>

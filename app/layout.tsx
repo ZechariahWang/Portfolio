@@ -3,6 +3,7 @@ import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
+import { projects } from "./data/projects";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,6 +41,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
       <head>
+        {projects.map((project) => (
+          <link key={project.id} rel="preload" as="image" href={project.image} />
+        ))}
         <link rel="icon" href="/dotlol2.png" type="image/png" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
