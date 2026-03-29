@@ -48,6 +48,10 @@ export default function ProjectsPage() {
                 <Link href={`/projects/${project.id}`} className="group block rounded-lg border border-border overflow-hidden hover:border-foreground/20 transition-all duration-300">
                   <div className="relative aspect-[16/10] overflow-hidden bg-secondary/30">
                     <Image src={project.image} alt={project.title} fill className="object-cover" priority={index < 10} />
+                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex flex-col justify-end p-4">
+                      <h2 className="text-lg font-medium text-white">{project.title}</h2>
+                      <p className="text-sm text-white/60">{project.description}</p>
+                    </div>
                   </div>
                 </Link>
               </motion.div>
