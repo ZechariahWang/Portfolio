@@ -4,10 +4,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const skills = [
-  { label: 'Robotics', tech: 'ROS2, Linux, Gazebo, Docker' },
-  { label: 'Fullstack', tech: 'React, Node.js, AWS, PostgreSQL' },
+  { label: 'Robotics', tech: 'ROS2, Linux, Gazebo, PROS' },
+  { label: 'Fullstack', tech: 'React, Next.js, AWS, PostgreSQL' },
   { label: 'AI & ML', tech: 'PyTorch, OpenCV, LangChain, LLM' },
-  { label: 'Medical Tech', tech: '.NET, WPF, Moq, NUnit' },
+  { label: 'Medical Tech', tech: '.NET, WPF, Moq, NUnit, Docker' },
 ]
 
 const stagger = {
@@ -42,10 +42,11 @@ export default function AboutPage() {
               about
             </h1>
             <p className="text-[15px] text-muted-foreground leading-[1.7] mb-4">
-              i'm a mechatronics engineering student at the university of waterloo, specializing in autonomy software development and robotics systems.
+              software engineer from calgary, canada, specializing in automation systems,
+              ai, computer vision, and robotics engineering.
             </p>
             <p className="text-[15px] text-muted-foreground leading-[1.7]">
-              currently working on argus, an unmanned ground vehicle for autonomous mission-planning with the u.s army.
+              2nd year mechatronics engineering student at the university of waterloo.
             </p>
           </motion.div>
 
