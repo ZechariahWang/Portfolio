@@ -2,8 +2,8 @@ export const projects = [
   {
     id: 'project-11',
     title: 'Argus',
-    description: 'Unmanned UGV.',
-    technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson'],
+    description: 'Autonomous unmanned ground vehicle acquired by Exia Labs (a16z).',
+    technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson', 'Velodyne LiDAR', 'Anduril Lattice', 'TAK'],
     image: '/atv.png'
   },
   {

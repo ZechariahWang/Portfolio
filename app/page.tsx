@@ -2,11 +2,15 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import Threads from './components/Threads'
 
 const Home = () => {
   return (
-    <main className="page-hero bg-background">
-      <div className="page-container flex flex-col justify-center flex-1">
+    <main className="page-hero bg-background" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <Threads color={[1, 1, 1]} amplitude={1} distance={0.3} enableMouseInteraction />
+      </div>
+      <div className="page-container flex flex-col justify-center flex-1" style={{ position: 'relative', zIndex: 1 }}>
         <div className="max-w-[800px]">
           <motion.h1
             initial={{ opacity: 0, y: 12 }}

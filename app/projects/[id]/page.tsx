@@ -19,7 +19,7 @@ const projects = [
     description: 'A full set of essentials tools required for the VEX Robotics Competition.',
     technologies: ['C++', 'Matplotlib', 'Robotics'],
     image: '/ecl.jpg',
-    longDescription: `Eclipse Robotics is a collection of tools that I have developed to help high school students in the VEX Robotics Competition. Eclipse consists of a fully autonomous robotics library, AI virtual robot environment simulator, and a fullstack web application for scouting other teams during the competition.\n\nAltogether, Eclipse Robotics has earned 37+ awards throughout its three years of development, and has ranked 1st in Alberta, 6th in Canada, and top 0.26% globally in the VRC competition.`,
+    longDescription: `Eclipse Robotics is an autonomous robotics library for the VEX Robotics Competition, enabling high school teams to build advanced control systems. Implemented in C++ (PROS) with ROS2 integration, the library features A* path planning, Pure Pursuit trajectory tracking, Kalman filtering, PID control, and GPS/odometry-based localization — giving teams a full motion control stack out of the box.\n\nBeyond the core library, Eclipse includes an AI virtual robot environment simulator for offline testing and a fullstack web application for scouting and analyzing competing teams during tournaments.\n\nEclipse has been adopted across 50+ VEX projects and contributed to 37+ competition awards over three years of development, with rankings of 1st in Alberta, 6th in Canada, and top 0.26% globally in the VRC competition.`,
     githubUrl: 'https://github.com/ZechariahWang/Eclipse-Robot_Framework?tab=readme-ov-file',
     liveUrl: 'https://github.com/ZechariahWang/TeamProfiler'
   },
@@ -69,7 +69,7 @@ const projects = [
     description: 'Real-time optimal path planning for an autonomous vehicle.',
     technologies: ['ROS2', 'Docker', 'Foxglove'],
     image: '/WATonomous.png',
-    longDescription: `This project simulates autonomous vehicle navigation using a ROS2 publisher-subscriber architecture built on the DDS protocol. It features real-time obstacle avoidance logic by generating a dynamic cost-map from LiDAR and odometry data.\n\nThe system combines the Pure Pursuit algorithm with A* path planning to enable efficient and adaptive robot movement, allowing the vehicle to detect and navigate around obstacles in real time.`,
+    longDescription: `This project simulates autonomous vehicle navigation using a ROS2 publisher-subscriber architecture built on the DDS protocol. The system generates a dynamic cost-map from LiDAR and odometry data in real time, enabling the vehicle to detect and reason about obstacles as the environment changes.\n\nNavigation combines the Pure Pursuit algorithm for smooth trajectory following with A* path planning for optimal route generation, allowing the vehicle to adapt its path on the fly when obstacles are encountered. The cost-map is continuously updated from sensor input, ensuring the planner always works from a current representation of the environment.\n\nThe project was built as part of the WATonomous Autonomous Systems Division, focusing on scalable, modular ROS2 node design for perception, planning, and control pipelines.`,
     githubUrl: 'https://github.com/ZechariahWang/Watonomous-ASD',
     liveUrl: 'https://www.youtube.com/watch?v=4ZobtJzNd3g'
   },
@@ -96,10 +96,10 @@ const projects = [
   {
     id: 'project-11',
     title: 'Argus (Exia Labs, a16z)',
-    description: 'AI autonomous ATV for military medical evacuation.',
-    technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson'],
+    description: 'Autonomous unmanned ground vehicle acquired by Exia Labs (a16z).',
+    technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson', 'Velodyne LiDAR', 'Anduril Lattice', 'TAK'],
     image: '/atv.png',
-    longDescription: `Argus is an autonomous ATV platform (acquired by Exia Labs). The vehicle is designed for military medical evacuation scenarios, capable of navigating challenging terrain to reach and transport injured personnel.\n\nThe system uses ROS2 for its robotics middleware, Gazebo for simulation and testing, and runs on Nvidia Jetson hardware for edge AI processing and real-time decision making.`,
+    longDescription: `Argus is an autonomous unmanned ground vehicle (UGV) built on a Suzuki King Quad 450 platform, acquired by Exia Labs (backed by a16z). The vehicle fuses a Velodyne VLP-32C LiDAR with a camera to map its surroundings and navigate autonomously to user-defined waypoints. Steering, braking, and throttle are all actuated via custom-printed and machined parts purpose-built for the King Quad.\n\nThe software stack runs on a Nvidia Jetson and is built on ROS2 with Gazebo for simulation, incorporating a full sensor suite — 3D LiDAR, depth camera, IMU, radio, and wheel encoders. The system is integrated with Anduril Lattice and TAK for command-and-control and situational awareness in defense contexts.\n\nArgus was selected for live field testing with the 2nd Cavalry Regiment in Germany in March 2026, and raised $25,000 USD within two weeks.`,
     githubUrl: '',
     liveUrl: ''
   }
