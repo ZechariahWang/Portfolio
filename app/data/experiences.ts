@@ -1,6 +1,6 @@
 export const experiences = [
   {
-    title: 'software engineer',
+    title: 'software engineer intern',
     company: 'exia labs',
     period: 'dec 2025 - mar 2026',
     description: '',

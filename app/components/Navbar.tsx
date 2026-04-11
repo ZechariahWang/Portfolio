@@ -52,7 +52,7 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+              className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
               {theme === 'dark' ? (
@@ -71,7 +71,7 @@ const Navbar = () => {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+              className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
               {theme === 'dark' ? (
