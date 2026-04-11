@@ -7,7 +7,7 @@ import Threads from './components/Threads'
 const Home = () => {
   return (
     <main className="page-hero bg-background" style={{ position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+      <div className="hidden md:block" style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Threads color={[1, 1, 1]} amplitude={1} distance={0.3} enableMouseInteraction />
       </div>
       <div className="page-container flex flex-col justify-center flex-1" style={{ position: 'relative', zIndex: 1 }}>
