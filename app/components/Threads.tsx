@@ -25,7 +25,7 @@ uniform vec2 uMouse;
 
 #define PI 3.14159265358979
 
-const int u_line_count = 40;
+const int u_line_count = 20;
 const float u_line_width = 7.0;
 const float u_line_blur = 10.0;
 
@@ -144,7 +144,7 @@ export default function Threads({
     if (!containerRef.current) return
     const container = containerRef.current
 
-    const renderer = new Renderer({ alpha: true })
+    const renderer = new Renderer({ alpha: true, dpr: Math.min(window.devicePixelRatio, 1) })
     const gl = renderer.gl
     gl.clearColor(0, 0, 0, 0)
     gl.enable(gl.BLEND)
@@ -197,7 +197,14 @@ export default function Threads({
       container.addEventListener('mouseleave', handleMouseLeave)
     }
 
+    // a bit of optimization code
+    // 1 sec = 1000ms, so 30ms is about 30fps, this is for some linux optimizatinon stuff
+    let lastTime=0;
     function update(t: number) {
+      if (t-lastTime < 33) {
+        animationFrameId.current = requestAnimationFrame(update)
+        return
+      }
       if (enableMouseInteraction) {
         const smoothing = 0.05
         currentMouse[0] += smoothing * (targetMouse[0] - currentMouse[0])
@@ -208,6 +215,7 @@ export default function Threads({
         program.uniforms.uMouse.value[0] = 0.5
         program.uniforms.uMouse.value[1] = 0.5
       }
+      lastTime = t;
       program.uniforms.iTime.value = t * 0.001
       renderer.render({ scene: mesh })
       animationFrameId.current = requestAnimationFrame(update)
