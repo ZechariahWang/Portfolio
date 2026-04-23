@@ -1,95 +1,66 @@
 'use client'
 
 import React, { useState } from 'react'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTheme } from './ThemeProvider'
 import { projects } from '../data/projects'
+import { useNavigation } from './NavigationContext'
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/', label: 'home' },
+  { href: '/about', label: 'about' },
+  { href: '/experience', label: 'experience' },
+  { href: '/projects', label: 'projects' },
 ]
 
 const Navbar = () => {
+  const { navigate } = useNavigation()
   const pathname = usePathname()
-  const { theme, toggleTheme } = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const isProjectDetail = pathname.startsWith('/projects/') && pathname !== '/projects'
-
   if (isProjectDetail) return null
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm py-3">
-        <div className="page-container flex items-center justify-end h-14">
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {!isProjectDetail && navItems.map((item) => (
-              <Link
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50" style={{ width: 'max-content' }}>
+        <div
+          className="flex items-center gap-1 px-2 py-1.5 rounded-full border border-border backdrop-blur-xl"
+          style={{
+            background: 'color-mix(in srgb, var(--background) 80%, transparent)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.25), 0 1px 0 rgba(255,255,255,0.04) inset',
+          }}
+        >
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <button
                 key={item.href}
-                href={item.href}
-                onMouseEnter={item.label === 'Projects' ? ( ) => {
-                  projects.forEach(project => {
-                    const img = new Image()
-                    img.src = project.image
-                  })
+                onClick={() => navigate(item.href, pathname)}
+                onMouseEnter={item.label === 'projects' ? () => {
+                  projects.forEach(p => { const img = new Image(); img.src = p.image })
                 } : undefined}
-                className={`text-[13px] tracking-wide transition-opacity duration-300 ${
-                  pathname === item.href
-                    ? 'text-foreground font-medium'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className="px-4 py-1.5 rounded-full text-[13px] tracking-wide transition-all duration-200 cursor-pointer hover:text-foreground"
+                style={{
+                  color: pathname === item.href ? 'var(--foreground)' : 'var(--muted-foreground)',
+                  background: pathname === item.href ? 'rgb(from var(--foreground) r g b / 0.08)' : 'transparent',
+                  fontWeight: pathname === item.href ? 500 : 400,
+                }}
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
 
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            >
-              {theme === 'dark' ? (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </button>
           </div>
 
-          {/* Mobile: theme + hamburger */}
-          <div className="flex md:hidden items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            >
-              {theme === 'dark' ? (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </button>
+          {/* Mobile */}
+          <div className="flex md:hidden items-center gap-1 px-1">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="w-8 h-8 flex items-center justify-center text-foreground"
+              className="w-8 h-8 flex items-center justify-center rounded-full text-foreground"
               aria-label="Toggle menu"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -99,10 +70,9 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile dropdown */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -110,37 +80,37 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden"
+              transition={{ duration: 0.15 }}
+              className="fixed inset-0 z-40 md:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -6, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -6, scale: 0.97 }}
               transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-14 left-0 right-0 z-50 bg-background border-b border-border md:hidden"
+              className="fixed top-16 left-1/2 -translate-x-1/2 z-50 md:hidden rounded-2xl border border-border overflow-hidden"
+              style={{
+                background: 'color-mix(in srgb, var(--background) 90%, transparent)',
+                backdropFilter: 'blur(20px)',
+                boxShadow: '0 16px 48px rgba(0,0,0,0.3)',
+                width: 'max-content',
+                minWidth: '160px',
+              }}
             >
-              <div className="page-container py-6 flex flex-col gap-4">
+              <div className="flex flex-col py-2 px-2">
                 {navItems.map((item) => (
-                  <Link
+                  <button
                     key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    onMouseEnter={item.label === 'Projects' ? ( ) => {
-                      projects.forEach(project => {
-                        const img = new Image();
-                        img.src = project.image;
-                      });
-                    } : undefined}
-                    className={`text-[15px] tracking-wide transition-colors ${
-                      pathname === item.href
-                        ? 'text-foreground font-medium'
-                        : 'text-muted-foreground'
-                    }`}
+                    onClick={() => { navigate(item.href, pathname); setMobileOpen(false) }}
+                    className="px-4 py-2.5 rounded-xl text-[14px] text-left tracking-wide transition-colors"
+                    style={{
+                      color: pathname === item.href ? 'var(--foreground)' : 'var(--muted-foreground)',
+                      fontWeight: pathname === item.href ? 500 : 400,
+                    }}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 ))}
               </div>
             </motion.div>

@@ -2,24 +2,37 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import Threads from './components/Threads'
 
 const Home = () => {
   return (
     <main className="page-hero bg-background" style={{ position: 'relative', overflow: 'hidden' }}>
-      <div className="hidden md:block" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: '5%', zIndex: 0 }}>
-        <Threads color={[1, 1, 1]} amplitude={1} distance={0.3} />
-      </div>
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          opacity: 0.18,
+          zIndex: 0,
+        }}
+      >
+        <source src="/back.mp4" type="video/mp4" />
+      </video>
       <div className="page-container flex flex-col justify-center flex-1" style={{ position: 'relative', zIndex: 1 }}>
         <div className="max-w-[800px]">
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(48px,10vw,96px)] font-light leading-[0.95] tracking-tight text-foreground mb-6"
-            style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+            className="text-[clamp(48px,10vw,96px)] font-bold leading-[0.95] tracking-tight text-foreground mb-6"
+            style={{ fontFamily: "var(--font-geist-sans), system-ui, sans-serif" }}
           >
-            zech wang
+            ZECH WANG
           </motion.h1>
 
           <motion.div
@@ -33,7 +46,7 @@ const Home = () => {
             </p>
             <p
               className="text-[clamp(14px,1.5vw,18px)] text-muted-foreground italic"
-              style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+              style={{ fontFamily: "var(--font-geist-sans), system-ui, sans-serif" }}
             >
               noun
             </p>

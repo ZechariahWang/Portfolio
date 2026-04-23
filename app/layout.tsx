@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
-import "./globals.css";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import { projects } from "./data/projects";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  variable: "--font-lora",
-  display: "swap",
-});
+import { NavigationProvider } from "./components/NavigationContext";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Zech Wang",
@@ -27,30 +17,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const themeScript = `
-    (function() {
-      const stored = localStorage.getItem('theme');
-      if (stored === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-    })();
-  `;
+  const themeScript = `document.documentElement.classList.add('dark');`;
 
   return (
-    <html lang="en" className={`${inter.variable} ${lora.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <head>
-        {projects.map((project) => (
-          <link key={project.id} rel="preload" as="image" href={project.image} />
-        ))}
         <link rel="icon" href="/dotlol2.png" type="image/png" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="antialiased">
         <ThemeProvider>
-          <Navbar />
-          {children}
+          <NavigationProvider>
+            <Navbar />
+            {children}
+          </NavigationProvider>
         </ThemeProvider>
       </body>
     </html>

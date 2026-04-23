@@ -1,106 +1,217 @@
 'use client'
 
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import { experiences } from '../data/experiences'
 
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.06,
-    },
-  },
-}
-
-const fadeUp = {
-  initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0 },
+const experienceImages: Record<string, string> = {
+  'exia labs':             '/atv.png',
+  'twos conversation':     '/newpic.png',
+  'conavi medical':        '/iphone2.png',
+  'university of calgary': '/aicaryes.png',
+  'watonomous':            '/WATonomous.png',
+  'twoten robotics':       '/ecl.jpg',
 }
 
 export default function ExperiencePage() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(0)
+
+  const activeExp = activeIndex !== null ? experiences[activeIndex] : null
+  const activeImage = activeExp ? (experienceImages[activeExp.company] ?? null) : null
+
   return (
-    <main className="min-h-[100dvh] bg-background pt-14 flex flex-col">
-      <div className="page-container flex-1 flex items-start pt-[6vh] md:pt-[12vh] pb-8">
-        <motion.div
-          initial="initial"
-          animate="animate"
-          variants={stagger}
-          className="w-full"
+    <main
+      className="bg-background"
+      style={{ height: '100dvh', paddingTop: '3.5rem', overflow: 'hidden', position: 'relative' }}
+    >
+      {/* Mobile static background */}
+      <div
+        className="md:hidden"
+        style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}
+      >
+        <Image
+          src="/atv.png"
+          alt=""
+          fill
+          sizes="100vw"
+          style={{ objectFit: 'cover', filter: 'brightness(0.28) saturate(0.55)' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--background) 0%, transparent 25%, transparent 65%, var(--background) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--background) 0%, transparent 30%, transparent 70%, var(--background) 100%)' }} />
+      </div>
+
+      {/* Left: photo bled into background — desktop only */}
+      <div
+        className="hidden md:block"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '58%',
+          bottom: 0,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      >
+        <AnimatePresence mode="wait">
+          {activeImage && (
+            <motion.div
+              key={activeImage}
+              initial={{ opacity: 0, scale: 1.06 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.65, ease: [0.65, 0, 0.35, 1] }}
+              style={{ position: 'absolute', inset: 0 }}
+            >
+              <Image
+                src={activeImage}
+                alt=""
+                fill
+                sizes="58vw"
+                style={{ objectFit: 'cover', filter: 'brightness(0.38) saturate(0.65)' }}
+              />
+              {/* Fade right into site background */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to right, transparent 30%, var(--background) 100%)',
+              }} />
+              {/* Fade top */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to bottom, var(--background) 0%, transparent 18%)',
+              }} />
+              {/* Fade bottom */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to top, var(--background) 0%, transparent 25%)',
+              }} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Right: experience list */}
+      <div className="relative z-[1] h-full flex flex-col items-center md:items-end">
+        <div
+          className="w-full md:w-1/2 h-full overflow-y-auto flex flex-col justify-center"
+          style={{ padding: '6vh clamp(1.5rem, 6vw, 5rem) 4vh clamp(1.5rem, 2rem, 2rem)' }}
         >
           <motion.h1
-            variants={fadeUp}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(28px,6vw,64px)] font-light leading-[1.05] tracking-tight text-foreground mb-6 md:mb-10"
-            style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+            className="text-[clamp(28px,5vw,60px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-10"
+            style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
           >
-            experience
+            EXPERIENCE
           </motion.h1>
 
-          <div className="w-full">
-            {/* Header row — desktop only */}
-            <motion.div
-              variants={fadeUp}
-              transition={{ duration: 0.4, ease: [0.65, 0, 0.35, 1] }}
-              className="hidden md:grid md:grid-cols-[1.2fr_1.5fr_1fr_0.8fr] gap-6 pb-3 border-b border-border"
-            >
-              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Role</span>
-              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Company</span>
-              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]">Period</span>
-              <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em] text-right">Location</span>
-            </motion.div>
+          <div>
+            {experiences.map((exp, i) => {
+              const isActive = activeIndex === i
 
-            {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                transition={{ duration: 0.4, delay: 0.08 + i * 0.06, ease: [0.65, 0, 0.35, 1] }}
-                className="border-b border-border py-4 md:py-5 group hover:bg-secondary/30 transition-colors duration-300 -mx-4 px-4"
-              >
-                {/* Desktop */}
-                <div className="hidden md:grid md:grid-cols-[1.2fr_1.5fr_1fr_0.8fr] gap-6 items-baseline">
-                  <span className="text-[14px] text-foreground font-medium">
-                    {exp.title}
-                  </span>
-                  <span
-                    className="text-[14px] text-foreground"
-                    style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
-                  >
-                    {exp.company}
-                  </span>
-                  <span className="text-[13px] text-muted-foreground">
-                    {exp.period}
-                  </span>
-                  <span className="text-[13px] text-muted-foreground text-right">
-                    {exp.location}
-                  </span>
-                </div>
+              return (
+                <motion.button
+                  key={i}
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  whileHover={{ x: -6 }}
+                  transition={{
+                    opacity: { duration: 0.4, delay: 0.08 + i * 0.06, ease: [0.65, 0, 0.35, 1] },
+                    x: { duration: 0.12, ease: 'easeOut' },
+                  }}
+                  onClick={() => setActiveIndex(isActive ? null : i)}
+                  style={{
+                    width: '100%',
+                    background: 'none',
+                    border: 'none',
+                    borderBottom: '1px solid var(--border)',
+                    padding: '1.25rem 0',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
+                    <div>
+                      <div
+                        style={{
+                          fontSize: '15px',
+                          fontWeight: 500,
+                          color: isActive ? 'var(--foreground)' : 'var(--muted-foreground)',
+                          transition: 'color 0.25s ease',
+                          marginBottom: '0.2rem',
+                        }}
+                      >
+                        {exp.company}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: '13px',
+                          color: isActive ? 'var(--muted-foreground)' : 'color-mix(in srgb, var(--muted-foreground) 50%, transparent)',
+                          transition: 'color 0.25s ease',
+                        }}
+                      >
+                        {exp.title}
+                      </div>
+                    </div>
 
-                {/* Mobile */}
-                <div className="md:hidden">
-                  <div className="flex justify-between items-baseline mb-1">
-                    <span className="text-[14px] text-foreground font-medium">
-                      {exp.title}
-                    </span>
-                    <span className="text-[12px] text-muted-foreground">
-                      {exp.period}
-                    </span>
+                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                      <div
+                        style={{
+                          fontSize: '12px',
+                          color: isActive ? 'var(--muted-foreground)' : 'color-mix(in srgb, var(--muted-foreground) 50%, transparent)',
+                          transition: 'color 0.25s ease',
+                          marginBottom: '0.2rem',
+                        }}
+                      >
+                        {exp.period}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: '12px',
+                          color: isActive ? 'var(--muted-foreground)' : 'color-mix(in srgb, var(--muted-foreground) 50%, transparent)',
+                          transition: 'color 0.25s ease',
+                        }}
+                      >
+                        {exp.location}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-baseline">
-                    <span
-                      className="text-[13px] text-muted-foreground"
-                      style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
-                    >
-                      {exp.company}
-                    </span>
-                    <span className="text-[12px] text-muted-foreground">
-                      {exp.location}
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', paddingTop: '0.85rem' }}>
+                          {exp.skills.map(skill => (
+                            <span
+                              key={skill}
+                              style={{
+                                fontSize: '11px',
+                                color: 'var(--muted-foreground)',
+                                border: '1px solid var(--border)',
+                                borderRadius: '999px',
+                                padding: '0.18rem 0.55rem',
+                              }}
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              )
+            })}
           </div>
-        </motion.div>
+        </div>
       </div>
     </main>
   )

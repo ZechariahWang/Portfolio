@@ -29,7 +29,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.6, ease: wormhole }}
+            transition={{ duration: 0.3, delay: 0.05, ease: wormhole }}
           >
             <Link
               href="/projects"
@@ -46,7 +46,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: wormhole }}
+            transition={{ duration: 0.4, ease: wormhole }}
             className="aspect-video bg-secondary relative mb-8 overflow-hidden"
           >
             <Image
@@ -63,9 +63,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: wormhole }}
+            transition={{ duration: 0.4, delay: 0.08, ease: wormhole }}
             className="text-[clamp(28px,5vw,48px)] font-light leading-[1.1] tracking-tight text-foreground mb-4"
-            style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+            style={{ fontFamily: "var(--font-geist-sans), system-ui, sans-serif" }}
           >
             {project.title}
           </motion.h1>
@@ -73,7 +73,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25, ease: wormhole }}
+            transition={{ duration: 0.4, delay: 0.12, ease: wormhole }}
             className="text-[15px] text-muted-foreground mb-6"
           >
             {project.description}
@@ -83,7 +83,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.35, ease: wormhole }}
+            transition={{ duration: 0.4, delay: 0.18, ease: wormhole }}
             className="flex flex-wrap items-center gap-4 mb-10 pb-8 border-b border-border"
           >
             <div className="flex flex-wrap gap-2 flex-1">
@@ -127,7 +127,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 key={index}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.45 + index * 0.08, ease: wormhole }}
+                transition={{ duration: 0.4, delay: 0.22 + index * 0.04, ease: wormhole }}
                 className="text-[15px] text-muted-foreground leading-[1.8]"
               >
                 {paragraph.trim()}
