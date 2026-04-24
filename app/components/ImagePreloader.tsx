@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 
+// this is for loading the images rlly fast
 const siteImages = [
   '/atv.png',
   '/westmechpic.png',
@@ -16,7 +17,7 @@ const siteImages = [
   '/nova.png',
   '/WestMechPhoto.jpg',
   '/GP_TWO.JPG',
-  '/Mecha .png',
+  '/Mecha.png',
   '/InterviewTrainer.png',
   '/MentalSupport.png',
   '/AE.jpg',

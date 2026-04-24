@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import BorderGlow from '../../components/BorderGlow'
+import BorderGlow from '../components/BorderGlow'
 import { projects } from '../data/projects'
 
 const projectColors: Record<string, string[]> = {

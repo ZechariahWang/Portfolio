@@ -22,8 +22,22 @@ export default function ProjectDetail({ project }: { project: Project }) {
   const paragraphs = project.longDescription.split('\n').filter(p => p.trim())
 
   return (
-    <main className="bg-background pt-12 pb-16" style={{ height: '100dvh', overflowY: 'auto', overflowX: 'hidden', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never }}>
-      <div className="page-container">
+    <main className="bg-background pt-12 pb-16" style={{ height: '100dvh', overflowY: 'auto', overflowX: 'hidden', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never, position: 'relative' }}>
+      {/* Background image — blends into site background */}
+      <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
+        <Image
+          src={project.image}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          style={{ objectFit: 'cover', filter: 'brightness(0.22) saturate(0.5)' }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--background) 0%, transparent 40%, transparent 60%, var(--background) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--background) 0%, transparent 20%, transparent 70%, var(--background) 100%)' }} />
+      </div>
+
+      <div className="page-container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="max-w-[900px]">
           {/* Back link */}
           <motion.div

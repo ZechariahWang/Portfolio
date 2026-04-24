@@ -103,7 +103,7 @@ export default function ExperiencePage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(28px,5vw,60px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-10 text-align-right"
+            className="text-[clamp(28px,5vw,60px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-10 text-right"
             style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
           >
             EXPERIENCE
@@ -131,10 +131,32 @@ export default function ExperiencePage() {
                     borderBottom: '1px solid var(--border)',
                     padding: '1.25rem 0',
                     cursor: 'pointer',
-                    textAlign: 'left',
+                    textAlign: 'right',
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
+                    <div style={{ textAlign: 'left', flexShrink: 0 }}>
+                      <div
+                        style={{
+                          fontSize: '12px',
+                          color: isActive ? 'var(--muted-foreground)' : 'color-mix(in srgb, var(--muted-foreground) 50%, transparent)',
+                          transition: 'color 0.25s ease',
+                          marginBottom: '0.2rem',
+                        }}
+                      >
+                        {exp.period}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: '12px',
+                          color: isActive ? 'var(--muted-foreground)' : 'color-mix(in srgb, var(--muted-foreground) 50%, transparent)',
+                          transition: 'color 0.25s ease',
+                        }}
+                      >
+                        {exp.location}
+                      </div>
+                    </div>
+
                     <div>
                       <div
                         style={{
@@ -157,28 +179,6 @@ export default function ExperiencePage() {
                         {exp.title}
                       </div>
                     </div>
-
-                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <div
-                        style={{
-                          fontSize: '12px',
-                          color: isActive ? 'var(--muted-foreground)' : 'color-mix(in srgb, var(--muted-foreground) 50%, transparent)',
-                          transition: 'color 0.25s ease',
-                          marginBottom: '0.2rem',
-                        }}
-                      >
-                        {exp.period}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: '12px',
-                          color: isActive ? 'var(--muted-foreground)' : 'color-mix(in srgb, var(--muted-foreground) 50%, transparent)',
-                          transition: 'color 0.25s ease',
-                        }}
-                      >
-                        {exp.location}
-                      </div>
-                    </div>
                   </div>
 
                   <AnimatePresence>
@@ -190,7 +190,7 @@ export default function ExperiencePage() {
                         transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
                         style={{ overflow: 'hidden' }}
                       >
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', paddingTop: '0.85rem' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', paddingTop: '0.85rem', justifyContent: 'flex-end' }}>
                           {exp.skills.map(skill => (
                             <span
                               key={skill}

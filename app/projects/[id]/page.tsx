@@ -38,7 +38,7 @@ const projects = [
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics tournament.',
     technologies: ['React', 'Next.js', 'Tailwind'],
-    image: '/Mecha .png',
+    image: '/Mecha.png',
     longDescription: `Mecha Mayhem is Canada's largest robotics tournament, with over 3000 attendees and 200+ teams from middle school, high school, and university. I am a member on the software team, primarily dealing with fullstack and competition analysis.\n\nI developed an award and team data analytics tool using the RobotEvents API, which displays metrics and stats of competition vitals, including team performances, awards given out, and other miscellaneous information.`,
     githubUrl: 'https://github.com/westmech/Mecha-Mayhem-Frontend-2025',
     liveUrl: 'https://www.mechamayhem.ca/'
