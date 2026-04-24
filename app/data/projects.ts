@@ -21,25 +21,25 @@ export const projects = [
     image: '/aicaryes.png'
   },
   {
+    id: 'project-9',
+    title: 'Google Girl Powered Robotics',
+    description: 'Redefining robotics education for women in STEM.',
+    technologies: ['ROS2', 'Gazebo', 'Pros'],
+    image: '/gpagain.JPG'
+  },
+  {
     id: 'project-1',
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
     technologies: ['ROS2', 'Next.js', 'MongoDB'],
-    image: '/westmechpic.png'
+    image: '/WMLOGO__.png'
   },
   {
     id: 'project-3',
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics competition.',
     technologies: ['Python', 'Next.js', 'React'],
-    image: '/original.jpg'
-  },
-  {
-    id: 'project-9',
-    title: 'Google Girl Powered Robotics',
-    description: 'Redefining robotics education for women in STEM.',
-    technologies: ['ROS2', 'Gazebo', 'Pros'],
-    image: '/gpagain.JPG'
+    image: '/mecha.png'
   },
   {
     id: 'project-8',

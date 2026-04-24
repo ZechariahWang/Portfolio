@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 const skills = [
-  { label: 'Robotics',     tech: 'ROS2, Linux, Gazebo, PROS',          image: '/atv.png' },
-  { label: 'Fullstack',    tech: 'React, Next.js, AWS, PostgreSQL',     image: '/westmechpic.png' },
-  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, LangChain, LLM',    image: '/aicaryes.png' },
-  { label: 'Medical Tech', tech: '.NET, WPF, Moq, NUnit, Docker',      image: '/iphone2.png' },
+  { label: 'Robotics',     tech: 'ROS2, Linux, Docker, PROS',             image: '/atv.png' },
+  { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET',          image: '/westmechpic.png' },
+  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, LangChain, LLM',       image: '/aicaryes.png' },
+  { label: 'Embedded',     tech: 'Microcontrollers, SoC, FPGA, PLC',      image: '/embedded_.jpg' },
 ]
 
 export default function AboutPage() {

@@ -54,7 +54,7 @@ const Home = () => {
               mechatronics engineering student @uwaterloo
             </p>
             <p className="text-[clamp(14px,1.5vw,18px)] text-muted-foreground leading-relaxed">
-              waterloo, on
+              calgary, canada
             </p>
           </motion.div>
 

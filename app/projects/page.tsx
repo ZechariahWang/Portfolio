@@ -11,9 +11,9 @@ const projectColors: Record<string, string[]> = {
   'project-11': ['#3B82F6', '#818CF8', '#38bdf8'],
   'project-2':  ['#8B5CF6', '#c084fc', '#f472b6'],
   'project-6':  ['#06B6D4', '#38bdf8', '#818CF8'],
+  'project-9':  ['#F59E0B', '#FBBF24', '#f472b6'],
   'project-1':  ['#10B981', '#34D399', '#38bdf8'],
   'project-3':  ['#EF4444', '#F87171', '#f472b6'],
-  'project-9':  ['#F59E0B', '#FBBF24', '#f472b6'],
   'project-8':  ['#4F46E5', '#818CF8', '#c084fc'],
   'project-4':  ['#EC4899', '#f472b6', '#c084fc'],
 }

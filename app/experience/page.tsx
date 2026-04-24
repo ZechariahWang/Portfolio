@@ -7,9 +7,9 @@ import { experiences } from '../data/experiences'
 
 const experienceImages: Record<string, string> = {
   'exia labs':             '/atv.png',
-  'twos conversation':     '/newpic.png',
-  'conavi medical':        '/iphone2.png',
-  'university of calgary': '/aicaryes.png',
+  'twos conversation':     '/twossite2.png',
+  'conavi medical':        '/conavi.jpg',
+  'university of calgary': '/uofc2.png',
   'watonomous':            '/WATonomous.png',
   'twoten robotics':       '/ecl.jpg',
 }
