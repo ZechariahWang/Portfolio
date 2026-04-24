@@ -22,7 +22,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
   const paragraphs = project.longDescription.split('\n').filter(p => p.trim())
 
   return (
-    <main className="min-h-screen bg-background pt-12 pb-16">
+    <main className="bg-background pt-12 pb-16" style={{ height: '100dvh', overflowY: 'auto', overflowX: 'hidden', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never }}>
       <div className="page-container">
         <div className="max-w-[900px]">
           {/* Back link */}

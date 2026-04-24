@@ -5,6 +5,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import { projects } from "./data/projects";
 import { NavigationProvider } from "./components/NavigationContext";
+import ImagePreloader from "./components/ImagePreloader";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,9 +26,10 @@ export default function RootLayout({
         <link rel="icon" href="/dotlol2.png" type="image/png" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider>
           <NavigationProvider>
+            <ImagePreloader />
             <Navbar />
             {children}
           </NavigationProvider>

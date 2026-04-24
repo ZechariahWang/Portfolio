@@ -22,7 +22,7 @@ export default function ProjectsPage() {
   const router = useRouter()
 
   return (
-    <main className="bg-background pt-14" style={{ height: '100dvh', overflowY: 'auto', position: 'relative' }}>
+    <main className="bg-background pt-14" style={{ height: '100dvh', overflowY: 'auto', overflowX: 'hidden', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never, position: 'relative' }}>
       {/* Background image */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
         <Image
@@ -82,6 +82,8 @@ export default function ProjectsPage() {
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={i < 4}
+                    loading={i < 4 ? 'eager' : 'lazy'}
                     style={{ objectFit: 'cover' }}
                   />
                 </div>

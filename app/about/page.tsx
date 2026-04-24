@@ -30,6 +30,7 @@ export default function AboutPage() {
           alt=""
           fill
           sizes="100vw"
+          priority
           style={{ objectFit: 'cover', filter: 'brightness(0.28) saturate(0.55)' }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--background) 0%, transparent 25%, transparent 65%, var(--background) 100%)' }} />
@@ -56,7 +57,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 1.06 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.65, ease: [0.65, 0, 0.35, 1] }}
+              transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
               style={{ position: 'absolute', inset: 0 }}
             >
               <Image
@@ -64,6 +65,7 @@ export default function AboutPage() {
                 alt=""
                 fill
                 sizes="58vw"
+                priority
                 style={{ objectFit: 'cover', filter: 'brightness(0.38) saturate(0.65)' }}
               />
               {/* Fade left into background */}
@@ -87,7 +89,7 @@ export default function AboutPage() {
       </div>
 
       {/* Left: content */}
-      <div className="relative z-[1] h-full flex items-center justify-center md:justify-start px-6 md:pl-12 md:pr-0">
+      <div className="relative z-[1] h-full flex items-center justify-center md:justify-start px-6 md:pl-20 md:pr-0">
         <div style={{ maxWidth: '500px', width: '100%' }}>
           <motion.h1
             initial={{ opacity: 0, y: 12 }}

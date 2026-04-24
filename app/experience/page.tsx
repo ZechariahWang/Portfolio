@@ -35,6 +35,7 @@ export default function ExperiencePage() {
           alt=""
           fill
           sizes="100vw"
+          priority
           style={{ objectFit: 'cover', filter: 'brightness(0.28) saturate(0.55)' }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--background) 0%, transparent 25%, transparent 65%, var(--background) 100%)' }} />
@@ -61,7 +62,7 @@ export default function ExperiencePage() {
               initial={{ opacity: 0, scale: 1.06 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.65, ease: [0.65, 0, 0.35, 1] }}
+              transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
               style={{ position: 'absolute', inset: 0 }}
             >
               <Image
@@ -69,6 +70,7 @@ export default function ExperiencePage() {
                 alt=""
                 fill
                 sizes="58vw"
+                priority
                 style={{ objectFit: 'cover', filter: 'brightness(0.38) saturate(0.65)' }}
               />
               {/* Fade right into site background */}
@@ -101,7 +103,7 @@ export default function ExperiencePage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(28px,5vw,60px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-10"
+            className="text-[clamp(28px,5vw,60px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-10 text-align-right"
             style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
           >
             EXPERIENCE
