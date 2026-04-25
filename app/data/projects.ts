@@ -39,7 +39,7 @@ export const projects = [
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics competition.',
     technologies: ['Python', 'Next.js', 'React'],
-    image: '/mecha.png'
+    image: '/Mecha.png'
   },
   {
     id: 'project-8',

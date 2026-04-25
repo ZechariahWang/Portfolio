@@ -24,7 +24,7 @@ export const experiences = [
     location: 'toronto, on'
   },
   {
-    title: 'computer vision intern',
+    title: 'research engineer intern',
     company: 'university of calgary',
     period: 'jan 2023 - march 2023',
     description: 'computer imaging of mfts and flocculent polymers.',

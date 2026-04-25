@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 const skills = [
-  { label: 'Robotics',     tech: 'ROS2, Linux, Docker, PROS',             image: '/atv.png' },
-  { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET',          image: '/westmechpic.png' },
-  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, LangChain, LLM',       image: '/aicaryes.png' },
+  { label: 'Robotics',     tech: 'ROS2, Linux, Docker, PROS',             image: '/cachedImage.png' },
+  { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET',          image: '/second.JPG' },
+  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, LangChain, LLM',       image: '/eclipse.jpg' },
   { label: 'Embedded',     tech: 'Microcontrollers, SoC, FPGA, PLC',      image: '/embedded_.jpg' },
 ]
 

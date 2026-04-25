@@ -26,7 +26,7 @@ export default function ProjectsPage() {
       {/* Background image */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
         <Image
-          src="/atv.png"
+          src="/gpagain.JPG"
           alt=""
           fill
           sizes="100vw"
