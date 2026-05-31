@@ -1,5 +1,13 @@
 export const experiences = [
   {
+    title: 'robotics ml engineering intern',
+    company: 'robim technologies',
+    period: 'may 2026 - aug 2026',
+    description: '',
+    skills: ['yolo', 'pytorch', 'llm'],
+    location: 'edmonton, ab'
+  },
+  {
     title: 'software engineer intern',
     company: 'exia labs',
     period: 'jan 2026 - april 2026',

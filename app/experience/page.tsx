@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { experiences } from '../data/experiences'
 
 const experienceImages: Record<string, string> = {
+  'robim technologies':    '/WATonomous.png',
   'exia labs':             '/atv.png',
   'twos conversation':     '/twossite2.png',
   'conavi medical':        '/conavi.jpg',
@@ -103,7 +104,7 @@ export default function ExperiencePage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(28px,5vw,60px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-10 text-right"
+            className="text-[clamp(28px,5vw,60px)] font-bold leading-[1.05] tracking-tight text-foreground mb-10 text-right italic"
             style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
           >
             EXPERIENCE

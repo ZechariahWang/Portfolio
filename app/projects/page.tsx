@@ -42,7 +42,7 @@ export default function ProjectsPage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-          className="text-[clamp(28px,6vw,64px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-10"
+          className="text-[clamp(28px,6vw,64px)] font-bold leading-[1.05] tracking-tight text-foreground mb-10 italic"
         >
           PROJECTS
         </motion.h1>

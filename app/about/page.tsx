@@ -96,7 +96,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(36px,6vw,64px)] font-semibold leading-[1.05] tracking-tight text-foreground mb-8"
+            className="text-[clamp(36px,6vw,64px)] font-bold leading-[1.05] tracking-tight text-foreground mb-8 italic"
             style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
           >
             ABOUT
