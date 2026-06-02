@@ -21,21 +21,34 @@ export default function AboutPage() {
       className="bg-background pt-14"
       style={{ height: '100dvh', overflow: 'hidden', position: 'relative' }}
     >
-      {/* Mobile static background */}
+      {/* Mobile dynamic background */}
       <div
         className="md:hidden"
         style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}
       >
-        <Image
-          src="/atv.png"
-          alt=""
-          fill
-          sizes="100vw"
-          priority
-          style={{ objectFit: 'cover', filter: 'brightness(0.28) saturate(0.55)' }}
-        />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--background) 0%, transparent 25%, transparent 65%, var(--background) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--background) 0%, transparent 30%, transparent 70%, var(--background) 100%)' }} />
+        <AnimatePresence mode="wait">
+          {activeImage && (
+            <motion.div
+              key={activeImage}
+              initial={{ opacity: 0, scale: 1.06 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.3, ease: [0.65, 0, 0.35, 1] }}
+              style={{ position: 'absolute', inset: 0 }}
+            >
+              <Image
+                src={activeImage}
+                alt=""
+                fill
+                sizes="100vw"
+                priority
+                style={{ objectFit: 'cover', filter: 'brightness(0.28) saturate(0.55)' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--background) 0%, transparent 25%, transparent 65%, var(--background) 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--background) 0%, transparent 30%, transparent 70%, var(--background) 100%)' }} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Right: photo bled into background — desktop only */}
