@@ -6,8 +6,8 @@ import Image from 'next/image'
 
 const skills = [
   { label: 'Robotics',     tech: 'ROS2, Linux, Docker, Microcontrollers, SoC',             image: '/cachedImage.png' },
-  { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET, Node.js',      image: '/second.JPG' },
-  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, LangChain, Claude',                     image: '/eclipse.jpg' },
+  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, SB3, PyBullet, Gymnasium',              image: '/eclipse.jpg' },
+  { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET, Node.js',                  image: '/second.JPG' },
   { label: 'CAD',          tech: 'Blender, SolidWorks, AutoCAD',                           image: '/embedded_.jpg' },
   { label: 'Product',      tech: 'Davinci Resolve, Figma, Photoshop, Git',                 image: '/embedded_.jpg' },
 ]
@@ -121,19 +121,8 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
             className="text-[15px] text-muted-foreground leading-[1.7] mb-4"
           >
-            mechatronics engineer from calgary, canada, specializing in automation systems,
-            ai, computer vision, and robotics engineering.
+            I started at 210 as the software team lead for 6+ years, and qualified for the World Championships <strong>7x</strong>. I then built an autonomous UGV for the U.S. Army and secured <strong>$25,000</strong> in funding within two weeks. I now attend the University of Waterloo for <strong>Mechatronics Engineering</strong>, and am currently working at RoBIM this summer on robots for prefabrication.
           </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[15px] text-muted-foreground leading-[1.7] mb-12"
-          >
-            2nd year engineering student at the university of waterloo.
-          </motion.p>
-
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
