@@ -56,6 +56,9 @@ const anchorTop = (id: string) => {
 const Navbar = () => {
   const [active, setActive] = useState('home')
   const [expanded, setExpanded] = useState(false)
+  // True only once the nav items' collapse animation has fully finished —
+  // the time/icon (hidden on mobile while the menu is out) wait on this.
+  const [menuExited, setMenuExited] = useState(true)
   const [dotsHovered, setDotsHovered] = useState(false)
   const [time, setTime] = useState('--:--:--')
   const [isDay, setIsDay] = useState<boolean | null>(null)
@@ -102,6 +105,13 @@ const Navbar = () => {
     }
   }, [])
 
+  const toggleExpanded = () => {
+    setExpanded(v => {
+      if (!v) setMenuExited(false)
+      return !v
+    })
+  }
+
   const scrollTo = (id: string) => {
     window.scrollTo({ top: anchorTop(id), behavior: 'smooth' })
     setExpanded(false)
@@ -111,7 +121,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50" style={{ width: 'max-content' }}>
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-[calc(100vw-1rem)]" style={{ width: 'max-content' }}>
         <div
           className="flex items-center px-2 py-1.5 rounded-full border border-border backdrop-blur-xl"
           style={{
@@ -119,21 +129,23 @@ const Navbar = () => {
             boxShadow: '0 8px 32px rgba(0,0,0,0.25), 0 1px 0 rgba(255,255,255,0.04) inset',
           }}
         >
-          {/* Location + local time — always visible */}
-          <div className="flex items-center gap-2 pl-2 pr-1 py-1.5 text-[12px] md:text-[13px] tracking-wide whitespace-nowrap">
+          {/* Location + local time — time/icon yield to the nav items on mobile */}
+          <div className="flex items-center gap-1.5 md:gap-2 pl-2 pr-1 py-1.5 text-[11px] md:text-[13px] tracking-wide whitespace-nowrap">
             <span className="text-foreground font-medium">canada</span>
-            <span className="text-muted-foreground" style={{ fontVariantNumeric: 'tabular-nums' }}>
-              {time}
-            </span>
-            {isDay !== null && (
-              <span className="text-muted-foreground">
-                {isDay ? <SunIcon /> : <MoonIcon />}
+            <div className={`${expanded || !menuExited ? 'hidden md:flex' : 'flex'} items-center gap-1.5 md:gap-2`}>
+              <span className="text-muted-foreground" style={{ fontVariantNumeric: 'tabular-nums' }}>
+                {time}
               </span>
-            )}
+              {isDay !== null && (
+                <span className="text-muted-foreground">
+                  {isDay ? <SunIcon /> : <MoonIcon />}
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Nav items — revealed when the menu is expanded */}
-          <AnimatePresence initial={false}>
+          <AnimatePresence initial={false} onExitComplete={() => setMenuExited(true)}>
             {expanded && (
               <motion.div
                 key="items"
@@ -143,8 +155,8 @@ const Navbar = () => {
                 transition={{ duration: 0.35, ease: wormhole }}
                 className="flex items-center overflow-hidden"
               >
-                <div className="w-px h-4 mx-1 shrink-0" style={{ background: 'var(--border)' }} />
-                <div className="flex items-center gap-0.5 md:gap-1">
+                <div className="w-px h-4 mx-0.5 md:mx-1 shrink-0" style={{ background: 'var(--border)' }} />
+                <div className="flex items-center gap-0 md:gap-1">
                   {navItems.map((item) => (
                     <motion.button
                       key={item.id}
@@ -155,7 +167,7 @@ const Navbar = () => {
                       onMouseEnter={item.label === 'projects' ? () => {
                         projects.forEach(p => { const img = new Image(); img.src = p.image })
                       } : undefined}
-                      className="px-3 md:px-4 py-1.5 rounded-full text-[12px] md:text-[13px] tracking-wide transition-colors duration-200 cursor-pointer hover:text-foreground whitespace-nowrap"
+                      className="px-2 md:px-4 py-1.5 rounded-full text-[11px] md:text-[13px] tracking-wide transition-colors duration-200 cursor-pointer hover:text-foreground whitespace-nowrap"
                       style={{
                         color: active === item.id ? 'var(--foreground)' : 'var(--muted-foreground)',
                         fontWeight: active === item.id ? 500 : 400,
@@ -196,12 +208,12 @@ const Navbar = () => {
 
           {/* Three-dot toggle — morphs into a diamond on hover / while expanded */}
           <button
-            onClick={() => setExpanded(v => !v)}
+            onClick={toggleExpanded}
             onMouseEnter={() => setDotsHovered(true)}
             onMouseLeave={() => setDotsHovered(false)}
             aria-label={expanded ? 'Close menu' : 'Open menu'}
             aria-expanded={expanded}
-            className="ml-1 p-2 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
+            className="ml-0.5 md:ml-1 p-1.5 md:p-2 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
           >
             <span className="block relative w-[13px] h-[13px]">
               {dotPositions.grid.map((_, i) => (
