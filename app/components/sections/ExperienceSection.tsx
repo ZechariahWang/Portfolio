@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { experiences } from '../data/experiences'
+import { experiences } from '../../data/experiences'
 
 const experienceImages: Record<string, string> = {
   'robim technologies':    '/WATonomous.png',
@@ -15,14 +15,14 @@ const experienceImages: Record<string, string> = {
   'twoten robotics':       '/ecl.jpg',
 }
 
-export default function ExperiencePage() {
+export default function ExperienceSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0)
 
   const activeExp = activeIndex !== null ? experiences[activeIndex] : null
   const activeImage = activeExp ? (experienceImages[activeExp.company] ?? null) : null
 
   return (
-    <main
+    <section
       className="bg-background"
       style={{ height: '100dvh', paddingTop: '3.5rem', overflow: 'hidden', position: 'relative' }}
     >
@@ -115,7 +115,8 @@ export default function ExperiencePage() {
         >
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
             className="text-[clamp(28px,5vw,60px)] font-bold leading-[1.05] tracking-tight text-foreground mb-10 text-right italic"
             style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
@@ -131,7 +132,8 @@ export default function ExperiencePage() {
                 <motion.button
                   key={i}
                   initial={{ opacity: 0, x: 24 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   whileHover={{ x: -6 }}
                   transition={{
                     opacity: { duration: 0.4, delay: 0.08 + i * 0.06, ease: [0.65, 0, 0.35, 1] },
@@ -229,6 +231,6 @@ export default function ExperiencePage() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   )
 }

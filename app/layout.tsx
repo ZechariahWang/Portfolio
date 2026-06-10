@@ -3,8 +3,6 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
-import { projects } from "./data/projects";
-import { NavigationProvider } from "./components/NavigationContext";
 import ImagePreloader from "./components/ImagePreloader";
 import "./globals.css";
 
@@ -28,11 +26,9 @@ export default function RootLayout({
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider>
-          <NavigationProvider>
-            <ImagePreloader />
-            <Navbar />
-            {children}
-          </NavigationProvider>
+          <ImagePreloader />
+          <Navbar />
+          {children}
         </ThemeProvider>
       </body>
     </html>

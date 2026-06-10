@@ -1,23 +1,49 @@
 'use client'
 
-import React from 'react'
-import { usePathname } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 import { projects } from '../data/projects'
-import { useNavigation } from './NavigationContext'
 
 const navItems = [
-  { href: '/', label: 'home' },
-  { href: '/about', label: 'about' },
-  { href: '/experience', label: 'experience' },
-  { href: '/projects', label: 'projects' },
+  { id: 'home', label: 'home' },
+  { id: 'about', label: 'about' },
+  { id: 'experience', label: 'experience' },
+  { id: 'projects', label: 'projects' },
 ]
 
-const Navbar = () => {
-  const { navigate } = useNavigation()
-  const pathname = usePathname()
+// Document offset of a section's anchor. Anchors are static zero-height divs,
+// so their rects are reliable even while sections are pinned (sticky).
+const anchorTop = (id: string) => {
+  const el = document.getElementById(id)
+  return el ? el.getBoundingClientRect().top + window.scrollY : 0
+}
 
-  const isProjectDetail = pathname.startsWith('/projects/') && pathname !== '/projects'
-  if (isProjectDetail) return null
+const Navbar = () => {
+  const [active, setActive] = useState('home')
+
+  // Scroll spy — the section owning the viewport midline is active.
+  // Sticky-pinned sections never leave the viewport, so an IntersectionObserver
+  // can't track them; compute from scroll position instead.
+  useEffect(() => {
+    const onScroll = () => {
+      const midline = window.scrollY + window.innerHeight / 2
+      let current = navItems[0].id
+      for (const { id } of navItems) {
+        if (anchorTop(id) <= midline) current = id
+      }
+      setActive(current)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
+  const scrollTo = (id: string) => {
+    window.scrollTo({ top: anchorTop(id), behavior: 'smooth' })
+  }
 
   return (
     <>
@@ -33,16 +59,16 @@ const Navbar = () => {
           <div className="flex items-center gap-0.5 md:gap-1">
             {navItems.map((item) => (
               <button
-                key={item.href}
-                onClick={() => navigate(item.href, pathname)}
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
                 onMouseEnter={item.label === 'projects' ? () => {
                   projects.forEach(p => { const img = new Image(); img.src = p.image })
                 } : undefined}
                 className="px-3 md:px-4 py-1.5 rounded-full text-[12px] md:text-[13px] tracking-wide transition-all duration-200 cursor-pointer hover:text-foreground"
                 style={{
-                  color: pathname === item.href ? 'var(--foreground)' : 'var(--muted-foreground)',
-                  background: pathname === item.href ? 'rgb(from var(--foreground) r g b / 0.08)' : 'transparent',
-                  fontWeight: pathname === item.href ? 500 : 400,
+                  color: active === item.id ? 'var(--foreground)' : 'var(--muted-foreground)',
+                  background: active === item.id ? 'rgb(from var(--foreground) r g b / 0.08)' : 'transparent',
+                  fontWeight: active === item.id ? 500 : 400,
                 }}
               >
                 {item.label}

@@ -12,12 +12,12 @@ const skills = [
   { label: 'Product',      tech: 'Davinci Resolve, Figma, Photoshop, Git',                 image: '/embedded_.jpg' },
 ]
 
-export default function AboutPage() {
+export default function AboutSection() {
   const [activeSkill, setActiveSkill] = useState<number | null>(0)
   const activeImage = activeSkill !== null ? skills[activeSkill].image : null
 
   return (
-    <main
+    <section
       className="bg-background pt-14"
       style={{ height: '100dvh', overflow: 'hidden', position: 'relative' }}
     >
@@ -107,7 +107,8 @@ export default function AboutPage() {
         <div style={{ maxWidth: '500px', width: '100%' }}>
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
             className="text-[clamp(36px,6vw,64px)] font-bold leading-[1.05] tracking-tight text-foreground mb-8 italic"
             style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
@@ -117,7 +118,8 @@ export default function AboutPage() {
 
           <motion.p
             initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
             className="text-[15px] text-muted-foreground leading-[1.7] mb-4"
           >
@@ -125,7 +127,8 @@ export default function AboutPage() {
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
             className="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em] mb-2"
           >
@@ -139,7 +142,8 @@ export default function AboutPage() {
                 <motion.button
                   key={skill.label}
                   initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   whileHover={{ x: 6 }}
                   transition={{
                     opacity: { duration: 0.4, delay: 0.25 + i * 0.06, ease: [0.65, 0, 0.35, 1] },
@@ -186,6 +190,6 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   )
 }

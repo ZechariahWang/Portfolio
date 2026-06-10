@@ -1,28 +1,37 @@
 'use client'
 
-import React from 'react'
-import Link from 'next/link'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-
-interface Project {
-  id: string
-  title: string
-  description: string
-  technologies: string[]
-  image: string
-  longDescription: string
-  githubUrl: string
-  liveUrl: string
-}
+import type { ProjectDetail } from '../data/projects'
 
 const wormhole = [0.65, 0, 0.35, 1] as const
 
-export default function ProjectDetail({ project }: { project: Project }) {
+export default function ProjectDetailOverlay({ project, onClose }: { project: ProjectDetail; onClose: () => void }) {
   const paragraphs = project.longDescription.split('\n').filter(p => p.trim())
 
+  // Lock the page scroll (html is the scroller) while the overlay is open.
+  useEffect(() => {
+    const prev = document.documentElement.style.overflow
+    document.documentElement.style.overflow = 'hidden'
+    return () => { document.documentElement.style.overflow = prev }
+  }, [])
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
   return (
-    <main className="bg-background pt-12 pb-16" style={{ height: '100dvh', overflowY: 'auto', overflowX: 'hidden', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never, position: 'relative' }}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3, ease: wormhole }}
+      className="bg-background pt-12 pb-16"
+      style={{ position: 'fixed', inset: 0, zIndex: 100, overflowY: 'auto', overflowX: 'hidden', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never }}
+    >
       {/* Background image — blends into site background */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
         <Image
@@ -45,15 +54,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.05, ease: wormhole }}
           >
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-300 mb-10"
+            <button
+              onClick={onClose}
+              className="inline-flex items-center gap-2 text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-300 mb-10 cursor-pointer"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
               </svg>
               Back
-            </Link>
+            </button>
           </motion.div>
 
           {/* Image */}
@@ -150,6 +159,6 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </div>
         </div>
       </div>
-    </main>
+    </motion.div>
   )
 }

@@ -2,10 +2,9 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import BorderGlow from '../components/BorderGlow'
-import { projects } from '../data/projects'
+import BorderGlow from '../BorderGlow'
+import { projects } from '../../data/projects'
 
 const projectColors: Record<string, string[]> = {
   'project-11': ['#3B82F6', '#818CF8', '#38bdf8'],
@@ -18,13 +17,11 @@ const projectColors: Record<string, string[]> = {
   'project-4':  ['#EC4899', '#f472b6', '#c084fc'],
 }
 
-export default function ProjectsPage() {
-  const router = useRouter()
-
+export default function ProjectsSection({ onSelectProject }: { onSelectProject: (id: string) => void }) {
   return (
-    <main className="bg-background pt-14" style={{ height: '100dvh', overflowY: 'auto', overflowX: 'hidden', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never, position: 'relative' }}>
+    <section className="bg-background pt-14" style={{ minHeight: '100dvh', position: 'relative' }}>
       {/* Background image */}
-      <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
         <Image
           src="/gpagain.JPG"
           alt=""
@@ -40,7 +37,8 @@ export default function ProjectsPage() {
       <div className="page-container pt-[6vh] pb-12" style={{ position: 'relative', zIndex: 1 }}>
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
           className="text-[clamp(28px,6vw,64px)] font-bold leading-[1.05] tracking-tight text-foreground mb-10 italic"
         >
@@ -52,9 +50,10 @@ export default function ProjectsPage() {
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: i * 0.06, ease: [0.65, 0, 0.35, 1] }}
-              onClick={() => router.push(`/projects/${project.id}`)}
+              onClick={() => onSelectProject(project.id)}
               style={{ cursor: 'pointer' }}
             >
               <BorderGlow
@@ -127,6 +126,6 @@ export default function ProjectsPage() {
           ))}
         </div>
       </div>
-    </main>
+    </section>
   )
 }
