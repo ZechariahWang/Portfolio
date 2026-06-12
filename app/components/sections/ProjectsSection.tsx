@@ -314,6 +314,30 @@ function ProjectViewer({
         </span>
       </div>
 
+      {/* Desktop prev/next pills */}
+      {hasMultiple && (
+        <>
+          <PillButton
+            onClick={onPrev}
+            label="Previous project"
+            className="max-md:hidden"
+            style={{ position: 'absolute', left: 'clamp(16px, 3vw, 48px)', top: '50%', transform: 'translateY(-50%)', zIndex: 20 }}
+          >
+            <Arrow flipped />
+            PREV
+          </PillButton>
+          <PillButton
+            onClick={onNext}
+            label="Next project"
+            className="max-md:hidden"
+            style={{ position: 'absolute', right: 'clamp(16px, 3vw, 48px)', top: '50%', transform: 'translateY(-50%)', zIndex: 20 }}
+          >
+            NEXT
+            <Arrow />
+          </PillButton>
+        </>
+      )}
+
       {/* Mobile: page scroll is locked, so the viewer scrolls internally */}
       <div
         data-allow-scroll
@@ -422,9 +446,9 @@ function ProjectViewer({
               </button>
             </motion.div>
 
-            {/* Mobile prev/next */}
+            {/* Mobile prev/next — desktop uses the side pills */}
             {hasMultiple && (
-              <motion.div variants={viewerItem} className="flex gap-3 lg:hidden">
+              <motion.div variants={viewerItem} className="flex gap-3 md:hidden">
                 <PillButton onClick={onPrev} label="Previous project">
                   <Arrow flipped />
                   PREV
@@ -435,6 +459,7 @@ function ProjectViewer({
                 </PillButton>
               </motion.div>
             )}
+
           </motion.div>
         </motion.div>
       </AnimatePresence>

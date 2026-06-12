@@ -50,7 +50,7 @@ export const experiences = [
   {
     title: 'principal software engineer',
     company: '210z robotics',
-    period: 'sept 2021 - aug 2024',
+    period: 'sept 2019 - aug 2024',
     description: 'alberta #1 competitive robotics team.',
     skills: ['ros2', 'gazebo', 'mongodb', 'pros'],
     location: 'calgary, ab'
