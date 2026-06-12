@@ -110,8 +110,15 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(36px,6vw,64px)] font-bold leading-[1.05] tracking-tight text-foreground mb-8 italic"
-            style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
+            className="mb-8"
+            style={{
+              fontFamily: 'var(--font-bebas)',
+              fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+              color: 'var(--foreground)',
+              letterSpacing: '0.02em',
+              lineHeight: 1,
+              textTransform: 'uppercase',
+            }}
           >
             ABOUT
           </motion.h1>

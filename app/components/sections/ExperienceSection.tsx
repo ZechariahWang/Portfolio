@@ -118,22 +118,13 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(28px,5vw,60px)]           style={{
-            fontFamily: 'var(--font-bebas)',
-            fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)',
-            color: 'var(--foreground)',
-            letterSpacing: '0.02em',
-            lineHeight: 0.95,
-            margin: 0,
-            textTransform: 'uppercase',
-          }} leading-[1.05] tracking-tight text-foreground mb-10 text-right"
+            className="mb-10 text-right"
             style={{
               fontFamily: 'var(--font-bebas)',
-              fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)',
+              fontSize: 'clamp(3.2rem, 7vw, 6rem)',
               color: 'var(--foreground)',
               letterSpacing: '0.02em',
-              lineHeight: 0.95,
-              margin: 0,
+              lineHeight: 1,
               textTransform: 'uppercase',
             }}
           >
