@@ -165,7 +165,7 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
             marginTop: '0.5rem',
           }}
         >
-          SELECT A CATEGORY.
+          PROJECTS.
         </h1>
       </motion.div>
 

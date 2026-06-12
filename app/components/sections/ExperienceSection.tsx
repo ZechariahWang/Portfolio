@@ -6,13 +6,13 @@ import Image from 'next/image'
 import { experiences } from '../../data/experiences'
 
 const experienceImages: Record<string, string> = {
-  'robim technologies':    '/projects/WATonomous.png',
+  'robim technologies':    '/experience/robim3.png',
   'exia labs':             '/projects/atv.png',
   'twos conversation':     '/experience/twossite2.png',
   'conavi medical':        '/experience/conavi.jpg',
   'university of calgary': '/experience/uofc3.png',
-  'watonomous':            '/projects/WATonomous.png',
-  'twoten robotics':       '/projects/ecl.jpg',
+  'watonomous':            '/projects/wato.jpg',
+  '210z robotics':       '/projects/ecl.jpg',
 }
 
 export default function ExperienceSection() {
@@ -110,26 +110,34 @@ export default function ExperienceSection() {
       {/* Right: experience list */}
       <div className="relative z-[1] h-full flex flex-col items-center md:items-end">
         <div
-          className="w-full md:w-1/2 h-full overflow-y-auto flex flex-col justify-center"
+          data-allow-scroll
+          className="w-full md:w-1/2 h-full overflow-y-auto flex flex-col justify-start md:justify-center overscroll-contain md:overscroll-auto"
           style={{ padding: '6vh clamp(1.5rem, 6vw, 5rem) 4vh clamp(1.5rem, 2rem, 2rem)' }}
         >
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
             className="mb-10 text-right"
-            style={{
-              fontFamily: 'var(--font-bebas)',
-              fontSize: 'clamp(3.2rem, 7vw, 6rem)',
-              color: 'var(--foreground)',
-              letterSpacing: '0.02em',
-              lineHeight: 1,
-              textTransform: 'uppercase',
-            }}
           >
-            EXPERIENCE
-          </motion.h1>
+            <span className="font-mono uppercase" style={{ color: 'var(--muted-foreground)', fontSize: '0.85rem', letterSpacing: '0.2em' }}>
+              03 — Experience
+            </span>
+            <h1
+              style={{
+                fontFamily: 'var(--font-bebas)',
+                fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+                color: 'var(--foreground)',
+                letterSpacing: '0.02em',
+                lineHeight: 1,
+                textTransform: 'uppercase',
+                marginTop: '0.5rem',
+              }}
+            >
+              EXPERIENCE
+            </h1>
+          </motion.div>
 
           <div>
             {experiences.map((exp, i) => {

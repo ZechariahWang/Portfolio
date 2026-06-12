@@ -32,10 +32,12 @@
   --color-ring: var(--ring);
 }
 
-/* The page only ever moves vertically — no sideways panning or overflow. */
+/* The page only ever moves vertically — no sideways panning or overflow.
+   clip (not hidden) — hidden would create a scroll container and break the
+   position: sticky section stacking. */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   overscroll-behavior-x: none;
 }
 

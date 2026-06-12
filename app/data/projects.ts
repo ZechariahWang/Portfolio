@@ -17,21 +17,21 @@ export const projectCategories: ProjectCategory[] = [
     label: 'Robotics',
     description: 'Autonomous systems, control, and hardware.',
     accent: '#38BDF8',
-    background: '/backgrounds/GP_TWO.JPG'
+    background: '/backgrounds/robot_option_1.jpg'
   },
   {
     key: 'fullstack',
     label: 'Fullstack',
     description: 'Web platforms, products, and tooling.',
     accent: '#34D399',
-    background: '/backgrounds/WestMechPhoto.jpg'
+    background: '/backgrounds/award.jpg'
   },
   {
     key: 'ai',
     label: 'AI / ML',
     description: 'Intelligent agents, models, and simulation.',
     accent: '#C084FC',
-    background: '/projects/WATonomous.png'
+    background: '/backgrounds/project_option_1.jpg'
   },
 ]
 

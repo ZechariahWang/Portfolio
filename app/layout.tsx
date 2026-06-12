@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import MobileScrollLock from "./components/MobileScrollLock";
+import SnapScroll from "./components/SnapScroll";
 import ImagePreloader from "./components/ImagePreloader";
 import "./globals.css";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider>
           <MobileScrollLock />
+          <SnapScroll />
           <ImagePreloader />
           <Navbar />
           {children}

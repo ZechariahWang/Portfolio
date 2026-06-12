@@ -8,8 +8,8 @@ const skills = [
   { label: 'Robotics',     tech: 'ROS2, Linux, Docker, Microcontrollers, SoC',             image: '/about/cachedImage.png' },
   { label: 'AI & ML',      tech: 'PyTorch, OpenCV, SB3, PyBullet, Gymnasium',              image: '/about/eclipse.jpg' },
   { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET, Node.js',                  image: '/about/second.JPG' },
-  { label: 'CAD',          tech: 'Blender, SolidWorks, AutoCAD',                           image: '/about/embedded_.jpg' },
-  { label: 'Product',      tech: 'Davinci Resolve, Figma, Photoshop, Git',                 image: '/about/embedded_.jpg' },
+  { label: 'CAD',          tech: 'Blender, SolidWorks, AutoCAD',                           image: '/about/embedded_.jpg' }
+  // { label: 'Product',      tech: 'Davinci Resolve, Figma, Photoshop, Git',                 image: '/about/embedded_.jpg' },
 ]
 
 export default function AboutSection() {
@@ -105,23 +105,30 @@ export default function AboutSection() {
       {/* Left: content */}
       <div className="relative z-[1] h-full flex items-center justify-center md:justify-start px-6 md:pl-20 md:pr-0">
         <div style={{ maxWidth: '500px', width: '100%' }}>
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
             className="mb-8"
-            style={{
-              fontFamily: 'var(--font-bebas)',
-              fontSize: 'clamp(3.2rem, 7vw, 6rem)',
-              color: 'var(--foreground)',
-              letterSpacing: '0.02em',
-              lineHeight: 1,
-              textTransform: 'uppercase',
-            }}
           >
-            ABOUT
-          </motion.h1>
+            <span className="font-mono uppercase" style={{ color: 'var(--muted-foreground)', fontSize: '0.85rem', letterSpacing: '0.2em' }}>
+              02 — About
+            </span>
+            <h1
+              style={{
+                fontFamily: 'var(--font-bebas)',
+                fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+                color: 'var(--foreground)',
+                letterSpacing: '0.02em',
+                lineHeight: 1,
+                textTransform: 'uppercase',
+                marginTop: '0.5rem',
+              }}
+            >
+              ABOUT
+            </h1>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 8 }}

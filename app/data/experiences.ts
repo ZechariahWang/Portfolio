@@ -17,14 +17,6 @@ export const experiences = [
   },
   {
     title: 'software engineer intern',
-    company: 'twos conversation',
-    period: 'sept 2025 - dec 2025',
-    description: 'ai-agents for real time communication protocols.',
-    skills: ['next.js', 'aws', 'postgresql', 'redis'],
-    location: 'new york, ny'
-  },
-  {
-    title: 'software engineer intern',
     company: 'conavi medical',
     period: 'jan 2025 - april 2025',
     description: 'medical devices for cardiac procedures.',
@@ -40,16 +32,24 @@ export const experiences = [
     location: 'calgary, ab'
   },
   {
-    title: 'software engineer',
+    title: 'robotics software engineer',
     company: 'watonomous',
-    period: 'jan 2025 - present',
+    period: 'May 2025 - Aug 2025',
     description: 'ai for autonomous self-driving vehicles.',
     skills: ['docker', 'ros2', 'linux', 'foxglove'],
     location: 'waterloo, on'
   },
   {
+    title: 'software engineer intern',
+    company: 'twos conversation',
+    period: 'sept 2025 - dec 2025',
+    description: 'ai-agents for real time communication protocols.',
+    skills: ['next.js', 'aws', 'postgresql', 'redis'],
+    location: 'new york, ny'
+  },
+  {
     title: 'principal software engineer',
-    company: 'twoten robotics',
+    company: '210z robotics',
     period: 'sept 2021 - aug 2024',
     description: 'alberta #1 competitive robotics team.',
     skills: ['ros2', 'gazebo', 'mongodb', 'pros'],
