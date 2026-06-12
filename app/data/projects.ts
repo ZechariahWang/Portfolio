@@ -1,59 +1,106 @@
-export const projects = [
+export type ProjectType = 'robotics' | 'fullstack' | 'ai'
+
+export interface ProjectCategory {
+  key: ProjectType
+  label: string
+  description: string
+  accent: string
+}
+
+export const projectCategories: ProjectCategory[] = [
+  {
+    key: 'robotics',
+    label: 'Robotics',
+    description: 'Autonomous systems, control, and hardware.',
+    accent: '#38BDF8'
+  },
+  {
+    key: 'fullstack',
+    label: 'Fullstack',
+    description: 'Web platforms, products, and tooling.',
+    accent: '#34D399'
+  },
+  {
+    key: 'ai',
+    label: 'AI / ML',
+    description: 'Intelligent agents, models, and simulation.',
+    accent: '#C084FC'
+  },
+]
+
+export interface Project {
+  id: string
+  title: string
+  description: string
+  technologies: string[]
+  image: string
+  type: ProjectType
+}
+
+export const projects: Project[] = [
   {
     id: 'project-11',
     title: 'Argus',
     description: 'Autonomous unmanned ground vehicle acquired by Exia Labs (a16z).',
     technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson', 'Velodyne LiDAR', 'Anduril Lattice', 'TAK'],
-    image: '/atv.png'
+    image: '/atv.png',
+    type: 'robotics'
   },
   {
     id: 'project-2',
     title: 'Eclipse',
     description: 'Intelligent robotics framework for VEX autonomous systems.',
     technologies: ['ROS2', 'Gazebo', 'Pros'],
-    image: '/ecl.jpg'
+    image: '/ecl.jpg',
+    type: 'robotics'
   },
   {
     id: 'project-6',
     title: 'AI Self-Driving Car Sim',
     description: 'Real-time optimal path planning for an autonomous vehicle.',
     technologies: ['ROS2', 'Docker', 'Foxglove'],
-    image: '/aicaryes.png'
+    image: '/aicaryes.png',
+    type: 'ai'
   },
   {
     id: 'project-9',
     title: 'Google Girl Powered Robotics',
     description: 'Redefining robotics education for women in STEM.',
     technologies: ['ROS2', 'Gazebo', 'Pros'],
-    image: '/gpagain.JPG'
+    image: '/gpagain.JPG',
+    type: 'robotics'
   },
   {
     id: 'project-1',
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
     technologies: ['ROS2', 'Next.js', 'MongoDB'],
-    image: '/WMLOGO__.png'
+    image: '/WMLOGO__.png',
+    type: 'fullstack'
   },
   {
     id: 'project-3',
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics competition.',
     technologies: ['Python', 'Next.js', 'React'],
-    image: '/Mecha.png'
+    image: '/Mecha.png',
+    type: 'fullstack'
   },
   {
     id: 'project-8',
     title: 'Concludely AI',
     description: 'AI Powered Journaling App.',
     technologies: ['React Native', 'AWS S3', 'LangChain'],
-    image: '/conc.png'
+    image: '/conc.png',
+    type: 'ai'
   },
   {
     id: 'project-4',
     title: 'Nova AI',
     description: 'Personal AI interview voice agent for interviews.',
     technologies: ['Next.js', 'Firebase', 'Vapi', 'Gemini'],
-    image: '/nova.png'
+    image: '/nova.png',
+    type: 'ai'
   },
   // {
   //   id: 'project-7',
