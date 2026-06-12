@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
+import MobileScrollLock from "./components/MobileScrollLock";
 import ImagePreloader from "./components/ImagePreloader";
 import "./globals.css";
 
@@ -29,11 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${bebasNeue.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/dotlol2.png" type="image/png" />
+        <link rel="icon" href="/branding/dotlol2.png" type="image/png" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider>
+          <MobileScrollLock />
           <ImagePreloader />
           <Navbar />
           {children}

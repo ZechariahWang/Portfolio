@@ -139,7 +139,13 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
   return (
     <div style={{ position: 'relative' }}>
       <BackgroundImage src={projectsBackground} />
-      <div className="page-container pt-[6vh] pb-12 flex flex-col justify-center" style={{ minHeight: '100dvh', position: 'relative', zIndex: 1 }}>
+      {/* Mobile: page scroll is locked, so the overview scrolls internally */}
+      <div
+        data-allow-scroll
+        className="h-[calc(100dvh-3.5rem)] overflow-y-auto md:h-auto md:overflow-visible"
+        style={{ position: 'relative', zIndex: 1, overscrollBehavior: 'contain' }}
+      >
+      <div className="page-container pt-[6vh] pb-12 flex flex-col justify-center" style={{ minHeight: '100dvh' }}>
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -176,6 +182,7 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
             onSelect={onSelect}
           />
         ))}
+      </div>
       </div>
       </div>
     </div>
@@ -257,7 +264,7 @@ function ProjectViewer({
   const hasMultiple = categoryProjects.length > 1
 
   return (
-    <div className="relative flex flex-col justify-center" style={{ minHeight: '100dvh', overflow: 'hidden' }}>
+    <div className="relative" style={{ minHeight: '100dvh', overflow: 'hidden' }}>
       {/* Background follows the selected project */}
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
@@ -307,35 +314,17 @@ function ProjectViewer({
         </span>
       </div>
 
-      {/* Desktop prev/next pills */}
-      {hasMultiple && (
-        <>
-          <PillButton
-            onClick={onPrev}
-            label="Previous project"
-            className="hidden lg:inline-flex"
-            style={{ position: 'absolute', left: 'clamp(16px, 3vw, 48px)', top: '50%', transform: 'translateY(-50%)', zIndex: 20 }}
-          >
-            <Arrow flipped />
-            PREV
-          </PillButton>
-          <PillButton
-            onClick={onNext}
-            label="Next project"
-            className="hidden lg:inline-flex"
-            style={{ position: 'absolute', right: 'clamp(16px, 3vw, 48px)', top: '50%', transform: 'translateY(-50%)', zIndex: 20 }}
-          >
-            NEXT
-            <Arrow />
-          </PillButton>
-        </>
-      )}
-
+      {/* Mobile: page scroll is locked, so the viewer scrolls internally */}
+      <div
+        data-allow-scroll
+        className="h-[calc(100dvh-3.5rem)] overflow-y-auto md:h-auto md:min-h-dvh md:overflow-visible flex flex-col md:justify-center"
+        style={{ position: 'relative', zIndex: 10, overscrollBehavior: 'contain' }}
+      >
       <AnimatePresence mode="wait" initial={false} custom={direction}>
         <motion.div
           key={project.id}
           className="page-container grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center pt-36 pb-16 lg:py-0"
-          style={{ position: 'relative', zIndex: 10 }}
+          style={{ position: 'relative' }}
           initial={{ opacity: 0, x: 40 * direction }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -40 * direction }}
@@ -449,6 +438,7 @@ function ProjectViewer({
           </motion.div>
         </motion.div>
       </AnimatePresence>
+      </div>
     </div>
   )
 }

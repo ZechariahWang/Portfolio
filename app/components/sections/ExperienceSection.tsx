@@ -6,13 +6,13 @@ import Image from 'next/image'
 import { experiences } from '../../data/experiences'
 
 const experienceImages: Record<string, string> = {
-  'robim technologies':    '/WATonomous.png',
-  'exia labs':             '/atv.png',
-  'twos conversation':     '/twossite2.png',
-  'conavi medical':        '/conavi.jpg',
-  'university of calgary': '/uofc3.png',
-  'watonomous':            '/WATonomous.png',
-  'twoten robotics':       '/ecl.jpg',
+  'robim technologies':    '/projects/WATonomous.png',
+  'exia labs':             '/projects/atv.png',
+  'twos conversation':     '/experience/twossite2.png',
+  'conavi medical':        '/experience/conavi.jpg',
+  'university of calgary': '/experience/uofc3.png',
+  'watonomous':            '/projects/WATonomous.png',
+  'twoten robotics':       '/projects/ecl.jpg',
 }
 
 export default function ExperienceSection() {

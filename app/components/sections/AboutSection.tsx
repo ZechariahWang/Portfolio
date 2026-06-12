@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
 const skills = [
-  { label: 'Robotics',     tech: 'ROS2, Linux, Docker, Microcontrollers, SoC',             image: '/cachedImage.png' },
-  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, SB3, PyBullet, Gymnasium',              image: '/eclipse.jpg' },
-  { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET, Node.js',                  image: '/second.JPG' },
-  { label: 'CAD',          tech: 'Blender, SolidWorks, AutoCAD',                           image: '/embedded_.jpg' },
-  { label: 'Product',      tech: 'Davinci Resolve, Figma, Photoshop, Git',                 image: '/embedded_.jpg' },
+  { label: 'Robotics',     tech: 'ROS2, Linux, Docker, Microcontrollers, SoC',             image: '/about/cachedImage.png' },
+  { label: 'AI & ML',      tech: 'PyTorch, OpenCV, SB3, PyBullet, Gymnasium',              image: '/about/eclipse.jpg' },
+  { label: 'Fullstack',    tech: 'React, AWS, PostgreSQL, .NET, Node.js',                  image: '/about/second.JPG' },
+  { label: 'CAD',          tech: 'Blender, SolidWorks, AutoCAD',                           image: '/about/embedded_.jpg' },
+  { label: 'Product',      tech: 'Davinci Resolve, Figma, Photoshop, Git',                 image: '/about/embedded_.jpg' },
 ]
 
 export default function AboutSection() {

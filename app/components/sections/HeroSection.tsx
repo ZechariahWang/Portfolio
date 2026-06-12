@@ -94,7 +94,7 @@ const HeroSection = () => {
           zIndex: 0,
         }}
       >
-        <source src="/back.mp4" type="video/mp4" />
+        <source src="/media/back.mp4" type="video/mp4" />
       </video>
       <div className="page-container flex-1" style={{ position: 'relative', zIndex: 1 }}>
         {/* Name stays fixed at the hero's vertical center; secondary content is

@@ -56,9 +56,6 @@ const anchorTop = (id: string) => {
 const Navbar = () => {
   const [active, setActive] = useState('home')
   const [expanded, setExpanded] = useState(false)
-  // True only once the nav items' collapse animation has fully finished —
-  // the time/icon (hidden on mobile while the menu is out) wait on this.
-  const [menuExited, setMenuExited] = useState(true)
   const [dotsHovered, setDotsHovered] = useState(false)
   const [time, setTime] = useState('--:--:--')
   const [isDay, setIsDay] = useState<boolean | null>(null)
@@ -106,10 +103,7 @@ const Navbar = () => {
   }, [])
 
   const toggleExpanded = () => {
-    setExpanded(v => {
-      if (!v) setMenuExited(false)
-      return !v
-    })
+    setExpanded(v => !v)
   }
 
   const scrollTo = (id: string) => {
@@ -132,7 +126,7 @@ const Navbar = () => {
           {/* Location + local time — time/icon yield to the nav items on mobile */}
           <div className="flex items-center gap-1.5 md:gap-2 pl-2 pr-1 py-1.5 text-[11px] md:text-[13px] tracking-wide whitespace-nowrap">
             <span className="text-foreground font-medium">canada</span>
-            <div className={`${expanded || !menuExited ? 'hidden md:flex' : 'flex'} items-center gap-1.5 md:gap-2`}>
+            <div className="hidden md:flex items-center gap-1.5 md:gap-2">
               <span className="text-muted-foreground" style={{ fontVariantNumeric: 'tabular-nums' }}>
                 {time}
               </span>
@@ -145,7 +139,7 @@ const Navbar = () => {
           </div>
 
           {/* Nav items — revealed when the menu is expanded */}
-          <AnimatePresence initial={false} onExitComplete={() => setMenuExited(true)}>
+          <AnimatePresence initial={false}>
             {expanded && (
               <motion.div
                 key="items"
