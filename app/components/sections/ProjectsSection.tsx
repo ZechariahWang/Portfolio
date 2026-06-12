@@ -3,9 +3,25 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
-import { projects, projectCategories, ProjectCategory, ProjectType } from '../../data/projects'
+import { projects, projectCategories, projectsBackground, ProjectCategory, ProjectType } from '../../data/projects'
 
 const EASE = [0.22, 1, 0.36, 1] as const
+
+function BackgroundImage({ src }: { src: string }) {
+  return (
+    <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
+      <Image
+        src={src}
+        alt=""
+        fill
+        sizes="100vw"
+        style={{ objectFit: 'cover', filter: 'brightness(0.22) saturate(0.5)' }}
+      />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--background) 0%, transparent 40%, transparent 60%, var(--background) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, var(--background) 0%, transparent 20%, transparent 70%, var(--background) 100%)' }} />
+    </div>
+  )
+}
 
 function titleFontSize(len: number) {
   if (len <= 6) return 'clamp(4rem, 15vw, 13rem)'
@@ -42,13 +58,30 @@ function CategoryTile({
       style={{
         minHeight: 'clamp(340px, 52vh, 520px)',
         padding: '2rem',
-        background: hovered ? `${category.accent}0d` : 'var(--background)',
+        background: 'rgb(10 10 10 / 0.45)',
         cursor: 'pointer',
         overflow: 'hidden',
-        transition: 'background 0.4s ease, transform 0.4s ease',
+        transition: 'transform 0.4s ease',
         transform: hovered ? 'scale(1.005)' : 'scale(1)',
       }}
     >
+      {/* Tile background image */}
+      <div aria-hidden="true" style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+        <Image
+          src={category.background}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          style={{
+            objectFit: 'cover',
+            filter: hovered ? 'brightness(0.45) saturate(0.8)' : 'brightness(0.25) saturate(0.6)',
+            transform: hovered ? 'scale(1.04)' : 'scale(1)',
+            transition: 'filter 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+          }}
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgb(10 10 10 / 0.85) 0%, rgb(10 10 10 / 0.25) 55%, rgb(10 10 10 / 0.55) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: hovered ? `${category.accent}14` : 'transparent', transition: 'background 0.4s ease' }} />
+      </div>
       <div
         aria-hidden="true"
         style={{
@@ -61,9 +94,10 @@ function CategoryTile({
           transformOrigin: 'left center',
           transform: hovered ? 'scaleX(1)' : 'scaleX(0)',
           transition: 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+          zIndex: 2,
         }}
       />
-      <div className="font-mono" style={{ display: 'flex', alignItems: 'baseline', gap: '0.7rem', fontSize: '0.8rem', letterSpacing: '0.18em' }}>
+      <div className="font-mono" style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'baseline', gap: '0.7rem', fontSize: '0.8rem', letterSpacing: '0.18em' }}>
         <span style={{ color: 'var(--muted-foreground)', opacity: 0.6 }}>
           {String(index + 1).padStart(2, '0')}
         </span>
@@ -71,7 +105,7 @@ function CategoryTile({
           {count} {count === 1 ? 'item' : 'items'}
         </span>
       </div>
-      <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem' }}>
+      <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem', zIndex: 1 }}>
         <h3
           style={{
             fontFamily: 'var(--font-bebas)',
@@ -103,7 +137,9 @@ function CategoryTile({
 
 function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }) {
   return (
-    <div className="page-container pt-[6vh] pb-12 flex flex-col justify-center" style={{ minHeight: '100dvh' }}>
+    <div style={{ position: 'relative' }}>
+      <BackgroundImage src={projectsBackground} />
+      <div className="page-container pt-[6vh] pb-12 flex flex-col justify-center" style={{ minHeight: '100dvh', position: 'relative', zIndex: 1 }}>
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +163,10 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
         </h1>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-px border border-border bg-border">
+      <div
+        className="grid grid-cols-1 md:grid-cols-3 gap-[2px] border"
+        style={{ background: 'rgb(255 255 255 / 0.18)', borderColor: 'rgb(255 255 255 / 0.18)' }}
+      >
         {projectCategories.map((category, i) => (
           <CategoryTile
             key={category.key}
@@ -137,6 +176,7 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
             onSelect={onSelect}
           />
         ))}
+      </div>
       </div>
     </div>
   )
@@ -218,6 +258,20 @@ function ProjectViewer({
 
   return (
     <div className="relative flex flex-col justify-center" style={{ minHeight: '100dvh', overflow: 'hidden' }}>
+      {/* Background follows the selected project */}
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={project.image}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}
+        >
+          <BackgroundImage src={project.image} />
+        </motion.div>
+      </AnimatePresence>
+
       {/* Ghost watermark */}
       <div
         aria-hidden="true"

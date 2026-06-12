@@ -5,26 +5,33 @@ export interface ProjectCategory {
   label: string
   description: string
   accent: string
+  background: string
 }
+
+// Background shown behind the category-selection (overview) screen.
+export const projectsBackground = '/gpagain.JPG'
 
 export const projectCategories: ProjectCategory[] = [
   {
     key: 'robotics',
     label: 'Robotics',
     description: 'Autonomous systems, control, and hardware.',
-    accent: '#38BDF8'
+    accent: '#38BDF8',
+    background: '/GP_TWO.JPG'
   },
   {
     key: 'fullstack',
     label: 'Fullstack',
     description: 'Web platforms, products, and tooling.',
-    accent: '#34D399'
+    accent: '#34D399',
+    background: '/WestMechPhoto.jpg'
   },
   {
     key: 'ai',
     label: 'AI / ML',
     description: 'Intelligent agents, models, and simulation.',
-    accent: '#C084FC'
+    accent: '#C084FC',
+    background: '/WATonomous.png'
   },
 ]
 
