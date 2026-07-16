@@ -17,7 +17,7 @@ export const projectCategories: ProjectCategory[] = [
     label: 'Robotics',
     description: 'Autonomous systems, control, and hardware.',
     accent: '#38BDF8',
-    background: '/backgrounds/robot_option_1.jpg'
+    background: '/projects/frat.jpg'
   },
   {
     key: 'fullstack',
@@ -31,7 +31,7 @@ export const projectCategories: ProjectCategory[] = [
     label: 'AI / ML',
     description: 'Intelligent agents, models, and simulation.',
     accent: '#C084FC',
-    background: '/backgrounds/project_option_1.jpg'
+    background: '/projects/gp.jpg'
   },
 ]
 
@@ -47,7 +47,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'project-11',
-    title: 'Argus',
+    title: 'Argus UGV (a16z)',
     description: 'Autonomous unmanned ground vehicle acquired by Exia Labs (a16z).',
     technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson', 'Velodyne LiDAR', 'Anduril Lattice', 'TAK'],
     image: '/projects/atv.png',
@@ -55,7 +55,7 @@ export const projects: Project[] = [
   },
   {
     id: 'project-2',
-    title: 'Eclipse',
+    title: 'Eclipse Robotics',
     description: 'Intelligent robotics framework for VEX autonomous systems.',
     technologies: ['ROS2', 'Gazebo', 'Pros'],
     image: '/projects/ecl.jpg',
@@ -71,10 +71,10 @@ export const projects: Project[] = [
   },
   {
     id: 'project-9',
-    title: 'Google Girl Powered Robotics',
-    description: 'Redefining robotics education for women in STEM.',
+    title: 'Google GP Robotics Library',
+    description: 'Minimal sensor autonomous robotics framework',
     technologies: ['ROS2', 'Gazebo', 'Pros'],
-    image: '/projects/gpagain.JPG',
+    image: '/projects/gp.jpg',
     type: 'robotics'
   },
   {
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
     technologies: ['ROS2', 'Next.js', 'MongoDB'],
-    image: '/projects/WMLOGO__.png',
+    image: '/projects/image_2.avif',
     type: 'fullstack'
   },
   {
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     title: 'Mecha Mayhem',
     description: 'Canada\'s largest robotics competition.',
     technologies: ['Python', 'Next.js', 'React'],
-    image: '/projects/Mecha.png',
+    image: '/projects/maxresdefault.jpg',
     type: 'fullstack'
   },
   {
@@ -99,13 +99,21 @@ export const projects: Project[] = [
     description: 'AI Powered Journaling App.',
     technologies: ['React Native', 'AWS S3', 'LangChain'],
     image: '/projects/conc.png',
-    type: 'ai'
+    type: 'fullstack'
   },
   {
     id: 'project-4',
     title: 'Nova AI',
     description: 'Personal AI interview voice agent for interviews.',
     technologies: ['Next.js', 'Firebase', 'Vapi', 'Gemini'],
+    image: '/projects/nova.png',
+    type: 'fullstack'
+  },
+  {
+    id: 'project-12',
+    title: 'SAC MTP Algorithm',
+    description: 'SAC feedback algorithm controller',
+    technologies: ['PyBullet', 'StableBaseline3', 'Gymnasium'],
     image: '/projects/nova.png',
     type: 'ai'
   },
