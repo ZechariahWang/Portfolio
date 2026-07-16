@@ -93,22 +93,22 @@ export const projects: Project[] = [
     image: '/projects/maxresdefault.jpg',
     type: 'fullstack'
   },
-  {
-    id: 'project-8',
-    title: 'Concludely AI',
-    description: 'AI Powered Journaling App.',
-    technologies: ['React Native', 'AWS S3', 'LangChain'],
-    image: '/projects/conc.png',
-    type: 'fullstack'
-  },
-  {
-    id: 'project-4',
-    title: 'Nova AI',
-    description: 'Personal AI interview voice agent for interviews.',
-    technologies: ['Next.js', 'Firebase', 'Vapi', 'Gemini'],
-    image: '/projects/nova.png',
-    type: 'fullstack'
-  },
+  // {
+  //   id: 'project-8',
+  //   title: 'Concludely AI',
+  //   description: 'AI Powered Journaling App.',
+  //   technologies: ['React Native', 'AWS S3', 'LangChain'],
+  //   image: '/projects/conc.png',
+  //   type: 'fullstack'
+  // },
+  // {
+  //   id: 'project-4',
+  //   title: 'Nova AI',
+  //   description: 'Personal AI interview voice agent for interviews.',
+  //   technologies: ['Next.js', 'Firebase', 'Vapi', 'Gemini'],
+  //   image: '/projects/nova.png',
+  //   type: 'fullstack'
+  // },
   {
     id: 'project-12',
     title: 'SAC MTP Algorithm',
