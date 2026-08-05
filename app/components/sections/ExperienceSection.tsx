@@ -127,15 +127,20 @@ export default function ExperienceSection() {
             <h1
               style={{
                 fontFamily: 'var(--font-bebas)',
-                fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+                fontSize: 'clamp(3.6rem, 8vw, 7rem)',
                 color: 'var(--foreground)',
                 letterSpacing: '0.02em',
                 lineHeight: 1,
                 textTransform: 'uppercase',
-                marginTop: '0.5rem',
-              }}
+                marginTop: '1.1rem',
+                transform: 'scaleX(1.15) scaleY(1.3)',
+                transformOrigin: 'top right',
+                marginBottom: '0.22em',
+                WebkitTextStroke: '0.01em currentColor',
+                textBox: 'trim-both cap alphabetic',
+              } as React.CSSProperties}
             >
-              EXPERIENCE
+              EXPERIENCE.
             </h1>
           </motion.div>
 

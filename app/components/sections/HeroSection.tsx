@@ -1,62 +1,9 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
-// Blinking text cursor used by the typewriter effect.
-const Caret = () => (
-  <motion.span
-    aria-hidden
-    animate={{ opacity: [1, 1, 0, 0] }}
-    transition={{ duration: 1, repeat: Infinity, ease: 'linear', times: [0, 0.5, 0.5, 1] }}
-    style={{ marginLeft: '0.05em', fontWeight: 400 }}
-  >
-    |
-  </motion.span>
-)
-
-// Types a string out one character at a time once `start` becomes true.
-const Typewriter = ({
-  text,
-  speed = 45,
-  start,
-  showCaret,
-  onDone,
-}: {
-  text: string
-  speed?: number
-  start: boolean
-  showCaret: boolean
-  onDone?: () => void
-}) => {
-  const [out, setOut] = useState('')
-  const onDoneRef = useRef(onDone)
-  onDoneRef.current = onDone
-
-  useEffect(() => {
-    if (!start) return
-    setOut('')
-    let i = 0
-    const id = setInterval(() => {
-      i++
-      setOut(text.slice(0, i))
-      if (i >= text.length) {
-        clearInterval(id)
-        onDoneRef.current?.()
-      }
-    }, speed)
-    return () => clearInterval(id)
-  }, [text, speed, start])
-
-  return (
-    <>
-      {out}
-      {showCaret && <Caret />}
-    </>
-  )
-}
-
-// Lines of the secondary text, revealed (faded in) after the name finishes typing.
+// Lines of the secondary text (currently disabled along with the block below).
 const secondaryLines: { text: string; className: string; style?: React.CSSProperties }[] = [
   {
     text: 'mechatronics engineering student @uwaterloo',
@@ -69,14 +16,6 @@ const secondaryLines: { text: string; className: string; style?: React.CSSProper
 ]
 
 const HeroSection = () => {
-  const [showSecondary, setShowSecondary] = useState(false)
-  const [nameDone, setNameDone] = useState(false)
-
-  const handleNameDone = () => {
-    setNameDone(true)
-    setTimeout(() => setShowSecondary(true), 500)
-  }
-
   return (
     <section className="page-hero bg-background" style={{ position: 'relative', overflow: 'hidden' }}>
       <video
@@ -98,32 +37,30 @@ const HeroSection = () => {
       </video>
       <div className="page-container flex-1" style={{ position: 'relative', zIndex: 1 }}>
         {/* Name stays fixed at the hero's vertical center; secondary content is
-            absolutely positioned beneath it so it can't push the name. */}
-        <div className="absolute inset-0 flex items-center justify-center px-12 text-center">
-          <div className="relative">
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.1, ease: [0.65, 0, 0.35, 1] }}
-            className="text-[clamp(64px,14vw,140px)] font-bold leading-[0.95] tracking-tight text-foreground"
-            style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif', minHeight: '0.95em' }}
+            pinned to the hero's bottom so the stretched name can't push it. */}
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Typewriter
-              text="ZECHARIAH WANG"
-              speed={50}
-              start
-              showCaret={!nameDone}
-              onDone={handleNameDone}
-            />
-          </motion.h1>
+          <h1
+            className="text-[29vw] leading-[0.9] tracking-tight text-foreground whitespace-nowrap"
+            // ponytail: fixed vertical stretch tuned for ~16:9 screens; swap to an SVG with preserveAspectRatio="none" if odd aspect ratios matter
+            // ponytail: text-box trims the glyph box to cap height so flex centering is exact; Chrome/Safari only, Firefox falls back to slightly-high text
+            style={{ fontFamily: 'var(--font-bebas-neue), system-ui, sans-serif', transform: 'scaleY(1.5)', WebkitTextStroke: '0.015em currentColor', textBox: 'trim-both cap alphabetic' } as React.CSSProperties}
+          >
+            ZECHARIAH
+          </h1>
+          </motion.div>
 
-          {/* Secondary text + socials fade in together, 1s after the name finishes. */}
-          {showSecondary && (
+          {/* {showSecondary && (
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
-              className="absolute top-full left-1/2 -translate-x-1/2 mt-6 flex flex-col items-center gap-1 whitespace-nowrap"
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 whitespace-nowrap"
             >
               {secondaryLines.map((line, idx) => (
                 <p key={idx} className={line.className} style={line.style}>
@@ -165,8 +102,7 @@ const HeroSection = () => {
             </a>
               </div>
             </motion.div>
-          )}
-          </div>
+          )} */}
         </div>
       </div>
     </section>

@@ -159,11 +159,16 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
         <h1
           style={{
             fontFamily: 'var(--font-bebas)',
-            fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+            fontSize: 'clamp(4rem, 9vw, 8rem)',
             color: 'var(--foreground)',
             lineHeight: 1,
-            marginTop: '0.5rem',
-          }}
+            marginTop: '1.1rem',
+            transform: 'scaleX(1.15) scaleY(1.3)',
+            transformOrigin: 'top left',
+            marginBottom: '0.22em',
+            WebkitTextStroke: '0.01em currentColor',
+            textBox: 'trim-both cap alphabetic',
+          } as React.CSSProperties}
         >
           PROJECTS.
         </h1>

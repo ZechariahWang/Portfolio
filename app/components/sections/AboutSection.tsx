@@ -118,15 +118,21 @@ export default function AboutSection() {
             <h1
               style={{
                 fontFamily: 'var(--font-bebas)',
-                fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+                fontSize: 'clamp(4rem, 9vw, 8rem)',
                 color: 'var(--foreground)',
                 letterSpacing: '0.02em',
                 lineHeight: 1,
                 textTransform: 'uppercase',
-                marginTop: '0.5rem',
-              }}
+                marginTop: '1.1rem',
+                transform: 'scaleX(1.15) scaleY(1.3)',
+                transformOrigin: 'top left',
+                // ponytail: scaleY overflows the layout box by 0.3 x cap height (~0.22em); margin re-creates that clearance
+                marginBottom: '0.45em',
+                WebkitTextStroke: '0.01em currentColor',
+                textBox: 'trim-both cap alphabetic',
+              } as React.CSSProperties}
             >
-              ABOUT
+              ABOUT.
             </h1>
           </motion.div>
 
