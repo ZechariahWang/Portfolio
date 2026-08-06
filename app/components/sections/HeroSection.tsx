@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 const nameClasses = 'text-[29vw] leading-[0.9] tracking-tight text-foreground whitespace-nowrap'
@@ -15,18 +15,23 @@ const nameStyle = {
 } as React.CSSProperties
 
 const HeroSection = () => {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  })
+  // The hero is pinned by StackedSection (position: sticky), so its own
+  // rect never moves and useScroll({ target }) would sit at 0. Progress is
+  // the first viewport-height of raw page scroll instead.
+  const { scrollY } = useScroll()
+  const exitShift = (v: number, factor: number) => {
+    if (typeof window === 'undefined') return 0
+    const vh = window.innerHeight
+    const progress = Math.min(Math.max(v / vh, 0), 1)
+    return progress * vh * factor
+  }
   // Text exits faster than the page, the photo lags behind it — the speed
   // offset between the two layers gives the parallax feel while scrolling.
-  const textY = useTransform(scrollYProgress, [0, 1], ['0vh', '-14vh'])
-  const imgY = useTransform(scrollYProgress, [0, 1], ['0vh', '10vh'])
+  const textY = useTransform(scrollY, (v) => exitShift(v, -0.14))
+  const imgY = useTransform(scrollY, (v) => exitShift(v, 0.1))
 
   return (
-    <section ref={sectionRef} className="page-hero bg-background relative overflow-hidden">
+    <section className="page-hero bg-background relative overflow-hidden">
       {/* Layer order: name behind, photo on top, then the name's lower half
           clipped back in front so the type wraps around the photo. */}
       <motion.div className="absolute inset-0 flex items-center justify-center text-center" style={{ y: textY }}>
