@@ -68,7 +68,11 @@ const HeroSection = () => {
       <motion.div
         aria-hidden
         className="absolute inset-0 flex items-center justify-center text-center pointer-events-none"
-        style={{ clipPath: 'inset(50% 0 0 0)', y: textY }}
+        style={{
+          maskImage: 'linear-gradient(to bottom, transparent 42%, black 58%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 42%, black 58%)',
+          y: textY,
+        }}
       >
         <motion.div
           className={nameClasses}
