@@ -7,6 +7,7 @@ type PreloadImage = { src: string; priority?: boolean }
 // Tier 1 (priority=true): hero + above-fold card images on /about — biggest LCP impact
 // Tier 2 (default): experience + projects list and detail images, eager-loaded via fill in viewport
 const siteImages: PreloadImage[] = [
+  { src: '/misc/pfp_yes.jpg', priority: true },
   { src: '/projects/atv.png', priority: true },
   { src: '/about/cachedImage.png', priority: true },
   { src: '/about/second.JPG', priority: true },
