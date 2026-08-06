@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const nameClasses = 'text-[29vw] leading-[0.9] tracking-tight text-foreground whitespace-nowrap'
 
@@ -15,11 +15,21 @@ const nameStyle = {
 } as React.CSSProperties
 
 const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+  // Text exits faster than the page, the photo lags behind it — the speed
+  // offset between the two layers gives the parallax feel while scrolling.
+  const textY = useTransform(scrollYProgress, [0, 1], ['0vh', '-14vh'])
+  const imgY = useTransform(scrollYProgress, [0, 1], ['0vh', '10vh'])
+
   return (
-    <section className="page-hero bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="page-hero bg-background relative overflow-hidden">
       {/* Layer order: name behind, photo on top, then the name's lower half
           clipped back in front so the type wraps around the photo. */}
-      <div className="absolute inset-0 flex items-center justify-center text-center">
+      <motion.div className="absolute inset-0 flex items-center justify-center text-center" style={{ y: textY }}>
         <motion.h1
           className={nameClasses}
           style={nameStyle}
@@ -29,30 +39,31 @@ const HeroSection = () => {
         >
           ZECHARIAH
         </motion.h1>
-      </div>
-
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/misc/pfp_yes.jpg"
-          alt="Zechariah Wang"
-          className="h-[72vh] max-w-[80vw] w-auto object-cover grayscale hover:grayscale-0 transition-[filter] duration-500"
-          style={{
-            maskImage: 'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent)',
-          }}
-        />
       </motion.div>
 
-      <div
+      <motion.div className="absolute inset-0 flex items-center justify-center" style={{ y: imgY }}>
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/misc/pfp_yes.jpg"
+            alt="Zechariah Wang"
+            className="h-[72vh] max-w-[80vw] w-auto object-cover grayscale hover:grayscale-0 transition-[filter] duration-500"
+            style={{
+              maskImage: 'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent)',
+            }}
+          />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
         aria-hidden
         className="absolute inset-0 flex items-center justify-center text-center pointer-events-none"
-        style={{ clipPath: 'inset(50% 0 0 0)' }}
+        style={{ clipPath: 'inset(50% 0 0 0)', y: textY }}
       >
         <motion.div
           className={nameClasses}
@@ -63,7 +74,7 @@ const HeroSection = () => {
         >
           ZECHARIAH
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   )
 }
