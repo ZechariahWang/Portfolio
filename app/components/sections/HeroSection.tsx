@@ -15,7 +15,7 @@ const nameStyle = {
 const HeroSection = () => {
   const { scrollY } = useScroll()
   const exitShift = (v: number, factor: number) => {
-    if (typeof window === 'undefined') return 0
+    if (typeof window === 'undefined' || window.innerWidth < 768) return 0
     const vh = window.innerHeight
     const progress = Math.min(Math.max(v / vh, 0), 1)
     return progress * vh * factor

@@ -13,20 +13,21 @@ import { projectDetails } from './data/projects'
 // the next section overtakes it at full scroll speed.
 const STACK_PARALLAX = 0.2
 
-// Pins a full-viewport section at the top of the screen so the next section
-// scrolls up over it; while being overtaken, the pinned section drifts up
-// slowly, making the incoming section appear to move faster.
+// Desktop: pins a full-viewport section at the top of the screen so the next
+// section scrolls up over it; while being overtaken, the pinned section drifts
+// up slowly, making the incoming section appear to move faster.
+// Mobile: plain stacked sections, no pinning or parallax.
 function StackedSection({ index, children }: { index: number; children: React.ReactNode }) {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, (v) => {
-    if (typeof window === 'undefined') return 0
+    if (typeof window === 'undefined' || window.innerWidth < 768) return 0
     const vh = window.innerHeight
     const progress = Math.min(Math.max((v - index * vh) / vh, 0), 1)
     return -progress * vh * STACK_PARALLAX
   })
 
   return (
-    <div style={{ position: 'sticky', top: 0, zIndex: index + 1, height: '100dvh' }}>
+    <div className="relative md:sticky md:top-0" style={{ zIndex: index + 1, height: '100dvh' }}>
       <motion.div style={{ y, height: '100%' }}>{children}</motion.div>
     </div>
   )
