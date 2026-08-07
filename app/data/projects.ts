@@ -17,21 +17,21 @@ export const projectCategories: ProjectCategory[] = [
     label: 'Robotics',
     description: 'Autonomous systems, control, and hardware.',
     accent: '#38BDF8',
-    background: '/projects/frat.jpg'
-  },
-  {
-    key: 'fullstack',
-    label: 'Fullstack',
-    description: 'Web platforms, products, and tooling.',
-    accent: '#34D399',
-    background: '/backgrounds/award.jpg'
+    background: '/projects/robot.png'
   },
   {
     key: 'ai',
     label: 'AI / ML',
     description: 'Intelligent agents, models, and simulation.',
     accent: '#C084FC',
-    background: '/projects/gp.jpg'
+    background: '/projects/triballs.jpg'
+  },
+  {
+    key: 'fullstack',
+    label: 'Fullstack',
+    description: 'Web platforms, products, and tooling.',
+    accent: '#34D399',
+    background: '/projects/trophies.JPG'
   },
 ]
 
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     title: 'SAC MTP Algorithm',
     description: 'SAC feedback algorithm controller',
     technologies: ['PyBullet', 'StableBaseline3', 'Gymnasium'],
-    image: '/projects/nova.png',
+    image: '/projects/sac1.png',
     type: 'ai'
   },
   // {
@@ -241,6 +241,16 @@ export const projectDetails: ProjectDetail[] = [
     description: 'Autonomous unmanned ground vehicle acquired by Exia Labs (a16z).',
     technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson', 'Velodyne LiDAR', 'Anduril Lattice', 'TAK'],
     image: '/projects/atv.png',
+    longDescription: `Argus is an autonomous unmanned ground vehicle (UGV) built on a Suzuki King Quad 450 platform, acquired by Exia Labs (backed by a16z). The vehicle fuses a Velodyne VLP-32C LiDAR with a camera to map its surroundings and navigate autonomously to user-defined waypoints. Steering, braking, and throttle are all actuated via custom-printed and machined parts purpose-built for the King Quad.\n\nThe software stack runs on a Nvidia Jetson and is built on ROS2 with Gazebo for simulation, incorporating a full sensor suite — 3D LiDAR, depth camera, IMU, radio, and wheel encoders. The system is integrated with Anduril Lattice and TAK for command-and-control and situational awareness in defense contexts.\n\nArgus was selected for live field testing with the 2nd Cavalry Regiment in Germany in March 2026, and raised $25,000 USD within two weeks.`,
+    githubUrl: '',
+    liveUrl: ''
+  },
+  {
+    id: 'project-12',
+    title: 'Argus (Exia Labs, a16z)',
+    description: 'Autonomous unmanned ground vehicle acquired by Exia Labs (a16z).',
+    technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson', 'Velodyne LiDAR', 'Anduril Lattice', 'TAK'],
+    image: '/projects/sac2.png',
     longDescription: `Argus is an autonomous unmanned ground vehicle (UGV) built on a Suzuki King Quad 450 platform, acquired by Exia Labs (backed by a16z). The vehicle fuses a Velodyne VLP-32C LiDAR with a camera to map its surroundings and navigate autonomously to user-defined waypoints. Steering, braking, and throttle are all actuated via custom-printed and machined parts purpose-built for the King Quad.\n\nThe software stack runs on a Nvidia Jetson and is built on ROS2 with Gazebo for simulation, incorporating a full sensor suite — 3D LiDAR, depth camera, IMU, radio, and wheel encoders. The system is integrated with Anduril Lattice and TAK for command-and-control and situational awareness in defense contexts.\n\nArgus was selected for live field testing with the 2nd Cavalry Regiment in Germany in March 2026, and raised $25,000 USD within two weeks.`,
     githubUrl: '',
     liveUrl: ''
