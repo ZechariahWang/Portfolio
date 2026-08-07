@@ -41,17 +41,6 @@ body {
   overscroll-behavior-x: none;
 }
 
-/* Mobile: the page itself can't be touch-scrolled (navbar-only navigation).
-   Inner scroll containers (data-allow-scroll regions) still scroll — this
-   rule only governs gestures that would scroll the document itself. */
-@media (max-width: 767px) {
-  html,
-  body {
-    touch-action: none;
-    overscroll-behavior: none;
-  }
-}
-
 /* Light Theme (Default) — Mundane achromatic palette */
 :root {
   --background: #FAFAFA;

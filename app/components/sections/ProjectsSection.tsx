@@ -139,11 +139,10 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
   return (
     <div style={{ position: 'relative' }}>
       <BackgroundImage src={projectsBackground} />
-      {/* Mobile: page scroll is locked, so the overview scrolls internally */}
+      {/* Mobile: the overview scrolls internally, then hands off to the page */}
       <div
-        data-allow-scroll
         className="h-[calc(100dvh-3.5rem)] overflow-y-auto md:h-auto md:overflow-visible"
-        style={{ position: 'relative', zIndex: 1, overscrollBehavior: 'contain' }}
+        style={{ position: 'relative', zIndex: 1 }}
       >
       <div className="page-container pt-[6vh] pb-12 flex flex-col justify-center" style={{ minHeight: '100dvh' }}>
       <motion.div
@@ -343,11 +342,10 @@ function ProjectViewer({
         </>
       )}
 
-      {/* Mobile: page scroll is locked, so the viewer scrolls internally */}
+      {/* Mobile: the viewer scrolls internally, then hands off to the page */}
       <div
-        data-allow-scroll
         className="h-[calc(100dvh-3.5rem)] overflow-y-auto md:h-auto md:min-h-dvh md:overflow-visible flex flex-col md:justify-center"
-        style={{ position: 'relative', zIndex: 10, overscrollBehavior: 'contain' }}
+        style={{ position: 'relative', zIndex: 10 }}
       >
       <AnimatePresence mode="wait" initial={false} custom={direction}>
         <motion.div

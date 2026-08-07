@@ -30,7 +30,6 @@ export default function ProjectDetailOverlay({ project, onClose }: { project: Pr
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3, ease: wormhole }}
       className="bg-background pt-12 pb-16"
-      data-allow-scroll
       style={{ position: 'fixed', inset: 0, zIndex: 100, overflowY: 'auto', overflowX: 'hidden', overscrollBehavior: 'contain', touchAction: 'pan-y', WebkitOverflowScrolling: 'touch' as never }}
     >
       {/* Background image — blends into site background */}

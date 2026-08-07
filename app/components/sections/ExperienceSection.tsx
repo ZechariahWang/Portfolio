@@ -110,8 +110,7 @@ export default function ExperienceSection() {
       {/* Right: experience list */}
       <div className="relative z-[1] h-full flex flex-col items-center md:items-end">
         <div
-          data-allow-scroll
-          className="w-full md:w-1/2 h-full overflow-y-auto flex flex-col justify-start md:justify-center overscroll-contain md:overscroll-auto"
+          className="w-full md:w-1/2 h-full overflow-y-auto flex flex-col justify-start md:justify-center"
           style={{ padding: '6vh clamp(1.5rem, 6vw, 5rem) 4vh clamp(1.5rem, 2rem, 2rem)' }}
         >
           <motion.div
