@@ -47,7 +47,7 @@ const HeroSection = () => {
           <img
             src="/backgrounds/IMG_0119.jpg"
             alt="Zechariah Wang"
-            className="h-screen w-screen object-cover md:h-auto md:w-[31.5vw] grayscale hover:grayscale-0 transition-[filter] duration-500"
+            className="h-screen w-screen object-cover md:h-auto md:w-[38vw] grayscale hover:grayscale-0 transition-[filter] duration-500"
             style={{
               maskImage:
                 'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',

@@ -15,21 +15,21 @@ export const projectCategories: ProjectCategory[] = [
   {
     key: 'robotics',
     label: 'Robotics',
-    description: 'Autonomous systems, control, and hardware.',
+    description: 'Controls and hardware.',
     accent: '#38BDF8',
     background: '/projects/robot.png'
   },
   {
     key: 'ai',
     label: 'AI / ML',
-    description: 'Intelligent agents, models, and simulation.',
+    description: 'Simulations and models.',
     accent: '#C084FC',
     background: '/projects/triballs.jpg'
   },
   {
     key: 'fullstack',
     label: 'Fullstack',
-    description: 'Web platforms, products, and tooling.',
+    description: 'Platforms and organizations.',
     accent: '#34D399',
     background: '/projects/trophies.JPG'
   },
