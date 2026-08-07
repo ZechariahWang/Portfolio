@@ -97,15 +97,15 @@ function CategoryTile({
           zIndex: 2,
         }}
       />
-      <div className="font-mono" style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'baseline', gap: '0.7rem', fontSize: '0.8rem', letterSpacing: '0.18em' }}>
-        <span style={{ color: 'var(--muted-foreground)', opacity: 0.6 }}>
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <span style={{ color: category.accent }}>
-          {count} {count === 1 ? 'item' : 'items'}
-        </span>
-      </div>
       <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem', zIndex: 1 }}>
+        <div className="font-mono" style={{ display: 'flex', alignItems: 'baseline', gap: '0.7rem', fontSize: '0.8rem', letterSpacing: '0.18em', marginBottom: '0.9rem' }}>
+          <span style={{ color: 'var(--muted-foreground)', opacity: 0.6 }}>
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span style={{ color: category.accent }}>
+            {count} {count === 1 ? 'item' : 'items'}
+          </span>
+        </div>
         <h3
           style={{
             fontFamily: 'var(--font-bebas)',
@@ -141,8 +141,8 @@ function CategoryOverview({ onSelect }: { onSelect: (key: ProjectType) => void }
       <BackgroundImage src={projectsBackground} />
       {/* Mobile: the overview scrolls internally, then hands off to the page */}
       <div
-        className="h-[calc(100dvh-3.5rem)] overflow-y-auto md:h-auto md:overflow-visible"
-        style={{ position: 'relative', zIndex: 1 }}
+        className="h-[calc(100dvh-3.5rem)] overflow-y-auto overflow-x-hidden md:h-auto md:overflow-visible"
+        style={{ position: 'relative', zIndex: 1, touchAction: 'pan-y' }}
       >
       <div className="page-container pt-[6vh] pb-12 flex flex-col justify-center" style={{ minHeight: '100dvh' }}>
       <motion.div
@@ -344,8 +344,8 @@ function ProjectViewer({
 
       {/* Mobile: the viewer scrolls internally, then hands off to the page */}
       <div
-        className="h-[calc(100dvh-3.5rem)] overflow-y-auto md:h-auto md:min-h-dvh md:overflow-visible flex flex-col md:justify-center"
-        style={{ position: 'relative', zIndex: 10 }}
+        className="h-[calc(100dvh-3.5rem)] overflow-y-auto overflow-x-hidden md:h-auto md:min-h-dvh md:overflow-visible flex flex-col md:justify-center"
+        style={{ position: 'relative', zIndex: 10, touchAction: 'pan-y' }}
       >
       <AnimatePresence mode="wait" initial={false} custom={direction}>
         <motion.div
