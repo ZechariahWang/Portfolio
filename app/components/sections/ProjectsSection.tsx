@@ -58,7 +58,7 @@ function CategoryTile({
       style={{
         minHeight: 'clamp(340px, 52vh, 520px)',
         padding: '2rem',
-        background: 'rgb(10 10 10 / 0.45)',
+        background: 'rgb(10 10 10 / 0.25)',
         cursor: 'pointer',
         overflow: 'hidden',
         transition: 'transform 0.4s ease',
@@ -74,12 +74,13 @@ function CategoryTile({
           sizes="(max-width: 768px) 100vw, 33vw"
           style={{
             objectFit: 'cover',
-            filter: hovered ? 'brightness(0.45) saturate(0.8)' : 'brightness(0.25) saturate(0.6)',
+            filter: hovered ? 'brightness(0.7) saturate(0.9)' : 'brightness(0.5) saturate(0.75)',
             transform: hovered ? 'scale(1.04)' : 'scale(1)',
             transition: 'filter 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
           }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgb(10 10 10 / 0.85) 0%, rgb(10 10 10 / 0.25) 55%, rgb(10 10 10 / 0.55) 100%)' }} />
+        {/* change this line for opacity */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgb(10 10 10 / 0.7) 0%, rgb(10 10 10 / 0.1) 55%, rgb(10 10 10 / 0.3) 100%)' }} /> 
         <div style={{ position: 'absolute', inset: 0, background: hovered ? `${category.accent}14` : 'transparent', transition: 'background 0.4s ease' }} />
       </div>
       <div
