@@ -45,14 +45,14 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
         >
           <img
-            src="/backgrounds/IMG_0119.jpg"
+            src="/backgrounds/background_2.JPG"
             alt="Zechariah Wang"
-            className="h-screen w-screen object-cover md:h-auto md:w-[38vw] grayscale hover:grayscale-0 transition-[filter] duration-500"
+            className="h-screen w-screen object-cover md:h-[90vh] md:w-[40vw] grayscale hover:grayscale-0 transition-[filter] duration-500"
             style={{
               maskImage:
-                'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+                'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent), linear-gradient(to right, transparent, black 32%, black 68%, transparent)',
               WebkitMaskImage:
-                'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+                'linear-gradient(to bottom, transparent, black 18%, black 72%, transparent), linear-gradient(to right, transparent, black 32%, black 68%, transparent)',
               maskComposite: 'intersect',
               WebkitMaskComposite: 'source-in',
             }}
