@@ -70,14 +70,6 @@ export const projects: Project[] = [
     type: 'ai'
   },
   {
-    id: 'project-9',
-    title: 'Google GP Robotics Library',
-    description: 'Minimal sensor autonomous robotics framework',
-    technologies: ['ROS2', 'Gazebo', 'Pros'],
-    image: '/projects/gp.jpg',
-    type: 'robotics'
-  },
-  {
     id: 'project-1',
     title: 'WestMech Association',
     description: 'Canada\'s leading robotics education company.',
@@ -116,6 +108,22 @@ export const projects: Project[] = [
     technologies: ['PyBullet', 'StableBaseline3', 'Gymnasium'],
     image: '/projects/sac1.png',
     type: 'ai'
+  },
+  {
+    id: 'project-14',
+    title: 'UR20 Robot ',
+    description: 'Controller for UR20 robot arm (University of Alberta)',
+    technologies: ['ROS2', 'Gazebo', 'Docker'],
+    image: '/projects/ur20.jpg',
+    type: 'robotics'
+  },
+  {
+    id: 'project-9',
+    title: 'Google GP Robotics Library',
+    description: 'Minimal sensor autonomous robotics framework',
+    technologies: ['ROS2', 'Gazebo', 'Pros'],
+    image: '/projects/gp.jpg',
+    type: 'robotics'
   },
   // {
   //   id: 'project-7',

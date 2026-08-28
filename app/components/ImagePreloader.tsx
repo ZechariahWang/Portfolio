@@ -17,12 +17,12 @@ const siteImages: PreloadImage[] = [
   { src: '/experience/twossite2.png' },
   { src: '/experience/conavi.jpg' },
   { src: '/experience/uofc3.png' },
+  { src: '/experience/robim3.png' },
+  { src: '/projects/wato.jpg' },
   { src: '/projects/WATonomous.png' },
   { src: '/projects/ecl.jpg' },
 
   { src: '/projects/aicaryes.png' },
-  { src: '/projects/WMLOGO__.png' },
-  { src: '/projects/Mecha.png' },
   { src: '/projects/conc.png' },
   { src: '/projects/nova.png' },
   { src: '/projects/gpagain.JPG' },
@@ -31,6 +31,14 @@ const siteImages: PreloadImage[] = [
   { src: '/projects/InterviewTrainer.png' },
   { src: '/projects/MentalSupport.png' },
   { src: '/projects/AE.jpg' },
+  { src: '/projects/robot.png' },
+  { src: '/projects/triballs.jpg' },
+  { src: '/projects/trophies.JPG' },
+  { src: '/projects/gp.jpg' },
+  { src: '/projects/image_2.avif' },
+  { src: '/projects/maxresdefault.jpg' },
+  { src: '/projects/sac1.png' },
+  { src: '/projects/sac2.png' },
 ]
 
 export default function ImagePreloader() {
