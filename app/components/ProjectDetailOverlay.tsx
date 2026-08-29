@@ -70,7 +70,7 @@ export default function ProjectDetailOverlay({ project, onClose }: { project: Pr
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: wormhole }}
-            className="aspect-video bg-secondary relative mb-8 overflow-hidden"
+            className="aspect-video bg-secondary relative mb-8 overflow-hidden lg:-mx-28"
           >
             <Image
               src={project.image}
@@ -78,7 +78,7 @@ export default function ProjectDetailOverlay({ project, onClose }: { project: Pr
               fill
               className="object-contain"
               priority
-              sizes="(max-width: 768px) 100vw, 900px"
+              sizes="(max-width: 768px) 100vw, 1100px"
             />
           </motion.div>
 

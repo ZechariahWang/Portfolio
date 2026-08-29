@@ -346,7 +346,7 @@ function ProjectViewer({
       <AnimatePresence mode="wait" initial={false} custom={direction}>
         <motion.div
           key={project.id}
-          className="page-container grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center pt-36 pb-16 lg:py-0"
+          className="page-container grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center pt-36 pb-16 lg:py-0"
           style={{ position: 'relative' }}
           initial={{ opacity: 0, x: 40 * direction }}
           animate={{ opacity: 1, x: 0 }}
@@ -359,7 +359,7 @@ function ProjectViewer({
             onClick={() => onSelectProject(project.id)}
             aria-label={`View details for ${project.title}`}
             className="relative block w-full border border-border cursor-pointer order-1 lg:order-2 focus-visible:ring-1 focus-visible:ring-foreground/40 focus-visible:outline-none"
-            style={{ height: 'clamp(340px, 58vh, 700px)', overflow: 'hidden', padding: 0 }}
+            style={{ height: 'clamp(400px, 74vh, 900px)', overflow: 'hidden', padding: 0 }}
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
@@ -368,7 +368,7 @@ function ProjectViewer({
               src={project.image}
               alt={project.title}
               fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
+              sizes="(max-width: 1024px) 100vw, 60vw"
               style={{ objectFit: 'contain', filter: 'saturate(0.9)' }}
             />
           </motion.button>
