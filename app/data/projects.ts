@@ -84,6 +84,19 @@ Argus 2.0 is now built on a Polaris and available for commercial purchase in the
 
 `.trim()
 
+const pointNavigatorText = `
+This project compares a hand-tuned controller to a learned policy on the same car and the same task. PyBullet runs the physics: the stock racecar URDF (0.325 m wheelbase) stepped at 60 Hz, with a 16-ray lidar over a 180° field of view and 10 m range. Rays originate 0.4 m ahead of the car so they don't hit the chassis. Obstacles are 0.8 m boxes with contact-based collision detection.
+
+The classical baseline builds a closed track from six waypoints using Catmull-Rom control points fed into cubic Bézier segments, then follows it with Pure Pursuit at a 2 m lookahead, steering clamped to ±0.6 rad. A PID controller with anti-windup holds 2 m/s.
+
+The RL side is a Gymnasium environment where the agent sees speed, distance to goal, goal bearing as sin/cos, and the 16 lidar rays, stacked over 4 frames. Actions are continuous throttle and steering. Reward is shaped on distance closed to the goal, with penalties for time, control jerk, and low lidar clearance, plus terminal bonuses and penalties for reaching the goal, colliding, or wandering out of bounds. 
+
+Training uses SAC from Stable-Baselines3 under a two-stage curriculum: 50k steps in an empty world to learn goal-seeking, then 350k with 3–7 randomly placed obstacles.
+
+The benchmark runs both controllers over the same 30 seeded episodes, so each one faces an identical goal position and obstacle layout. The baseline points Pure Pursuit directly at the goal with no avoidance logic. Both are scored on goals reached, collisions, timeouts, mean final distance to goal, and mean steps to completion.
+
+`.trim()
+
 // ============================================================================
 // CATEGORY SCREEN
 // ============================================================================
@@ -168,7 +181,7 @@ export const projects: Project[] = [
     title: 'AI Self-Driving Car',
     description: 'Real-time optimal path planning for an autonomous vehicle.',
     technologies: ['ROS2', 'Docker', 'Foxglove'],
-    image: '/projects/aicaryes.png',
+    image: '/projects/wato (1).jpg',
     type: 'ai'
   },
   {
@@ -347,11 +360,11 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     id: 'sac-mtp',
-    title: 'Argus (Exia Labs, a16z)',
-    description: 'Autonomous unmanned ground vehicle acquired by Exia Labs (a16z).',
-    technologies: ['ROS2', 'Gazebo', 'Nvidia Jetson', 'Velodyne LiDAR', 'Anduril Lattice', 'TAK'],
+    title: 'RL SAC MTP Algorithm',
+    description: 'Reinforcement learning algorithm for autonomous navigation.',
+    technologies: ['Gymnasium', 'Stable-Baselines3', 'PyBullet'],
     image: '/projects/sac2.png',
-    longDescription: argusText,
+    longDescription: pointNavigatorText,
     githubUrl: '',
     liveUrl: ''
   }

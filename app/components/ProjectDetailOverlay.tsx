@@ -70,15 +70,15 @@ export default function ProjectDetailOverlay({ project, onClose }: { project: Pr
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: wormhole }}
-            className="aspect-video bg-secondary relative mb-8 overflow-hidden lg:-mx-28"
+            className="aspect-video bg-secondary relative mb-8 overflow-hidden"
           >
             <Image
               src={project.image}
               alt={project.title}
               fill
-              className="object-contain"
+              className="object-cover"
               priority
-              sizes="(max-width: 768px) 100vw, 1100px"
+              sizes="(max-width: 768px) 100vw, 900px"
             />
           </motion.div>
 

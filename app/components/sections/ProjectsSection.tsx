@@ -369,7 +369,7 @@ function ProjectViewer({
               alt={project.title}
               fill
               sizes="(max-width: 1024px) 100vw, 60vw"
-              style={{ objectFit: 'contain', filter: 'saturate(0.9)' }}
+              style={{ objectFit: 'cover', filter: 'saturate(0.9)' }}
             />
           </motion.button>
 
