@@ -156,18 +156,10 @@ export const projects: Project[] = [
   },
   {
     id: 'ur20',
-    title: 'UR20 Robot ',
+    title: 'UR20 Robot Middleware Library ',
     description: 'Controller for UR20 robot arm (University of Alberta)',
     technologies: ['ROS2', 'Gazebo', 'Docker'],
     image: '/projects/ur20.jpg',
-    type: 'robotics'
-  },
-  {
-    id: 'girl-powered',
-    title: 'Google GP Robotics Library',
-    description: 'Minimal sensor autonomous robotics framework',
-    technologies: ['ROS2', 'Gazebo', 'Pros'],
-    image: '/projects/gp.jpg',
     type: 'robotics'
   },
   // --- AI / ML ---
@@ -278,7 +270,7 @@ export const projectDetails: ProjectDetail[] = [
     title: 'Girl Powered Robotics',
     description: 'Redefining robotics education for women in STEM.',
     technologies: ['ROS2', 'Gazebo', 'Pros'],
-    image: '/projects/gpagain.JPG',
+    image: '/projects/gp_robot.png',
     longDescription: girlPoweredText,
     githubUrl: 'https://github.com/ZechariahWang/Google-GirlPowered-Library/tree/main',
     liveUrl: 'https://www.youtube.com/watch?v=pkKSXo24Jx0&t=91s'
@@ -315,7 +307,7 @@ export const projectDetails: ProjectDetail[] = [
   },
   {
     id: 'self-driving-car',
-    title: 'AI Autonomous Vehicle Simulator',
+    title: 'WATonomous Vehicle Simulator',
     description: 'Real-time optimal path planning for an autonomous vehicle.',
     technologies: ['ROS2', 'Docker', 'Foxglove'],
     image: '/projects/WATonomous.png',
