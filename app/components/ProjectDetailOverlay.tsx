@@ -76,7 +76,7 @@ export default function ProjectDetailOverlay({ project, onClose }: { project: Pr
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover"
+              className="object-contain"
               priority
               sizes="(max-width: 768px) 100vw, 900px"
             />
